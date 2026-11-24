@@ -48,6 +48,54 @@ export function renderExactMarkdown(raw: string): string {
   return marked.parse(md, { async: false }) as string;
 }
 
+function renderMdFragment(md: string): string {
+  const trimmed = md.trim();
+  if (!trimmed) return '';
+  return marked.parse(trimmed, { async: false }) as string;
+}
+
+export type ExactArticleSection = {
+  heading: string;
+  html: string;
+};
+
+export type ExactArticleParts = {
+  h1: string;
+  /** Plain-text lead for the hero (first paragraph). */
+  leadText: string;
+  /** Full lead HTML (everything before the first h2). */
+  leadHtml: string;
+  sections: ExactArticleSection[];
+};
+
+/** Split authored markdown into hero H1/lead plus h2 sections for interleaved media. */
+export function parseExactArticle(raw: string): ExactArticleParts {
+  const md = articleMarkdownOnly(raw);
+  const h1Match = md.match(/^#\s+(.+)\s*$/m);
+  const h1 = (h1Match?.[1] ?? '').trim();
+  const withoutH1 = md.replace(/^#\s+.+\s*\r?\n+/, '');
+  const chunks = withoutH1.split(/^##\s+/m);
+  const leadMd = (chunks[0] ?? '').trim();
+  const leadHtml = renderMdFragment(leadMd);
+  const leadText =
+    leadMd
+      .split(/\n\n+/)
+      .map((block) => block.trim())
+      .find((block) => block.length > 0 && !block.startsWith('#') && !block.startsWith('[') && !block.startsWith('|') && !block.startsWith('-') && !block.startsWith('*'))
+      ?.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+      .replace(/[*_`]/g, '')
+      .trim() ?? '';
+
+  const sections: ExactArticleSection[] = chunks.slice(1).map((chunk) => {
+    const nl = chunk.search(/\r?\n/);
+    const heading = (nl === -1 ? chunk : chunk.slice(0, nl)).trim();
+    const body = nl === -1 ? '' : chunk.slice(nl + 1).trim();
+    return { heading, html: renderMdFragment(body) };
+  });
+
+  return { h1, leadText, leadHtml, sections };
+}
+
 export function parseExactFrontmatter(raw: string): {
   title: string;
   description: string;

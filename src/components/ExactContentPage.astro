@@ -1,16 +1,20 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from './Breadcrumbs.astro';
-import ProductImageGallery from './ProductImageGallery.astro';
+import BuyNowButton from './BuyNowButton.astro';
+import ResponsiveImage from './ResponsiveImage.astro';
 import {
   AFFILIATE_LINK_PLACEHOLDER,
   extractImageAltSuggestions,
+  parseExactArticle,
   parseExactFrontmatter,
-  renderExactMarkdown,
   resolveAffiliateHrefForSlug,
 } from '../lib/exactPageContent';
 import { AFFILIATE_REL } from '../config/affiliate';
+import { PRIMARY_CHECKOUT_PATH } from '../config/checkout';
+import { t } from '../i18n';
 import type { BreadcrumbItem } from '../utils/schema';
+import { HERO_IMAGE_SIZES, HERO_IMAGE_WIDTHS } from '../utils/responsiveImage';
 
 interface Shot {
   src: string;
@@ -27,110 +31,311 @@ interface Props {
   columns?: 2 | 3;
 }
 
-const { raw, crumbs, shots, ogImage, jsonLd, ogType = 'website', columns = 2 } = Astro.props;
+const { raw, crumbs, shots, ogImage, jsonLd, ogType = 'website' } = Astro.props;
 const fm = parseExactFrontmatter(raw);
 const alts = extractImageAltSuggestions(raw);
 const checkoutHref = resolveAffiliateHrefForSlug(fm.slug || Astro.url.pathname);
-const html = renderExactMarkdown(raw).replaceAll(
-  `href="${AFFILIATE_LINK_PLACEHOLDER}"`,
-  `href="${checkoutHref}" rel="${AFFILIATE_REL}" data-checkout-buy data-plan="${checkoutHref.includes('cloud-dma') ? 'cloud-dma' : checkoutHref.includes('hwid') ? 'hwid-spoofer' : 'bodycam'}"`,
-);
+const article = parseExactArticle(raw);
 
 const galleryShots = shots.map((shot, i) => ({
   src: shot.src,
   alt: alts[i] ?? shot.alt,
 }));
+
+const heroShot = galleryShots[0];
+const inlineShots = galleryShots.slice(1);
+
+const leadHtml = article.leadHtml.replaceAll(
+  `href="${AFFILIATE_LINK_PLACEHOLDER}"`,
+  `href="${checkoutHref}" rel="${AFFILIATE_REL}" data-checkout-buy data-plan="${checkoutHref.includes('cloud-dma') ? 'cloud-dma' : checkoutHref.includes('hwid') ? 'hwid-spoofer' : 'bodycam'}"`,
+);
+
+const sections = article.sections.map((section) => ({
+  ...section,
+  html: section.html.replaceAll(
+    `href="${AFFILIATE_LINK_PLACEHOLDER}"`,
+    `href="${checkoutHref}" rel="${AFFILIATE_REL}" data-checkout-buy data-plan="${checkoutHref.includes('cloud-dma') ? 'cloud-dma' : checkoutHref.includes('hwid') ? 'hwid-spoofer' : 'bodycam'}"`,
+  ),
+  hasTable: section.html.includes('<table'),
+}));
+
+const heroTitle = article.h1 || fm.title;
+const heroLead = article.leadText || fm.description;
 ---
 
 <BaseLayout
   title={fm.title}
   description={fm.description}
   ogImage={ogImage}
-  ogImageAlt={galleryShots[0]?.alt ?? fm.title}
+  ogImageAlt={heroShot?.alt ?? fm.title}
   ogType={ogType}
   jsonLd={jsonLd}
 >
-  <section class="border-b border-border/60 bg-gradient-to-b from-muted/40 via-background to-background">
-    <div class="mx-auto max-w-6xl px-5 pb-6 pt-28 md:pt-32">
-      <Breadcrumbs items={crumbs} />
+  <section class="exact-hero relative isolate min-h-[min(92vh,52rem)] overflow-hidden" aria-labelledby="exact-hero-title">
+    {heroShot ? (
+      <div class="exact-hero__media absolute inset-0" aria-hidden="true">
+        <ResponsiveImage
+          src={heroShot.src}
+          alt=""
+          width={1920}
+          height={1080}
+          widths={[640, 960, 1200]}
+          sizes="100vw"
+          loading="eager"
+          fetchPriority="high"
+          class="exact-hero__img h-full w-full object-cover"
+        />
+      </div>
+    ) : (
+      <div class="exact-hero__fallback absolute inset-0" aria-hidden="true" />
+    )}
+    <div class="exact-hero__veil absolute inset-0" aria-hidden="true" />
+
+    <div class="relative z-10 mx-auto flex min-h-[min(92vh,52rem)] max-w-6xl flex-col justify-end px-5 pb-14 pt-28 md:pb-20 md:pt-36">
+      {crumbs.length > 1 && (
+        <div class="exact-hero__crumbs mb-6 max-w-xl">
+          <Breadcrumbs items={crumbs} />
+        </div>
+      )}
+
+      <p class="exact-hero__brand mb-4 font-[family-name:var(--font-heading)] text-sm font-bold uppercase tracking-[0.22em] text-white/90 md:text-base">
+        {t.site.name}
+      </p>
+      <h1
+        id="exact-hero-title"
+        class="exact-hero__title max-w-3xl font-[family-name:var(--font-heading)] text-4xl font-bold tracking-tight text-white drop-shadow-[0_2px_24px_rgba(0,0,0,0.55)] sm:text-5xl md:text-6xl"
+      >
+        {heroTitle}
+      </h1>
+      {heroLead && (
+        <p class="exact-hero__lead mt-5 max-w-xl text-base leading-relaxed text-white/88 md:text-lg">
+          {heroLead}
+        </p>
+      )}
+      <div class="exact-hero__cta mt-8 flex flex-wrap items-center gap-3">
+        <BuyNowButton
+          href={PRIMARY_CHECKOUT_PATH}
+          rel={AFFILIATE_REL}
+          data-plan="bodycam"
+          data-checkout-buy
+          label="Buy now"
+          size="lg"
+          aria-label="Buy Bodycam cheats"
+        />
+        <a
+          href="/bodycam-cheats-price/"
+          class="exact-hero__secondary inline-flex items-center justify-center rounded-xl border border-white/35 bg-white/10 px-5 py-3 text-sm font-semibold text-white backdrop-blur-sm transition hover:bg-white/18"
+        >
+          Compare plans
+        </a>
+      </div>
     </div>
   </section>
 
-  <div class="mx-auto max-w-6xl px-5 py-8 md:py-12">
-    {galleryShots.length > 0 && (
-      <div class="mx-auto mb-10 max-w-3xl">
-        <ProductImageGallery shots={galleryShots} columns={columns} />
-      </div>
+  <div class="exact-body relative border-t border-border/50 bg-background">
+    {leadHtml && (
+      <section class="mx-auto max-w-3xl px-5 py-10 md:py-14">
+        <div class="exact-copy prose-bodycam text-foreground" set:html={leadHtml} />
+      </section>
     )}
-    <article class="exact-copy prose-bodycam mx-auto max-w-3xl text-foreground" set:html={html} />
+
+    {sections.map((section, i) => {
+      const shot = inlineShots[i];
+      const reverse = i % 2 === 1;
+      const pairWithImage = Boolean(shot) && !section.hasTable;
+
+      return (
+        <section
+          class:list={[
+            'exact-section border-t border-border/40',
+            pairWithImage ? 'exact-section--split' : 'exact-section--stack',
+          ]}
+        >
+          <div
+            class:list={[
+              'mx-auto grid max-w-6xl items-center gap-8 px-5 py-12 md:gap-12 md:py-16',
+              pairWithImage ? 'lg:grid-cols-2' : '',
+              pairWithImage && reverse ? 'lg:[&>*:first-child]:order-2' : '',
+            ]}
+          >
+            <div class="exact-copy prose-bodycam min-w-0 text-foreground">
+              <h2>{section.heading}</h2>
+              <div set:html={section.html} />
+            </div>
+
+            {shot && (
+              <figure
+                class:list={[
+                  'exact-section__media m-0 overflow-hidden',
+                  section.hasTable ? 'lg:col-span-1 max-w-3xl' : '',
+                ]}
+              >
+                <ResponsiveImage
+                  src={shot.src}
+                  alt={shot.alt}
+                  width={960}
+                  height={540}
+                  widths={HERO_IMAGE_WIDTHS}
+                  sizes={pairWithImage ? '(min-width: 1024px) 28rem, 100vw' : HERO_IMAGE_SIZES}
+                  class="aspect-video h-auto w-full object-cover"
+                  loading="lazy"
+                />
+              </figure>
+            )}
+          </div>
+        </section>
+      );
+    })}
+
   </div>
 </BaseLayout>
 
 <style>
-  .exact-copy :global(h1) {
-    margin: 0 0 1rem;
-    font-family: var(--font-heading);
-    font-size: clamp(1.85rem, 4vw, 2.75rem);
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    line-height: 1.15;
+  .exact-hero__fallback {
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 20%, color-mix(in oklab, var(--color-primary) 35%, transparent), transparent 70%),
+      linear-gradient(160deg, #0a0c10 0%, #141820 45%, #0a0c10 100%);
   }
+
+  .exact-hero__veil {
+    background:
+      linear-gradient(180deg, rgba(6, 8, 12, 0.55) 0%, rgba(6, 8, 12, 0.35) 35%, rgba(6, 8, 12, 0.78) 68%, var(--color-background) 100%),
+      linear-gradient(90deg, rgba(6, 8, 12, 0.72) 0%, rgba(6, 8, 12, 0.35) 55%, rgba(6, 8, 12, 0.45) 100%);
+  }
+
+  .exact-hero__brand {
+    animation: exact-hero-rise 700ms ease-out both;
+  }
+
+  .exact-hero__title {
+    animation: exact-hero-rise 850ms ease-out 80ms both;
+    text-wrap: balance;
+  }
+
+  .exact-hero__lead {
+    animation: exact-hero-rise 900ms ease-out 140ms both;
+  }
+
+  .exact-hero__cta {
+    animation: exact-hero-rise 950ms ease-out 200ms both;
+  }
+
+  .exact-hero__img {
+    transform: scale(1.04);
+    animation: exact-hero-drift 18s ease-in-out infinite alternate;
+  }
+
+  @keyframes exact-hero-rise {
+    from {
+      opacity: 0;
+      transform: translateY(14px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes exact-hero-drift {
+    from {
+      transform: scale(1.04) translate3d(0, 0, 0);
+    }
+    to {
+      transform: scale(1.08) translate3d(-1.2%, -0.8%, 0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .exact-hero__brand,
+    .exact-hero__title,
+    .exact-hero__lead,
+    .exact-hero__cta,
+    .exact-hero__img {
+      animation: none;
+    }
+
+    .exact-hero__img {
+      transform: none;
+    }
+  }
+
+  .exact-section__media {
+    border: 1px solid color-mix(in oklab, var(--color-border) 80%, transparent);
+    background: color-mix(in oklab, var(--color-muted) 25%, transparent);
+  }
+
   .exact-copy :global(h2) {
-    margin: 2.25rem 0 0.85rem;
+    margin: 0 0 0.85rem;
     font-family: var(--font-heading);
     font-size: clamp(1.35rem, 2vw, 1.75rem);
     font-weight: 700;
     letter-spacing: -0.02em;
     line-height: 1.25;
   }
+
   .exact-copy :global(h3) {
     margin: 1.5rem 0 0.65rem;
     font-size: 1.05rem;
     font-weight: 600;
   }
+
   .exact-copy :global(p),
   .exact-copy :global(li) {
     color: var(--color-muted-foreground);
     line-height: 1.7;
   }
+
   .exact-copy :global(p) {
     margin: 0.85rem 0;
   }
+
+  .exact-copy :global(p:first-child) {
+    margin-top: 0;
+  }
+
   .exact-copy :global(ul),
   .exact-copy :global(ol) {
     margin: 0.75rem 0;
     padding-left: 1.25rem;
   }
+
   .exact-copy :global(ul) {
     list-style: disc;
   }
+
   .exact-copy :global(ol) {
     list-style: decimal;
   }
+
   .exact-copy :global(a) {
     color: var(--color-primary);
     text-underline-offset: 3px;
   }
+
   .exact-copy :global(a:hover) {
     text-decoration: underline;
   }
+
   .exact-copy :global(table) {
     width: 100%;
     margin: 1.25rem 0;
     border-collapse: collapse;
     font-size: 0.95rem;
   }
+
   .exact-copy :global(th),
   .exact-copy :global(td) {
     border: 1px solid var(--color-border);
     padding: 0.65rem 0.75rem;
     text-align: left;
   }
+
   .exact-copy :global(th) {
     background: color-mix(in oklab, var(--color-muted) 40%, transparent);
     font-weight: 600;
     color: var(--color-foreground);
   }
+
   .exact-copy :global(td) {
     color: var(--color-muted-foreground);
   }
