@@ -83,7 +83,7 @@ The Bodycam product listing includes Cloud DMA as a requirement for full functio
 
 The two listings should be treated as separate purchases unless the live checkout explicitly says otherwise.
 
-For the actual Bodycam package, you can compare the [Bodycam monthly vs lifetime plans](/bodycam-cheats-price/) or return to the [canonical Bodycam cheats landing page](/).
+For the actual Bodycam package, you can compare the [access plan prices](/bodycam-cheats-price/) or return to the [main product summary](/).
 
 One other detail: the supplied HWID spoofer page doesn't name Bodycam in its supported-title list. This site therefore doesn't present that spoofer as a confirmed Bodycam-compatible component.
 
@@ -97,7 +97,7 @@ The current listing gives you the basic requirements, but specific installation 
 
 For the original Cloud DMA product details and current checkout information, use the link below.
 
-[Review the Cloud DMA product and current price](AFFILIATE_LINK_PLACEHOLDER)
+[Open the Cloud DMA checkout](AFFILIATE_LINK_PLACEHOLDER)
 
 ### Image alt-text suggestions
 

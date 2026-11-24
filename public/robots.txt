@@ -3,4 +3,4 @@ Allow: /
 
 Disallow: /go/
 
-Sitemap: https://callofdutycheats.net/sitemap.xml
+Sitemap: https://bodycam-cheat.com/sitemap.xml

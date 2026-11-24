@@ -61,15 +61,15 @@ The aimbot isn't listed as a standalone purchase in the supplied Bodycam product
 
 That means you'll also see entries such as player ESP, skeletons, snaplines, no recoil, rapid fire and third person.
 
-You can see the complete list on the [site-wide Bodycam cheats overview](/).
+You can see the complete list on the [full package overview](/).
 
-Interested in the visual side instead? The [wallhack and ESP options summary](/bodycam-esp/) covers those settings separately.
+Interested in the visual side instead? The [ESP options summary](/bodycam-esp/) covers those settings separately.
 
 ## Check Your Requirements First
 
 The aimbot options sit inside the wider Bodycam package, so the same Windows security and RAM expectations apply before you pick monthly or lifetime access.
 
-Start with the [PC and Windows compatibility notes](/) on the home page, then confirm whether you still need the separate Cloud DMA layer on your build via the [Hyper-V Cloud DMA overview](/bodycam-cloud-dma/).
+Start with the PC and Windows notes on that home overview, then confirm whether you still need the separate Cloud DMA layer on your build via the [Hyper-V DMA notes](/bodycam-cloud-dma/).
 
 ## Is the Aimbot Section What You're Looking For?
 
@@ -79,7 +79,7 @@ What it doesn't give you is every numerical configuration detail. Those should b
 
 You can check the live feature listing and current access plans here.
 
-[View the Bodycam aimbot package](AFFILIATE_LINK_PLACEHOLDER)
+[Review aim options at checkout](AFFILIATE_LINK_PLACEHOLDER)
 
 ### Image alt-text suggestions
 

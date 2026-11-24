@@ -5,9 +5,9 @@
 const base = '/images/bodycam';
 
 export const SEO_MEDIA = {
-  /** Green box ESP in warehouse — strong homepage / overview shot */
-  heroOperations: `${base}/esp-warehouse-box.webp`,
-  heroPoster: `${base}/esp-warehouse-box-960.webp`,
+  /** Forest tactical ops — homepage / overview hero */
+  heroOperations: `${base}/hero-forest-ops.webp`,
+  heroPoster: `${base}/hero-forest-ops-960.webp`,
   /** Skeleton + FOV circle in plywood kill-house */
   espTactical: `${base}/esp-skeleton-fov.webp`,
   /** Forest FOV circle with red ESP boxes */
@@ -33,7 +33,7 @@ export const SEO_MEDIA = {
 export const BODYCAM_PRODUCT_IMAGES = {
   espBoxWarehouse: {
     src: SEO_MEDIA.heroOperations,
-    alt: 'Bodycam cheats gameplay showing player ESP box and distance tag in a warehouse hangar',
+    alt: 'Bodycam gameplay showing tactical operators in a dense forest firefight',
   },
   hallwayFlashlight: {
     src: SEO_MEDIA.nightRaid,

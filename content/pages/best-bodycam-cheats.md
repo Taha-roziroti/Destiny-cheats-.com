@@ -31,7 +31,7 @@ The current Bodycam listing separates its options into several categories:
 
 That gives you a much better idea of what's included than a generic statement about having an all-in-one package.
 
-For the complete feature list, you can review the [published Bodycam feature catalog](/).
+For the complete feature list, you can review the [published feature catalog](/).
 
 ## Aimbot and ESP Features Compared
 
@@ -85,11 +85,11 @@ This is probably the least exciting part of comparing software, but it can save 
 
 The supplied Bodycam product page expects a recent Windows build with security features and enough RAM for the loader, not just a generic gaming PC.
 
-You can review the full [Windows and hardware compatibility checklist](/) before you commit to a plan.
+Windows and hardware compatibility for the main package are summarized on that same home overview before you commit to a plan.
 
 Cloud DMA is a separate purchase with its own setup path, so budget for it alongside the Bodycam subscription.
 
-See the [Cloud DMA setup checklist](/bodycam-cloud-dma/) for what the listing currently requires.
+See the [DMA setup checklist](/bodycam-cloud-dma/) for what the listing currently requires.
 
 ## Monthly Access or Lifetime Access?
 
@@ -97,7 +97,7 @@ The current Bodycam product listing offers a $35 monthly option and a $150 lifet
 
 Which makes more sense depends on how long you expect to use the product. Don't pay more simply because a lifetime label sounds attractive. Compare the actual access terms and your intended use first.
 
-The [Bodycam subscription plans explained](/bodycam-cheats-price/) page lays out both durations with the published checkout figures.
+The [plan price comparison](/bodycam-cheats-price/) page lays out both durations with the published checkout figures.
 
 ## What About Updates and Customer Support?
 
@@ -131,7 +131,7 @@ But don't buy based on the word "best" alone. Look at the settings you actually 
 
 You can review the current listing and its checkout details here:
 
-[Check the Bodycam package and current availability](AFFILIATE_LINK_PLACEHOLDER)
+[Check current availability on Zadeyo](AFFILIATE_LINK_PLACEHOLDER)
 
 ### Image alt-text suggestions
 

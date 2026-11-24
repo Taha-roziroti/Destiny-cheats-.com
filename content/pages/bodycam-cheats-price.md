@@ -55,7 +55,7 @@ That includes features such as head and chest targeting, FOV circle, silent aim,
 
 The duration changes. The advertised feature set doesn't.
 
-You can see the individual settings on the [Bodycam cheats home overview](/).
+You can see the individual settings on the [package feature list](/).
 
 ## Don't Forget the Additional Setup Requirements
 
@@ -63,9 +63,9 @@ Cloud DMA is not part of the $35 or $150 Bodycam checkout; it is listed separate
 
 Prices for any extra Cloud DMA components beyond that checkout are [NEEDS INFO] on the live listings.
 
-For GREENWARD, Static Server, AWS and the Hyper-V checklist, follow the [separate Cloud DMA purchase guide](/bodycam-cloud-dma/).
+For GREENWARD, Static Server, AWS and the Hyper-V checklist, follow the [separate DMA purchase notes](/bodycam-cloud-dma/).
 
-Windows security settings and RAM minimums for the main package are summarized on the [main package system requirements](/).
+Windows security settings and RAM minimums for the main package are summarized on that same home overview.
 
 ## What Should You Check Before Paying?
 
@@ -73,7 +73,7 @@ A few things. Nothing complicated.
 
 First, confirm that the monthly or lifetime duration is still available.
 
-Second, check that the listed features match what you're looking for. The [targeting and FOV aimbot guide](/bodycam-aimbot/) and [player ESP settings reference](/bodycam-esp/) cover the two main feature groups.
+Second, check that the listed features match what you're looking for. The [aimbot settings guide](/bodycam-aimbot/) and [ESP settings reference](/bodycam-esp/) cover the two main feature groups.
 
 Third, check the Windows requirements and any separately required components using the home checklist linked above.
 
@@ -87,7 +87,7 @@ The current published comparison is $35 for 30 days or $150 for lifetime access.
 
 No complicated pricing calculator needed.
 
-[Check the current Bodycam plans and checkout price](AFFILIATE_LINK_PLACEHOLDER)
+[Confirm the listed plan prices](AFFILIATE_LINK_PLACEHOLDER)
 
 ### Image alt-text suggestions
 

@@ -24,14 +24,14 @@ function link(text: string, href: string): string {
   return `<a href="${normalized}"${rel}>${text}</a>`;
 }
 
-const homePage = link('Bodycam cheats overview', ROUTES.home);
-const buyingGuide = link('Bodycam cheat buying guide', ROUTES.buyingGuide);
-const aimbotPage = link('Bodycam aimbot feature page', ROUTES.aimbot);
-const espPage = link('Bodycam ESP options page', ROUTES.esp);
-const pricingPage = link('Bodycam cheats pricing page', ROUTES.pricing);
-const cloudDmaPage = link('Bodycam Cloud DMA setup page', ROUTES.cloudDma);
-const faqPage = link('Full FAQ index', ROUTES.faq);
-const supportPage = link('Support contact page', ROUTES.support);
+const homePage = link('home overview', ROUTES.home);
+const buyingGuide = link('buying checklist', ROUTES.buyingGuide);
+const aimbotPage = link('aim settings', ROUTES.aimbot);
+const espPage = link('visual options', ROUTES.esp);
+const pricingPage = link('plan comparison', ROUTES.pricing);
+const cloudDmaPage = link('DMA setup notes', ROUTES.cloudDma);
+const faqPage = link('FAQ index', ROUTES.faq);
+const supportPage = link('support contact', ROUTES.support);
 
 export const siteFaqs: SiteFaqItem[] = [
   {

@@ -14,8 +14,6 @@ The Bodycam package featured here brings together aim tools, player ESP, visual 
 
 The product is supplied through Zadeyo. This site helps you review the available features and directs you to the product checkout when you're ready.
 
-[Check the current Bodycam package](AFFILIATE_LINK_PLACEHOLDER)
-
 ## What You Get With Bodycam Cheats
 
 The first thing worth knowing is that this isn't a single-feature product. The current listing includes several groups of options, so you can look at the features that matter to you rather than treating the whole package as one mystery download.
@@ -37,7 +35,7 @@ The aim section includes:
 
 There are a few different settings here, and they're worth looking through before purchasing. For example, the FOV circle and aim line are separate options, while head and chest targeting let you select the listed target areas.
 
-You can read the dedicated [Bodycam aimbot feature breakdown](/bodycam-aimbot/) for a closer look at this part of the package.
+You can read the dedicated [aimbot feature breakdown](/bodycam-aimbot/) for a closer look at this part of the package.
 
 ### Player ESP and visual settings
 
@@ -49,7 +47,7 @@ There are two more specific entries worth mentioning: Drone ESP and Bomb ESP.
 
 And if you like adjusting how things look, the product also lists full color customization.
 
-It's a fairly extensive visual feature list, so we've given it its own [Bodycam ESP page](/bodycam-esp/) rather than cramming every setting into one giant paragraph here.
+It's a fairly extensive visual feature list, so we've given it its own [ESP options page](/bodycam-esp/) rather than cramming every setting into one giant paragraph here.
 
 ### Movement and weapon options
 
@@ -92,7 +90,7 @@ The product page also lists Cloud DMA as required for full functionality on supp
 
 That last part deserves your attention. Cloud DMA isn't something you should casually assume is included in the Bodycam subscription. It's listed as a separate product, with its own requirements and additional purchases.
 
-We've explained that separately on the [Bodycam Cloud DMA setup page](/bodycam-cloud-dma/).
+We've explained that separately on the [Cloud DMA setup guide](/bodycam-cloud-dma/).
 
 If you're unsure about your Windows edition, virtualization support or system configuration, get those details checked before placing an order.
 
@@ -111,9 +109,7 @@ The monthly plan makes more sense if you only need access for a shorter period. 
 
 Prices can change, so check the live checkout before paying.
 
-For a closer breakdown, visit our [Bodycam cheats pricing page](/bodycam-cheats-price/).
-
-[View the current plans](AFFILIATE_LINK_PLACEHOLDER)
+For a closer breakdown, visit our [monthly vs lifetime pricing](/bodycam-cheats-price/).
 
 ## A Couple of Things Worth Knowing Before You Buy
 
@@ -133,13 +129,13 @@ If you're mainly interested in aim-related options, start with the aimbot breakd
 
 And if you're comparing the cost of different access periods, the pricing page lays out the two listed plans without making you hunt for the numbers.
 
-You can also read our [Bodycam cheat buying guide](/best-bodycam-cheats/) for a checklist of things worth checking before choosing a product.
+You can also read our [pre-purchase checklist](/best-bodycam-cheats/) for things worth verifying before choosing a product.
 
 There isn't much value in buying a package simply because it has a long feature list. Check the individual options, make sure your PC meets the requirements, and read the current checkout details first.
 
 When you're ready to review the original listing, you can find it below.
 
-[Visit the Bodycam product page](AFFILIATE_LINK_PLACEHOLDER)
+[See the Zadeyo product listing](AFFILIATE_LINK_PLACEHOLDER)
 
 ### Image alt-text suggestions
 

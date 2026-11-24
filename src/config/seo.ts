@@ -22,8 +22,8 @@ export const SITE_HOSTNAME = (() => {
   }
 })();
 
-/** Default social preview — Bodycam ESP warehouse product shot. */
-export const DEFAULT_OG_IMAGE = '/images/bodycam/esp-warehouse-box-1200.webp';
+/** Default social preview — Bodycam forest ops hero. */
+export const DEFAULT_OG_IMAGE = '/images/bodycam/hero-forest-ops-1200.webp';
 
 export const GA_MEASUREMENT_ID = import.meta.env.PUBLIC_GA_MEASUREMENT_ID as string | undefined;
 

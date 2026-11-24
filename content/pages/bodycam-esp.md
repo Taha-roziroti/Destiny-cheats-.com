@@ -72,13 +72,13 @@ The same listing includes an aimbot section with head and chest targeting, FOV c
 
 There are also movement and weapon entries, including custom view FOV, gravity multiplier, fly hack, third person, no recoil, rapid fire and full auto.
 
-You can review those on the [aim configuration options overview](/bodycam-aimbot/), or head back to the [full Bodycam cheats overview](/).
+You can review those on the [aim configuration overview](/bodycam-aimbot/), or head back to the [home feature list](/).
 
 ## Before You Choose a Plan
 
 Visual overlays still depend on the same Windows and hardware checklist published for the full Bodycam package.
 
-Read the [Windows security and RAM requirements](/) on the home page, and use the [Hyper-V infrastructure requirements](/bodycam-cloud-dma/) page if Cloud DMA is part of your setup budget.
+Read the Windows security and RAM notes on that home overview, and use the [infrastructure requirements](/bodycam-cloud-dma/) page if Cloud DMA is part of your setup budget.
 
 ## Check the Visual Options for Yourself
 
@@ -88,7 +88,7 @@ That's a much more useful starting point than an unexplained claim that a produc
 
 Check the live menu for the details that matter to you, then compare the available access plans before making a decision.
 
-[See the current Bodycam ESP package](AFFILIATE_LINK_PLACEHOLDER)
+[Review visual options at checkout](AFFILIATE_LINK_PLACEHOLDER)
 
 ### Image alt-text suggestions
 
