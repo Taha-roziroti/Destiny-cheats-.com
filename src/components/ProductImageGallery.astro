@@ -1,0 +1,39 @@
+---
+import ResponsiveImage from './ResponsiveImage.astro';
+import { HERO_IMAGE_SIZES, HERO_IMAGE_WIDTHS } from '../utils/responsiveImage';
+
+interface Shot {
+  src: string;
+  alt: string;
+  caption?: string;
+}
+
+interface Props {
+  shots: Shot[];
+  columns?: 2 | 3;
+}
+
+const { shots, columns = 2 } = Astro.props;
+const gridClass = columns === 3 ? 'sm:grid-cols-3' : 'sm:grid-cols-2';
+---
+
+<div class:list={['not-prose grid gap-4', gridClass]}>
+  {shots.map((shot) => (
+    <figure class="overflow-hidden rounded-2xl border border-border bg-muted/20">
+      <ResponsiveImage
+        src={shot.src}
+        alt={shot.alt}
+        width={960}
+        height={540}
+        widths={HERO_IMAGE_WIDTHS}
+        sizes={HERO_IMAGE_SIZES}
+        class="aspect-video h-auto w-full object-cover"
+      />
+      {shot.caption && (
+        <figcaption class="border-t border-border px-3 py-2 text-xs text-muted-foreground">
+          {shot.caption}
+        </figcaption>
+      )}
+    </figure>
+  ))}
+</div>

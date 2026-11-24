@@ -1,0 +1,36 @@
+---
+import ExactContentPage from '../components/ExactContentPage.astro';
+import raw from '../../content/pages/index.md?raw';
+import { BODYCAM_PRODUCT_IMAGES, SEO_MEDIA } from '../config/media';
+import { getBodycamOffersForSchema } from '../data/productPricing';
+import { organizationSchema, productSchema, websiteSchema } from '../utils/schema';
+import { parseExactFrontmatter } from '../lib/exactPageContent';
+
+const fm = parseExactFrontmatter(raw);
+---
+
+<ExactContentPage
+  raw={raw}
+  crumbs={[{ name: 'Home', path: '/' }]}
+  ogImage={SEO_MEDIA.heroPoster}
+  columns={2}
+  shots={[
+    BODYCAM_PRODUCT_IMAGES.espBoxWarehouse,
+    BODYCAM_PRODUCT_IMAGES.espSkeletonFov,
+    BODYCAM_PRODUCT_IMAGES.menuOverlay,
+    BODYCAM_PRODUCT_IMAGES.hallwayFlashlight,
+  ]}
+  jsonLd={[
+    websiteSchema(),
+    organizationSchema(),
+    productSchema({
+      name: 'Bodycam Cheats for PC',
+      description: fm.description,
+      url: '/',
+      offerPagePath: '/',
+      image: SEO_MEDIA.heroPoster,
+      sku: 'bodycam-cheats',
+      offers: getBodycamOffersForSchema('/'),
+    }),
+  ]}
+/>

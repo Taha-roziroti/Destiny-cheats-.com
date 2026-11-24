@@ -1,0 +1,9 @@
+---
+import { getCommercialBlogPosts } from '../../data/blogs/posts';
+
+export function getStaticPaths() {
+  return getCommercialBlogPosts().map((post) => ({ params: { slug: post.slug } }));
+}
+
+return Astro.redirect('/best-bodycam-cheats/', 301);
+---

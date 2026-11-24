@@ -1,0 +1,137 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from './Breadcrumbs.astro';
+import ProductImageGallery from './ProductImageGallery.astro';
+import {
+  AFFILIATE_LINK_PLACEHOLDER,
+  extractImageAltSuggestions,
+  parseExactFrontmatter,
+  renderExactMarkdown,
+  resolveAffiliateHrefForSlug,
+} from '../lib/exactPageContent';
+import { AFFILIATE_REL } from '../config/affiliate';
+import type { BreadcrumbItem } from '../utils/schema';
+
+interface Shot {
+  src: string;
+  alt: string;
+}
+
+interface Props {
+  raw: string;
+  crumbs: BreadcrumbItem[];
+  shots: Shot[];
+  ogImage: string;
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+  ogType?: 'website' | 'article';
+  columns?: 2 | 3;
+}
+
+const { raw, crumbs, shots, ogImage, jsonLd, ogType = 'website', columns = 2 } = Astro.props;
+const fm = parseExactFrontmatter(raw);
+const alts = extractImageAltSuggestions(raw);
+const checkoutHref = resolveAffiliateHrefForSlug(fm.slug || Astro.url.pathname);
+const html = renderExactMarkdown(raw).replaceAll(
+  `href="${AFFILIATE_LINK_PLACEHOLDER}"`,
+  `href="${checkoutHref}" rel="${AFFILIATE_REL}" data-checkout-buy data-plan="${checkoutHref.includes('cloud-dma') ? 'cloud-dma' : checkoutHref.includes('hwid') ? 'hwid-spoofer' : 'bodycam'}"`,
+);
+
+const galleryShots = shots.map((shot, i) => ({
+  src: shot.src,
+  alt: alts[i] ?? shot.alt,
+}));
+---
+
+<BaseLayout
+  title={fm.title}
+  description={fm.description}
+  ogImage={ogImage}
+  ogImageAlt={galleryShots[0]?.alt ?? fm.title}
+  ogType={ogType}
+  jsonLd={jsonLd}
+>
+  <section class="border-b border-border/60 bg-gradient-to-b from-muted/40 via-background to-background">
+    <div class="mx-auto max-w-6xl px-5 pb-6 pt-28 md:pt-32">
+      <Breadcrumbs items={crumbs} />
+    </div>
+  </section>
+
+  <div class="mx-auto max-w-6xl px-5 py-8 md:py-12">
+    {galleryShots.length > 0 && (
+      <div class="mx-auto mb-10 max-w-3xl">
+        <ProductImageGallery shots={galleryShots} columns={columns} />
+      </div>
+    )}
+    <article class="exact-copy prose-bodycam mx-auto max-w-3xl text-foreground" set:html={html} />
+  </div>
+</BaseLayout>
+
+<style>
+  .exact-copy :global(h1) {
+    margin: 0 0 1rem;
+    font-family: var(--font-heading);
+    font-size: clamp(1.85rem, 4vw, 2.75rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+  }
+  .exact-copy :global(h2) {
+    margin: 2.25rem 0 0.85rem;
+    font-family: var(--font-heading);
+    font-size: clamp(1.35rem, 2vw, 1.75rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+  }
+  .exact-copy :global(h3) {
+    margin: 1.5rem 0 0.65rem;
+    font-size: 1.05rem;
+    font-weight: 600;
+  }
+  .exact-copy :global(p),
+  .exact-copy :global(li) {
+    color: var(--color-muted-foreground);
+    line-height: 1.7;
+  }
+  .exact-copy :global(p) {
+    margin: 0.85rem 0;
+  }
+  .exact-copy :global(ul),
+  .exact-copy :global(ol) {
+    margin: 0.75rem 0;
+    padding-left: 1.25rem;
+  }
+  .exact-copy :global(ul) {
+    list-style: disc;
+  }
+  .exact-copy :global(ol) {
+    list-style: decimal;
+  }
+  .exact-copy :global(a) {
+    color: var(--color-primary);
+    text-underline-offset: 3px;
+  }
+  .exact-copy :global(a:hover) {
+    text-decoration: underline;
+  }
+  .exact-copy :global(table) {
+    width: 100%;
+    margin: 1.25rem 0;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+  }
+  .exact-copy :global(th),
+  .exact-copy :global(td) {
+    border: 1px solid var(--color-border);
+    padding: 0.65rem 0.75rem;
+    text-align: left;
+  }
+  .exact-copy :global(th) {
+    background: color-mix(in oklab, var(--color-muted) 40%, transparent);
+    font-weight: 600;
+    color: var(--color-foreground);
+  }
+  .exact-copy :global(td) {
+    color: var(--color-muted-foreground);
+  }
+</style>

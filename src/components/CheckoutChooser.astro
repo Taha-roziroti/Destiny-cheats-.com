@@ -1,0 +1,84 @@
+---
+import { checkoutPath } from '../config/checkout';
+import { AFFILIATE_REL } from '../config/affiliate';
+
+const options = [
+  {
+    id: 'bodycam',
+    href: checkoutPath('bodycam'),
+    title: 'Bodycam Cheats',
+    desc: 'Main package: aimbot, ESP, weapon options. Monthly $35 or lifetime $150.',
+  },
+  {
+    id: 'cloud-dma',
+    href: checkoutPath('cloud-dma'),
+    title: 'Cloud DMA',
+    desc: 'Required infrastructure layer for supported builds. Listed separately at $50 lifetime.',
+  },
+  {
+    id: 'hwid-spoofer',
+    href: checkoutPath('hwid-spoofer'),
+    title: 'HWID Spoofer',
+    desc: 'Separate utility listing. Confirm live product details before purchase.',
+  },
+] as const;
+---
+
+<dialog
+  id="checkout-chooser"
+  class="checkout-chooser fixed inset-0 z-[80] m-auto w-[min(100vw-1.5rem,28rem)] rounded-2xl border border-border bg-background p-0 text-foreground shadow-2xl backdrop:bg-black/55"
+  aria-labelledby="checkout-chooser-title"
+>
+  <form method="dialog" class="border-b border-border px-5 py-4">
+    <div class="flex items-start justify-between gap-3">
+      <div>
+        <h2 id="checkout-chooser-title" class="font-[family-name:var(--font-heading)] text-lg font-semibold">
+          Choose a product
+        </h2>
+        <p class="mt-1 text-sm text-muted-foreground">Pick where you want to continue at checkout.</p>
+      </div>
+      <button
+        value="cancel"
+        class="inline-flex size-9 items-center justify-center rounded-lg border border-border text-muted-foreground transition hover:bg-muted hover:text-foreground"
+        aria-label="Close"
+      >
+        ×
+      </button>
+    </div>
+  </form>
+  <div class="flex flex-col gap-2 p-4">
+    {options.map((opt) => (
+      <a
+        href={opt.href}
+        rel={AFFILIATE_REL}
+        data-plan={opt.id}
+        data-checkout-buy
+        class="block rounded-xl border border-border bg-card/40 px-4 py-3 transition hover:border-primary/50 hover:bg-primary/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+      >
+        <span class="block text-sm font-semibold text-foreground">{opt.title}</span>
+        <span class="mt-1 block text-xs leading-relaxed text-muted-foreground">{opt.desc}</span>
+      </a>
+    ))}
+  </div>
+</dialog>
+
+<script>
+  function bindChooser() {
+    const dialog = document.getElementById('checkout-chooser');
+    if (!(dialog instanceof HTMLDialogElement)) return;
+
+    document.querySelectorAll('[data-checkout-choose]').forEach((el) => {
+      el.addEventListener('click', (event) => {
+        event.preventDefault();
+        if (!dialog.open) dialog.showModal();
+      });
+    });
+
+    dialog.addEventListener('click', (event) => {
+      if (event.target === dialog) dialog.close();
+    });
+  }
+
+  bindChooser();
+  document.addEventListener('astro:page-load', bindChooser);
+</script>

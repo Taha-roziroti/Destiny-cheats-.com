@@ -1,0 +1,16 @@
+---
+export function getStaticPaths() {
+  return [
+    { params: { slug: 'modules' } },
+    { params: { slug: 'cloud-dma' } },
+    { params: { slug: 'hwid-spoofer' } },
+    { params: { slug: 'appeals' } },
+  ];
+}
+
+const { slug } = Astro.params;
+if (slug === 'cloud-dma') {
+  return Astro.redirect('/bodycam-cloud-dma/', 301);
+}
+return Astro.redirect('/', 301);
+---
