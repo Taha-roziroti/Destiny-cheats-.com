@@ -91,6 +91,6 @@ No complicated pricing calculator needed.
 
 ### Image alt-text suggestions
 
-- "Bodycam cheats monthly plan showing 30-day access and listed price"
-- "Bodycam cheats lifetime plan showing one-time payment"
-- "Bodycam monthly and lifetime subscription comparison table"
+- "Bodycam cheats gameplay showing first-person flashlight hallway without overlay clutter"
+- "Bodycam cheats gameplay showing player ESP box and distance tag in a warehouse hangar"
+- "Bodycam cheat comparison showing the tactical advantage menu with ESP and misc options"

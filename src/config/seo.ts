@@ -8,7 +8,7 @@ function normalizeOrigin(url: string): string {
 }
 
 /**
- * Canonical / OG / hreflang base URL — always production (example.com).
+ * Canonical / OG / hreflang base URL — always production (bodycam-cheat.com).
  * Preview hosts must not leak into canonicals or sitemap-facing meta.
  */
 export const SITE_ORIGIN = normalizeOrigin(SITE_URL);
@@ -92,21 +92,21 @@ export function pageTitle(keyword: string, suffixSite = t.site.domain): string {
   return `${head}${suffix}`;
 }
 
-/** Product detail `<title>` — authored strings per slug. */
+/** Product detail `<title>` — authored strings per slug (legacy routes redirect). */
 export function productPageTitle(product: Pick<ProductPage, 'title' | 'kind' | 'slug'>): string {
   if (product.slug === 'modules') {
-    return 'Product Alpha Modules | Example Site';
+    return 'Bodycam Cheats Features | bodycam-cheat.com';
   }
   if (product.slug === 'cloud-dma') {
-    return 'Cloud Hardware Notes | Example Site';
+    return 'Bodycam Cloud DMA Notes | bodycam-cheat.com';
   }
   if (product.slug === 'hwid-spoofer') {
-    return 'Identity Utility | Example Site';
+    return 'HWID Spoofer Notes | bodycam-cheat.com';
   }
   if (product.slug === 'appeals') {
-    return 'Appeals Workspace | Example Site';
+    return 'Buyer Support Notes | bodycam-cheat.com';
   }
-  const phrase = `${product.title} | Example Site`;
+  const phrase = `${product.title} | bodycam-cheat.com`;
   return phrase.length >= 50 && phrase.length <= 60 ? phrase : phrase.slice(0, 60);
 }
 

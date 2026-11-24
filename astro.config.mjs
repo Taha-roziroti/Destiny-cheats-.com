@@ -31,8 +31,10 @@ export default defineConfig({
         !page.includes('/go/') &&
         !page.includes('/cheats/') &&
         !page.includes('/contact/') &&
-        !page.includes('/dota-2-cheats/') &&
-        !page.includes('/products/cs2-cheats/'),
+        !page.includes('/products/') &&
+        !page.includes('/blogs/') &&
+        !page.includes('/forum/') &&
+        !page.includes('/reviews/'),
       serialize: sitemapSerialize,
     }),
   ],

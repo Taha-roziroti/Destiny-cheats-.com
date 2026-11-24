@@ -1,6 +1,6 @@
 import type { IconName } from '../components/icons/types';
 import { isAffiliateHref } from '../config/affiliate';
-import { normalizeInternalPath, productPath, ROUTES } from '../utils/path';
+import { normalizeInternalPath, ROUTES } from '../utils/path';
 
 export type FaqTopic = 'all' | 'plans' | 'esp' | 'scripts' | 'safety' | 'products' | 'blog' | 'setup';
 
@@ -24,110 +24,102 @@ function link(text: string, href: string): string {
   return `<a href="${normalized}"${rel}>${text}</a>`;
 }
 
-function externalCommunityLink(text: string, href: string, ariaLabel: string): string {
-  const safe = href.replace(/"/g, '&quot;');
-  const label = ariaLabel.replace(/"/g, '&quot;');
-  const external = safe.startsWith('http');
-  const rel = external ? ' rel="noopener noreferrer"' : '';
-  return `<a href="${safe}"${rel} aria-label="${label}">${text}</a>`;
-}
-
-const dfModulesPage = link('Product Alpha modules page', productPath('modules'));
-const productsHub = link('Product catalog hub', ROUTES.products);
-const hwid = link('Identity reset utility page', productPath('hwid-spoofer'));
-const appeals = link('Appeals workspace', productPath('appeals'));
-const cloudDma = link('Cloud hardware info page', productPath('cloud-dma'));
+const homePage = link('Bodycam cheats overview', ROUTES.home);
+const buyingGuide = link('Bodycam cheat buying guide', ROUTES.buyingGuide);
+const aimbotPage = link('Bodycam aimbot feature page', ROUTES.aimbot);
+const espPage = link('Bodycam ESP options page', ROUTES.esp);
+const pricingPage = link('Bodycam cheats pricing page', ROUTES.pricing);
+const cloudDmaPage = link('Bodycam Cloud DMA setup page', ROUTES.cloudDma);
 const faqPage = link('Full FAQ index', ROUTES.faq);
-const forumHub = link('Community forum index', ROUTES.forum);
-const discordCommunity = externalCommunityLink('forum', ROUTES.forum, 'Browse the forum');
+const supportPage = link('Support contact page', ROUTES.support);
 
 export const siteFaqs: SiteFaqItem[] = [
   {
     id: 'status',
     topic: 'setup',
     icon: 'faqStatus',
-    q: 'Where do I check if the portal installer is online?',
-    a: a('Use the status banner on example.com and your operator portal. Re-check after every client update.'),
+    q: 'Where do I check current availability?',
+    a: a('Check the live merchant listing linked from Buy now on this site. Availability and stock can change after client updates.'),
   },
   {
     id: 'after-buy',
     topic: 'setup',
     icon: 'faqAfterBuy',
     q: 'What happens after I buy?',
-    a: a('The store emails a license key and portal login. Download only from that portal—never from random links or DMs.'),
+    a: a('The merchant emails access details for the plan you paid for. Follow only the download and setup steps from that receipt or portal.'),
   },
   {
     id: 'ban-risk',
     topic: 'safety',
     icon: 'faqBanRisk',
     q: 'Can I lose account access?',
-    a: a('Yes. Platform integrity tools and client rules can flag software. You accept that risk when you run third-party tools.'),
+    a: a('Yes. Game integrity systems can flag third-party software. You accept that risk when you run Bodycam cheats.'),
   },
   {
     id: 'platforms',
     topic: 'setup',
     icon: 'faqPlatforms',
     q: 'Which platforms are supported?',
-    a: a('Desktop client on Windows 10 or 11 64-bit. macOS and Linux are not supported here.'),
+    a: a('Windows 10 or 11 64-bit for the main Bodycam package. Confirm HVCI, RAM, and other listed requirements on the overview before you buy.'),
   },
   {
     id: 'license-move',
     topic: 'setup',
     icon: 'faqLicenseMove',
     q: 'Can I move my license to a new PC?',
-    a: a('Use the identity reset in the portal or open a support ticket with your key. Limits depend on your license type.'),
+    a: a('Ask the merchant with your order email. Transfer rules depend on the plan you purchased.'),
   },
   {
     id: 'products-page',
     topic: 'products',
     icon: 'faqProductsPage',
-    q: 'Where are products and utilities listed?',
-    a: `${productsHub} lists the ${dfModulesPage}, ${hwid}, ${appeals}, and ${cloudDma}. Checkout buttons open secure checkout.`,
+    q: 'Where are Bodycam features and prices listed?',
+    a: `${homePage} covers the package. Use ${aimbotPage}, ${espPage}, ${pricingPage}, and ${cloudDmaPage} for deeper notes. Checkout opens from Buy now.`,
   },
   {
     id: 'what-is-esp',
     topic: 'esp',
     icon: 'faqWhatIsEsp',
-    q: 'What are player overlays?',
-    a: `Overlays draw players, weapons, and economy intel on your screen. Start with thin presets on ${dfModulesPage} before you enable assist layers.`,
+    q: 'What does Bodycam ESP include?',
+    a: `Listed options include boxes, skeletons, snaplines, names, health, and distance. See ${espPage} for the visual stack.`,
     scopes: ['modules'],
   },
   {
     id: 'esp-vs-aim',
     topic: 'esp',
     icon: 'faqEspVsScripts',
-    q: 'What is the difference between overlays and assists?',
-    a: `Overlays are information only. Smoothing and timing are assists you enable in the module stack—read scope on ${dfModulesPage} first.`,
+    q: 'What is the difference between ESP and aimbot?',
+    a: `ESP is visual information. Aimbot covers targeting, FOV, and related aim options on ${aimbotPage}.`,
   },
   {
     id: 'which-tier-esp',
     topic: 'plans',
     icon: 'faqWhichTierEsp',
-    q: 'Can I run overlays without assists?',
-    a: a('Yes—use intel-first presets on the modules page: thin boxes, item filters, and awareness hints before you enable smoothing or timing.'),
+    q: 'Can I use ESP without aimbot?',
+    a: a('Feature toggles depend on the live package. Review the listing and enable only what you need after private testing.'),
     scopes: ['modules'],
   },
   {
     id: 'which-tier-aim',
     topic: 'scripts',
     icon: 'faqWhichTierScripts',
-    q: 'Where do smoothing and timing show up?',
-    a: `The module stack includes assists described on ${dfModulesPage}—enable them only after private tests.`,
+    q: 'Where are aimbot controls documented?',
+    a: `${aimbotPage} summarizes listed aim settings such as target selection, FOV, and silent aim options.`,
     scopes: ['modules'],
   },
   {
     id: 'rank-lite-vs-pro',
     topic: 'plans',
     icon: 'faqRankTiers',
-    q: 'How do modules differ from utilities?',
-    a: `${dfModulesPage} covers portal modules; ${hwid} and ${appeals} are side tools; ${cloudDma} explains optional hardware add-ons.`,
+    q: 'How do monthly and lifetime plans differ?',
+    a: `Published comparison is $35 for 30 days or $150 lifetime with the same listed feature set. Details live on ${pricingPage}.`,
   },
   {
     id: 'stock-status',
     topic: 'plans',
     icon: 'faqEliteSlots',
     q: 'Are keys in stock?',
-    a: a('Keys show in stock while the portal banner is green. If a patch pauses delivery, wait for the status update.'),
+    a: a('Stock follows the live merchant page. If checkout is paused after a patch, wait for the listing to reopen.'),
     scopes: ['modules'],
   },
   {
@@ -135,87 +127,87 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'esp',
     icon: 'faqStreamProof',
     q: 'Will OBS show my overlay?',
-    a: `Capture-friendly toggles try to hide overlay layers from capture APIs—still record a local test before you broadcast. Ask in ${forumHub} for OBS layouts.`,
+    a: a('Stream-friendly toggles may hide overlays from capture APIs. Always record a local test before you broadcast.'),
   },
   {
     id: 'status-not-promise',
     topic: 'safety',
     icon: 'faqEspSafer',
-    q: 'Does “online” on the banner mean I am safe forever?',
-    a: a('No. Online means the build passed current checks—the publisher can ship changes any week. Stop when the banner shows testing or offline.'),
+    q: 'Does an online listing mean I am safe forever?',
+    a: a('No. An available build only reflects the current listing. Client updates can change risk at any time.'),
   },
   {
     id: 'esp-quieter',
     topic: 'safety',
     icon: 'faqEspSafer',
-    q: 'Are overlays quieter than assists in demos?',
-    a: a('Usually, but both still violate rules when used in protected queues. Replays can still look suspicious if you spam glow.'),
+    q: 'Is ESP safer than aimbot?',
+    a: a('Visual tools are often less conspicuous than aggressive aim assists, but both can violate game rules and still risk flags.'),
   },
   {
     id: 'hwid-when',
     topic: 'products',
     icon: 'faqHwidWhen',
-    q: 'When do I need the identity reset utility?',
-    a: `Use ${hwid} when new accounts fail on one PC but work elsewhere—hardware-level blocks. Pure account marks may need ${appeals} paperwork instead.`,
+    q: 'When do I need an HWID spoofer?',
+    a: `Only if the merchant listing says hardware identity tools are required for your case. It is sold separately from the main Bodycam package; see checkout chooser options or ${supportPage}.`,
     scopes: ['hwid-spoofer'],
   },
   {
     id: 'appeals-what',
     topic: 'products',
     icon: 'faqUgcWhat',
-    q: 'What is the appeals workspace?',
-    a: `${appeals} is an appeal workspace—templates, uploads, timelines—not a promised outcome.`,
+    q: 'Where do I get help after purchase?',
+    a: `Use ${supportPage} with your order email. Merchant tickets handle keys, access, and refunds per checkout terms.`,
     scopes: ['appeals'],
   },
   {
     id: 'cloud-dma-what',
     topic: 'products',
     icon: 'faqSkinChanger',
-    q: 'What is cloud hardware?',
-    a: `${cloudDma} explains the external memory read path—second PC, firmware, and cabling vary by listing.`,
+    q: 'What is Bodycam Cloud DMA?',
+    a: `${cloudDmaPage} covers the separately priced Cloud DMA option, including single-PC Hyper-V setup notes from the listing.`,
     scopes: ['cloud-dma'],
   },
   {
     id: 'external-loader',
     topic: 'products',
     icon: 'faqExternalLoader',
-    q: 'Is the loader external?',
-    a: a('Yes—runs alongside the client with overlays instead of pasting files into the game folder. Risk still exists—read the status banner.'),
+    q: 'Is setup external to the game folder?',
+    a: a('Follow the merchant setup guide for your plan. Do not install files from unofficial mirrors or DMs.'),
   },
   {
     id: 'mode-split',
     topic: 'plans',
     icon: 'faqVacUpdate',
-    q: 'Do different workspaces use the same preset?',
-    a: `Usually not—open maps want wider caps while interior modes want shorter distance. Browse ${forumHub} for workspace-specific configs.`,
+    q: 'Do I need different presets per map?',
+    a: `Often yes. Start from the defaults on ${buyingGuide}, then tune ESP and aim options privately per map type.`,
   },
   {
     id: 'price-subscription',
     topic: 'plans',
     icon: 'faqAfterBuy',
     q: 'Where do I see subscription vs lifetime price?',
-    a: a('On checkout after you pick a tier. This site describes modules; renewal length and pause rules finalize on payment.'),
+    a: `Listed plans are on ${pricingPage}. Final total and any renewals confirm on merchant checkout.`,
   },
   {
     id: 'vac-update',
     topic: 'safety',
     icon: 'faqVacUpdate',
-    q: 'What should I do after a patch?',
-    a: a('Verify client files, restart the launcher, wait for the banner to show online, then import a conservative preset from the portal.'),
+    q: 'What should I do after a game patch?',
+    a: a('Wait for the merchant listing to show the build is updated, then re-check Windows requirements before you launch again.'),
   },
   {
     id: 'discord-help',
     topic: 'setup',
     icon: 'faqDiscordHelp',
     q: 'How do I get install help?',
-    a: `For community setup readouts, use ${discordCommunity}. For billing and keys, open a support ticket with your order address and Windows build—avoid posting keys in public threads.`,
+    a: `Use ${supportPage} with your order email and Windows version. Avoid posting license keys in public chats.`,
   },
   {
     id: 'faq-more',
     topic: 'all',
     icon: 'faqMore',
     q: 'Where is the full FAQ?',
-    a: `Use the ${faqPage} for every topic, or browse ${forumHub} for lived setup threads.`,
+    a: `Use the ${faqPage} for every topic, or start from ${buyingGuide} for pre-purchase checks.`,
   },
 ];
 
@@ -231,9 +223,9 @@ export function getAllFaqs(): SiteFaqItem[] {
 
 export const SITE_FAQ_SECTION_COPY = {
   eyebrow: 'Help center',
-  title: 'FAQ on portal, risk, and checkout',
+  title: 'FAQ on Bodycam plans, features, and checkout',
   subtitle:
-    'Everything about modules, identity tools, appeals, cloud hardware, safety, and on-site articles. Filter topics below.',
+    'Answers about ESP, aimbot, pricing, Cloud DMA, Windows requirements, and risk before you buy.',
 } as const;
 
 export const SITE_FAQ_FILTER_TOPICS: FaqTopic[] = ['all', 'plans', 'esp', 'scripts', 'safety', 'products', 'setup'];
@@ -241,7 +233,7 @@ export const SITE_FAQ_FILTER_TOPICS: FaqTopic[] = ['all', 'plans', 'esp', 'scrip
 export const CONTEXTUAL_FAQ_SECTION_COPY = {
   eyebrow: 'FAQ',
   title: 'Questions about this page',
-  subtitle: 'Answers tied to what you are reading—visit the FAQ page for everything.',
+  subtitle: 'Answers tied to what you are reading. Visit the FAQ page for everything.',
 } as const;
 
 export function faqFilterTopicsForItems(items: SiteFaqItem[]): FaqTopic[] {
@@ -276,8 +268,8 @@ const blogTopicFaqs: Record<string, SiteFaqItem[]> = {
       id: 'blog-setup-loader',
       topic: 'blog',
       icon: 'faqBlogSetupLoader',
-      q: 'Where do I download the loader?',
-      a: a('Only from the operator portal linked in your receipt—not from forum DMs.'),
+      q: 'Where do I download the client?',
+      a: a('Only from the merchant portal linked in your receipt, not from forum DMs.'),
     },
   ],
   Features: [
@@ -285,8 +277,8 @@ const blogTopicFaqs: Record<string, SiteFaqItem[]> = {
       id: 'blog-feat-esp',
       topic: 'esp',
       icon: 'faqBlogSlugEsp',
-      q: 'Will these overlay settings work on every map?',
-      a: a('Layouts are a starting point—tweak thickness per map and resolution after you test privately.'),
+      q: 'Will these ESP settings work on every map?',
+      a: a('Treat them as a starting point. Tweak thickness and distance after private tests.'),
     },
   ],
   Safety: [
@@ -294,8 +286,8 @@ const blogTopicFaqs: Record<string, SiteFaqItem[]> = {
       id: 'blog-safety-risk',
       topic: 'safety',
       icon: 'faqBlogSecVac',
-      q: 'Does the platform allow these modules?',
-      a: a('No. The article explains integrity risks; assume ranked play stays off-limits when overlays are enabled.'),
+      q: 'Does the game allow these tools?',
+      a: a('No. Guides explain integrity risk; assume live play stays risky when cheats are enabled.'),
     },
   ],
   Troubleshooting: [
@@ -303,8 +295,8 @@ const blogTopicFaqs: Record<string, SiteFaqItem[]> = {
       id: 'blog-vac-article',
       topic: 'setup',
       icon: 'faqBlogGuideStatus',
-      q: 'I got an integrity message after setup—why?',
-      a: a('Articles reduce mistakes; they do not remove platform risk. Stop until support answers your ticket.'),
+      q: 'I hit an integrity or loader error after setup. Why?',
+      a: a('Guides reduce mistakes; they do not remove platform risk. Stop until merchant support answers your ticket.'),
     },
   ],
 };
@@ -315,14 +307,14 @@ const defaultBlogFaqs: SiteFaqItem[] = [
     topic: 'blog',
     icon: 'faqBlogDefault1',
     q: 'Are these articles official manuals?',
-    a: `They explain workflows and link to ${productsHub}. The modules page lists scope for checkout decisions.`,
+    a: `They explain workflows and link back to ${homePage}. Confirm scope on the live listing before checkout.`,
   },
   {
     id: 'blog-default-2',
     topic: 'blog',
     icon: 'faqBlogDefault2',
     q: 'Who do I contact if I am stuck?',
-    a: `Open a support ticket with your order email and client build number, or read ${faqPage} and ${forumHub} while you wait.`,
+    a: `Open a merchant ticket with your order email, or read ${faqPage} and ${supportPage} while you wait.`,
   },
 ];
 
@@ -334,8 +326,8 @@ export function getBlogFaqs(tag: string, slug: string): SiteFaqItem[] {
       id: 'blog-slug-esp',
       topic: 'esp',
       icon: 'faqBlogSlugEsp',
-      q: 'Which product page matches these overlay tips?',
-      a: `Start with intel-only presets on ${dfModulesPage}, then enable assist layers only after private tests.`,
+      q: 'Which page matches these ESP tips?',
+      a: `Start with ${espPage}, then enable only the overlays you need after private tests.`,
     });
   }
   if (slug.includes('aimbot') || slug.includes('trigger')) {
@@ -343,34 +335,30 @@ export function getBlogFaqs(tag: string, slug: string): SiteFaqItem[] {
       id: 'blog-slug-aim',
       topic: 'scripts',
       icon: 'faqBlogSlugScripts',
-      q: 'Where is assist documented?',
-      a: `${dfModulesPage} lists combat assists in the module stack—enable smoothing and timing conservatively.`,
+      q: 'Where is aimbot documented?',
+      a: `${aimbotPage} lists aim options from the package. Enable them conservatively.`,
     });
   }
-  if (slug.includes('hwid') || slug.includes('vac')) {
+  if (slug.includes('hwid') || slug.includes('vac') || slug.includes('dma')) {
     slugHints.push({
       id: 'blog-slug-hwid',
       topic: 'products',
       icon: 'faqBlogSlugHwid',
-      q: 'Does this replace identity or appeals tools?',
-      a: `Articles complement ${hwid} and ${appeals}—read those product pages for scope.`,
+      q: 'Does this replace Cloud DMA or support?',
+      a: `Read ${cloudDmaPage} for hardware notes and ${supportPage} for order help.`,
     });
   }
   return [...slugHints, ...topicFaqs, ...defaultBlogFaqs].slice(0, 8);
 }
 
 export const compareRows = [
-  { feature: 'Player overlays & outlines', icon: 'comparePlayerEsp' as const, included: true },
-  { feature: 'Loot & container markers', icon: 'compareWardLocator' as const, included: true },
-  { feature: 'Awareness reinforcement', icon: 'compareRuneTimer' as const, included: true },
-  { feature: 'Smoke silhouette highlight', icon: 'compareZoomHack' as const, included: true },
+  { feature: 'Player ESP boxes & skeletons', icon: 'comparePlayerEsp' as const, included: true },
+  { feature: 'Names, health & distance', icon: 'compareWardLocator' as const, included: true },
+  { feature: 'Snaplines & radar', icon: 'compareRuneTimer' as const, included: true },
+  { feature: 'Aimbot FOV & target options', icon: 'compareAutoCombo' as const, included: true },
+  { feature: 'Silent aim options', icon: 'compareOrbwalker' as const, included: true },
+  { feature: 'Weapon / misc assists', icon: 'compareActivator' as const, included: true },
   { feature: 'Capture / stream-safe toggles', icon: 'compareStreamproof' as const, included: true },
-  { feature: 'Smoothing & FOV caps', icon: 'compareAutoCombo' as const, included: true },
-  { feature: 'Timing modes', icon: 'compareOrbwalker' as const, included: true },
-  { feature: 'Recoil compensation', icon: 'compareActivator' as const, included: true },
-  { feature: 'Economy filters', icon: 'compareAbilityRadius' as const, included: true },
-  { feature: 'Misc movement & FOV assists', icon: 'compareSmokeAlert' as const, included: true },
-  { feature: 'Portal auto updater', icon: 'comparePriorityPatch' as const, included: true },
-  { feature: 'Cloud hardware add-on (store)', icon: 'compareSkinChanger' as const, included: true },
-  { feature: 'Cloud config backup', icon: 'compareCloudBackup' as const, included: true },
+  { feature: 'Cloud DMA add-on (separate)', icon: 'compareSkinChanger' as const, included: true },
+  { feature: 'Merchant auto updater', icon: 'comparePriorityPatch' as const, included: true },
 ];

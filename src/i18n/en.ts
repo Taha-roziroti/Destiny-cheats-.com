@@ -502,28 +502,28 @@ export const en: Translations = {
   },
   support: {
     eyebrow: 'Support',
-    title: 'Support for portal, keys, and checkout',
-    subtitle: 'Portal, key, and module questions. Include the email from your order when you write in.',
+    title: 'Support for Bodycam checkout and setup',
+    subtitle: 'Order, key, and Cloud DMA questions. Include the email from your receipt when you write in.',
     channels: [
       {
         icon: 'messageCircle',
-        title: 'Community forum',
-        desc: 'Read forum threads on setup, tuning, and release-night checklists before you buy.',
-        linkLabel: 'Open forum',
-        href: '/forum/',
-        channelAriaLabel: 'Open community forum',
+        title: 'Buying checklist',
+        desc: 'Review features, pricing, and Cloud DMA notes before you purchase.',
+        linkLabel: 'Open buying guide',
+        href: '/best-bodycam-cheats/',
+        channelAriaLabel: 'Open Bodycam buying guide',
       },
       {
         icon: 'users',
         title: 'Before checkout',
-        desc: 'Questions about modules or hardware add-ons.',
+        desc: 'Questions about plans or the Cloud DMA add-on.',
         linkLabel: 'Checkout',
         href: PRIMARY_CHECKOUT_PATH,
       },
       {
         icon: 'navFaq',
         title: 'Self-serve answers',
-        desc: 'Risk, platforms, and refunds.',
+        desc: 'Risk, platforms, pricing, and setup.',
         linkLabel: 'Pre-purchase FAQ',
         href: '/faq/',
       },
@@ -531,54 +531,54 @@ export const en: Translations = {
     ticketTitle: 'Include in your email',
     ticketItems: [
       { title: 'Order email', desc: 'The inbox on your receipt.' },
-      { title: 'Client build', desc: 'Application build and Windows version.' },
+      { title: 'Windows build', desc: 'Windows 10/11 version and HVCI status if relevant.' },
       { title: 'Error text', desc: 'Exact loader or integrity message, no paraphrasing.' },
     ],
   },
   faq: {
     eyebrow: 'FAQ',
     title: 'Clear answers before you pay',
-    subtitle: 'Risk, platforms, and what listed modules usually cover.',
+    subtitle: 'Risk, platforms, ESP/aimbot scope, and listed Bodycam plans.',
     items: [
       {
         num: '01',
-        q: 'Where do I see if the build is online?',
-        a: 'The status banner on example.com and your portal dashboard show online, testing, or offline—read them after every patch.',
+        q: 'Where do I see if the build is available?',
+        a: 'Check the live merchant listing linked from Buy now. Re-check after every game patch.',
       },
       {
         num: '02',
         q: 'What happens right after checkout?',
-        a: 'Checkout emails a license key and portal login. Download only from that portal.',
+        a: 'Checkout emails access details for your plan. Download only from that merchant portal.',
       },
       {
         num: '03',
         q: 'Can I lose access to my account?',
-        a: 'Yes. Platform rules carry risk—this site explains modules; it does not remove consequences.',
+        a: 'Yes. Game rules carry risk. This site explains listed features; it does not remove consequences.',
       },
       {
         num: '04',
         q: 'Where do monthly and lifetime plans show?',
-        a: 'Plan length and billing options appear at checkout. Confirm renewal and pause rules when you pay.',
+        a: 'Published comparison is $35 for 30 days or $150 lifetime. Confirm totals on merchant checkout.',
       },
       {
         num: '05',
         q: 'Can I move my license to a new PC?',
-        a: 'Use the identity reset flow in the portal or open a support ticket with your key.',
+        a: 'Ask merchant support with your order email. Transfer rules depend on the plan you bought.',
       },
       {
         num: '06',
-        q: 'Where are products listed?',
-        a: 'The product catalog, utilities, and cloud hardware notes sit on the products hub.',
+        q: 'Where are Bodycam features listed?',
+        a: 'Home and the aimbot, ESP, pricing, and Cloud DMA guides cover the published package.',
       },
       {
         num: '07',
-        q: 'Is any module risk-free?',
-        a: 'No—platform rules can flag accounts. Use conservative overlays and stop if the portal banner is not green.',
+        q: 'Is any feature risk-free?',
+        a: 'No. Integrity systems can flag accounts. Use conservative settings and stop if the listing is offline.',
       },
       {
         num: '08',
         q: 'Is access a one-time buy or a subscription?',
-        a: 'Billing is time-based on many plans. Read the product page when you buy so you know renewal rules.',
+        a: 'Both options are listed: 30-day and lifetime. Read the live listing when you pay so you know renewal rules.',
       },
     ],
   },
@@ -601,33 +601,33 @@ export const en: Translations = {
   },
   legalPages: {
     about: {
-      title: 'About this catalog and guides',
-      description: 'Editorial and catalog pages about products, loaders, and utilities.',
+      title: 'About bodycam-cheat.com',
+      description: 'Guides to Bodycam cheats for PC: features, pricing, and Cloud DMA requirements.',
       sections: [
         {
           heading: 'Purpose',
           paragraphs: [
-            'This domain publishes product explanations, guides, and community forum summaries for visitors evaluating modules.',
+            'bodycam-cheat.com explains listed Bodycam cheat features, plans, and Cloud DMA requirements from the live merchant listing.',
             'Checkout and refunds follow the terms shown when you pay.',
           ],
         },
         {
           heading: 'What you will find',
           paragraphs: [
-            'Tier comparisons, platform caveats, troubleshooting for integrity messages, and forum opinions from buyers.',
+            'ESP and aimbot notes, monthly vs lifetime pricing, Windows compatibility reminders, and Cloud DMA setup context.',
           ],
         },
         {
           heading: 'Contact',
           paragraphs: [
-            'Order and key questions go through support after purchase—include your receipt email and client build when you open a case.',
+            'Order and key questions go through support after purchase. Include your receipt email and Windows version when you open a case.',
           ],
         },
       ],
     },
     privacy: {
       title: 'Privacy for cookies and analytics',
-      description: 'How example.com uses analytics and cookies when you browse.',
+      description: 'How bodycam-cheat.com uses analytics and cookies when you browse.',
       sections: [
         {
           heading: 'Data we collect',
@@ -647,17 +647,19 @@ export const en: Translations = {
       ],
     },
     terms: {
-      title: 'Terms for example.com',
-      description: 'Using example.com guides, forum threads, and checkout.',
+      title: 'Terms for bodycam-cheat.com',
+      description: 'Using bodycam-cheat.com guides and checkout links.',
       sections: [
         {
           heading: 'Agreement',
-          paragraphs: ['By browsing example.com you accept these terms and the privacy policy. Last updated November 2025.'],
+          paragraphs: [
+            'By browsing bodycam-cheat.com you accept these terms and the privacy policy. Last updated November 2025.',
+          ],
         },
         {
           heading: 'No guarantee of status',
           paragraphs: [
-            '“Online” labels are snapshots—client updates can break loaders without notice. Check the portal before use.',
+            'Availability labels are snapshots. Client updates can change builds without notice. Check the live listing before use.',
           ],
         },
         {
@@ -673,7 +675,7 @@ export const en: Translations = {
         {
           heading: 'Checkout',
           paragraphs: [
-            'Some buttons open checkout. Prices, license keys, refunds, and tickets are handled there after payment.',
+            'Some buttons open merchant checkout. Prices, license keys, refunds, and tickets are handled there after payment.',
             'On-page product copy is editorial guidance. Read the live listing before you pay.',
           ],
         },
@@ -681,7 +683,7 @@ export const en: Translations = {
     },
     support: {
       title: 'Buyer support hub',
-      description: 'Use the support hub for loader keys, identity rotation, and checkout handoffs.',
+      description: 'Use the support hub for Bodycam keys, Cloud DMA questions, and checkout handoffs.',
     },
   },
   ui: {

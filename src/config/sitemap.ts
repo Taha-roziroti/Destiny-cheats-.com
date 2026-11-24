@@ -14,16 +14,15 @@ export function sitemapSerialize(item: SitemapItem): SitemapItem | undefined {
     path.includes('/rss.xml') ||
     path.startsWith('/cheats/') ||
     path === '/contact/' ||
-    path.startsWith('/products/dota-2-cheats/') ||
-    path.startsWith('/products/other-cheats/') ||
+    path.startsWith('/products/') ||
     path === '/blog/' ||
     path.startsWith('/blog/') ||
-    path === '/forum/cod-forum-aimbot/' ||
-    path === '/forum/cod-esp-night/' ||
-    path === '/forum/cod-wallhack-box/' ||
-    path === '/forum/cod-hwid-account/' ||
-    path === '/forum/cod-patch-loader/' ||
-    path === '/forum/cod-checkout/'
+    path === '/blogs/' ||
+    path.startsWith('/blogs/') ||
+    path === '/forum/' ||
+    path.startsWith('/forum/') ||
+    path === '/reviews/' ||
+    path.startsWith('/reviews/')
   ) {
     return undefined;
   }

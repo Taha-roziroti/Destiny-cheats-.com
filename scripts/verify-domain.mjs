@@ -309,6 +309,13 @@ function checkProductProductPages() {
     if (rel.includes('/forum/')) continue;
     if (rel === catalogHub || rel === utilitiesHub) continue;
     const content = fs.readFileSync(file, 'utf8');
+    // Astro static redirects emit meta-refresh stubs without Product schema.
+    if (
+      /http-equiv=["']refresh["']/i.test(content) ||
+      /<title>\s*Redirecting to:/i.test(content)
+    ) {
+      continue;
+    }
     const blocks = [...content.matchAll(/<script\b[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi)];
     const products = [];
     for (const m of blocks) {

@@ -49,12 +49,12 @@ export const PAGE_SEO: Record<string, PageSeoEntry> = {
       'bodycam-cheat.com explains Bodycam cheats for PC, listed features, pricing, and Cloud DMA requirements from the live product listing.',
   },
   '/terms/': {
-    title: 'Terms of Use | bodycam-cheat.com',
+    title: 'Terms of Use for Bodycam Cheat Guides',
     description:
       'Terms for using bodycam-cheat.com guides and checkout links. Refunds and licenses follow the merchant terms shown when you pay.',
   },
   '/privacy/': {
-    title: 'Privacy Policy | bodycam-cheat.com',
+    title: 'Privacy Policy for Bodycam Cheat Site',
     description:
       'How cookies and analytics may be used on bodycam-cheat.com, and how to ask a question about your data.',
   },
