@@ -24,8 +24,9 @@ interface Props {
   ogType?: 'website' | 'article';
   articlePublishedTime?: string;
   articleModifiedTime?: string;
+  /** @deprecated Ignored — site is fully indexable. */
   noindex?: boolean;
-  /** Overrides default robots. Forum pages use `noindex, follow`. */
+  /** Optional robots override; defaults to full indexability. */
   robots?: string;
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
 }
@@ -38,7 +39,6 @@ const {
   ogType = 'website',
   articlePublishedTime,
   articleModifiedTime,
-  noindex = false,
   robots,
   jsonLd,
 } = Astro.props;
@@ -46,10 +46,7 @@ const {
 const canonical = canonicalUrl(Astro.url.pathname);
 const ogImageUrl = absoluteAssetUrl(ogImage);
 const robotsContent =
-  robots ??
-  (noindex
-    ? 'noindex, nofollow'
-    : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1');
+  robots ?? 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1';
 ---
 
 <!doctype html>

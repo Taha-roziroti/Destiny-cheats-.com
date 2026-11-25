@@ -1,15 +1,9 @@
-# Preview hosts (one * per rule — see Cloudflare static assets headers docs)
-https://:version.:subdomain.workers.dev/*
-  X-Robots-Tag: noindex, nofollow
-
-https://:project.pages.dev/*
-  X-Robots-Tag: noindex, nofollow
-
 /*
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   X-Frame-Options: SAMEORIGIN
   Permissions-Policy: camera=(), microphone=(), geolocation=()
+  X-Robots-Tag: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1
 
 /favicon.ico
   Cache-Control: public, max-age=3600, must-revalidate
@@ -52,3 +46,6 @@ https://:project.pages.dev/*
 
 /sitemap.xml
   Cache-Control: public, max-age=86400
+
+/robots.txt
+  Cache-Control: public, max-age=300, must-revalidate
