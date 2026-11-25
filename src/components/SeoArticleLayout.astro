@@ -1,8 +1,6 @@
 ---
 import Breadcrumbs from './Breadcrumbs.astro';
 import BuyNowButton from './BuyNowButton.astro';
-import { PRIMARY_CHECKOUT_PATH } from '../config/checkout';
-import { AFFILIATE_REL } from '../config/affiliate';
 import { Button } from '@/components/starwind/button';
 
 interface Crumb {
@@ -42,10 +40,10 @@ const {
       <div class="mt-8 flex flex-wrap gap-3">
         {showBuyCta && (
           <BuyNowButton
-            href={PRIMARY_CHECKOUT_PATH}
-            rel={AFFILIATE_REL}
+            choose
+            data-plan="chooser"
             label="Buy now"
-            aria-label="Buy Product Alpha at checkout"
+            aria-label="Choose a Destiny 2 product to buy"
           />
         )}
         {secondaryCtaHref && secondaryCtaLabel && (

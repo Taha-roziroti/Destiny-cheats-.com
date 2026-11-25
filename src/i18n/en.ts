@@ -7,12 +7,12 @@ const productBase = PRODUCT_BASE;
 
 export const en: Translations = {
   site: {
-    name: 'FragPunk Cheats',
-    domain: 'fragpunk-cheats.com',
-    title: 'FragPunk Cheats for PC | Soft Aim & ESP',
+    name: 'Destiny 2 Cheats',
+    domain: 'destiny-cheats.com',
+    title: 'Destiny 2 Cheats for PC | Aimbot & ESP',
     description:
-      'Explore FragPunk cheats for PC with soft aim, player ESP, radar and recoil options. Compare plans and check setup requirements before buying.',
-    brandMarkAlt: 'FragPunk Cheats',
+      'Explore Destiny 2 cheats for PC with aimbot, player ESP, radar, and misc options. Compare plans and review Cloud DMA setup before buying.',
+    brandMarkAlt: 'Destiny 2 Cheats',
   },
   forum: {
     eyebrow: 'Forum',
@@ -21,7 +21,7 @@ export const en: Translations = {
     viewAll: 'Browse all forums',
   },
   nav: [
-    { href: '/fragpunk-cheats-price/', label: 'Pricing' },
+    { href: '/destiny-cheats-price/', label: 'Pricing' },
     { href: '/cloud-dma/', label: 'Cloud DMA' },
     { href: '/cloud-dma-requirements/', label: 'Requirements' },
     { href: '/faq/', label: 'FAQ' },
@@ -501,29 +501,29 @@ export const en: Translations = {
   },
   support: {
     eyebrow: 'Support',
-    title: 'Support for FragPunk checkout and setup',
+    title: 'Support for Destiny 2 checkout and setup',
     subtitle: 'Order, key, and Cloud DMA questions. Include the email from your receipt when you write in.',
     channels: [
       {
         icon: 'messageCircle',
         title: 'Feature overview',
-        desc: 'Review soft aim, ESP, pricing, and Cloud DMA notes before you purchase.',
+        desc: 'Review aimbot, ESP, pricing, and Cloud DMA notes before you purchase.',
         linkLabel: 'Open homepage',
         href: '/',
-        channelAriaLabel: 'Open FragPunk homepage',
+        channelAriaLabel: 'Open Destiny 2 homepage',
       },
       {
         icon: 'users',
         title: 'Before checkout',
         desc: 'Questions about plans or the Cloud DMA add-on.',
-        linkLabel: 'Checkout',
+        linkLabel: 'Open product chooser',
         href: PRIMARY_CHECKOUT_PATH,
       },
       {
         icon: 'navFaq',
         title: 'Self-serve answers',
         desc: 'Risk, platforms, pricing, and setup.',
-        linkLabel: 'Pre-purchase FAQ',
+        linkLabel: 'Browse FAQ answers',
         href: '/faq/',
       },
     ],
@@ -537,7 +537,7 @@ export const en: Translations = {
   faq: {
     eyebrow: 'FAQ',
     title: 'Clear answers before you pay',
-    subtitle: 'Risk, platforms, soft aim and ESP scope, and listed FragPunk plans.',
+    subtitle: 'Risk, platforms, aimbot and ESP scope, and listed Destiny 2 plans.',
     items: [
       {
         num: '01',
@@ -566,8 +566,8 @@ export const en: Translations = {
       },
       {
         num: '06',
-        q: 'Where are FragPunk features listed?',
-        a: 'Home covers soft aim, ESP, radar, and misc options. Pricing and Cloud DMA pages cover cost and setup.',
+        q: 'Where are Destiny 2 features listed?',
+        a: 'Home covers aimbot, ESP, radar, and misc options. Pricing and Cloud DMA pages cover cost and setup.',
       },
       {
         num: '07',
@@ -582,11 +582,11 @@ export const en: Translations = {
     ],
   },
   footer: {
-    tagline: 'FragPunk cheats for PC: soft aim, ESP, pricing, and Cloud DMA requirements.',
+    tagline: 'Destiny 2 cheats for PC: aimbot, ESP, pricing, and Cloud DMA requirements.',
     explore: 'Explore',
     exploreLinks: [
-      { href: '/', label: 'Feature overview', ariaLabel: 'FragPunk feature overview' },
-      { href: '/fragpunk-cheats-price/', label: 'License plans', ariaLabel: 'FragPunk license plans' },
+      { href: '/', label: 'Feature overview', ariaLabel: 'Destiny 2 feature overview' },
+      { href: '/destiny-cheats-price/', label: 'License plans', ariaLabel: 'Destiny 2 license plans' },
       { href: '/cloud-dma/', label: 'DMA product', ariaLabel: 'Cloud DMA product page' },
       { href: '/cloud-dma-requirements/', label: 'System checklist', ariaLabel: 'Cloud DMA system checklist' },
       { href: '/faq/', label: 'Buyer answers', ariaLabel: 'Buyer FAQ answers' },
@@ -599,20 +599,20 @@ export const en: Translations = {
   },
   legalPages: {
     about: {
-      title: 'About fragpunk-cheats.com',
-      description: 'Guides to FragPunk cheats for PC: features, pricing, and Cloud DMA requirements.',
+      title: 'About destiny-cheats.com',
+      description: 'Guides to Destiny 2 cheats for PC: features, pricing, and Cloud DMA requirements.',
       sections: [
         {
           heading: 'Purpose',
           paragraphs: [
-            'fragpunk-cheats.com explains listed FragPunk cheat features, plans, and Cloud DMA requirements from the live merchant listing.',
+            'destiny-cheats.com explains listed Destiny 2 cheat features, plans, and Cloud DMA requirements from the live merchant listing.',
             'Checkout and refunds follow the terms shown when you pay.',
           ],
         },
         {
           heading: 'What you will find',
           paragraphs: [
-            'Soft aim and ESP notes, monthly vs lifetime pricing, Windows compatibility reminders, and Cloud DMA setup context.',
+            'Aimbot and ESP notes, monthly vs lifetime pricing, Windows compatibility reminders, and Cloud DMA setup context.',
           ],
         },
         {
@@ -625,7 +625,7 @@ export const en: Translations = {
     },
     privacy: {
       title: 'Privacy for cookies and analytics',
-      description: 'How fragpunk-cheats.com uses analytics and cookies when you browse.',
+      description: 'How destiny-cheats.com uses analytics and cookies when you browse.',
       sections: [
         {
           heading: 'Data we collect',
@@ -645,13 +645,13 @@ export const en: Translations = {
       ],
     },
     terms: {
-      title: 'Terms for fragpunk-cheats.com',
-      description: 'Using fragpunk-cheats.com guides and checkout links.',
+      title: 'Terms for destiny-cheats.com',
+      description: 'Using destiny-cheats.com guides and checkout links.',
       sections: [
         {
           heading: 'Agreement',
           paragraphs: [
-            'By browsing fragpunk-cheats.com you accept these terms and the privacy policy. Last updated November 2026.',
+            'By browsing destiny-cheats.com you accept these terms and the privacy policy. Last updated November 2026.',
           ],
         },
         {
@@ -681,18 +681,18 @@ export const en: Translations = {
     },
     support: {
       title: 'Buyer support hub',
-      description: 'Use the support hub for FragPunk keys, Cloud DMA questions, and checkout handoffs.',
+      description: 'Use the support hub for Destiny 2 keys, Cloud DMA questions, and checkout handoffs.',
     },
   },
   ui: {
     skipLink: 'Skip to main content',
     browseCheats: 'Checkout',
     browseCheatsMobile: 'Checkout',
-    homeAria: 'fragpunk-cheats.com home',
-    checkoutAria: 'Open FragPunk cheats checkout',
+    homeAria: 'destiny-cheats.com home',
+    checkoutAria: 'Open Destiny 2 cheats checkout',
     navTryNow: 'Buy now',
-    navTryNowAria: 'Buy FragPunk cheats',
-    discordAria: 'Buy FragPunk cheats',
+    navTryNowAria: 'Buy Destiny 2 cheats',
+    discordAria: 'Buy Destiny 2 cheats',
     menuOpen: 'Open menu',
     menuClose: 'Close menu',
     themeLight: 'Switch to light mode',

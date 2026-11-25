@@ -30,7 +30,7 @@ export const BLOGS_SLUGS = new Set([
   'cod-choose-plan',
 ]);
 
-export const CANONICAL_ORIGIN = 'https://fragpunk-cheats.com';
+export const CANONICAL_ORIGIN = 'https://destiny-cheats.com';
 
 /** Absolute 301 target, or null if this path is not a legacy blog URL. Query strings are dropped. */
 export function legacyBlogRedirect(pathname: string): string | null {

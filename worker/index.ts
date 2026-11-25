@@ -1,14 +1,17 @@
 import { CANONICAL_ORIGIN, legacyBlogRedirect } from './blog-redirects';
+import { resolveCheckoutPathRedirect } from '../src/config/checkout-redirects.mjs';
 
 interface Env {
   ASSETS: Fetcher;
   GA_MEASUREMENT_ID?: string;
 }
 
-const PRODUCTION_HOST = 'fragpunk-cheats.com';
+const PRODUCTION_HOST = 'destiny-cheats.com';
 
 /** Prior clone hostnames only. */
 const LEGACY_ALIAS_HOSTS = new Set([
+  'www.destiny-cheats.com',
+  'fragpunk-cheats.com',
   'www.fragpunk-cheats.com',
   'bodycam-cheat.com',
   'www.bodycam-cheat.com',
@@ -24,6 +27,18 @@ export default {
     if (host !== PRODUCTION_HOST && LEGACY_ALIAS_HOSTS.has(host)) {
       const target = `${CANONICAL_ORIGIN}${url.pathname}${url.search}`;
       return Response.redirect(target, 301);
+    }
+
+    const checkoutTarget = resolveCheckoutPathRedirect(url.pathname);
+    if (checkoutTarget) {
+      return new Response(null, {
+        status: 302,
+        headers: {
+          Location: checkoutTarget,
+          'Cache-Control': 'no-store',
+          'Referrer-Policy': 'no-referrer',
+        },
+      });
     }
 
     const blogTarget = legacyBlogRedirect(url.pathname);

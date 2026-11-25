@@ -5,9 +5,10 @@ export const CHECKOUT = CHECKOUT_URLS;
 export type CheckoutProduct = keyof typeof CHECKOUT;
 
 export const CHECKOUT_SLUGS: Record<CheckoutProduct, string> = {
-  fragpunk: 'fragpunk',
-  bodycam: 'fragpunk',
-  'call-of-duty': 'fragpunk',
+  destiny: 'destiny-2',
+  fragpunk: 'destiny-2',
+  bodycam: 'destiny-2',
+  'call-of-duty': 'destiny-2',
   'cloud-dma': 'cloud-dma',
   'hwid-spoofer': 'hwid-spoofer',
 };
@@ -16,16 +17,16 @@ export const CHECKOUT_SLUG_TO_PRODUCT = Object.fromEntries(
   Object.entries(CHECKOUT_SLUGS).map(([product, slug]) => [slug, product as CheckoutProduct]),
 ) as Record<string, CheckoutProduct>;
 
-export function checkoutPath(product: CheckoutProduct = 'fragpunk'): string {
+export function checkoutPath(product: CheckoutProduct = 'destiny'): string {
   return `/go/${CHECKOUT_SLUGS[product]}/`;
 }
 
-export const PRIMARY_CHECKOUT_PATH = checkoutPath('fragpunk');
+export const PRIMARY_CHECKOUT_PATH = checkoutPath('destiny');
 
 export function checkoutForSlug(slug: string): string {
   if (slug === 'cloud-dma') return checkoutPath('cloud-dma');
   if (slug === 'hwid-spoofer') return checkoutPath('hwid-spoofer');
-  return checkoutPath('fragpunk');
+  return checkoutPath('destiny');
 }
 
 export function resolveCheckoutHref(href: string): string {

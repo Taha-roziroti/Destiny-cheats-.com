@@ -9,7 +9,6 @@ import {
   parseExactArticle,
   parseExactFrontmatter,
   resolveAffiliateHrefForSlug,
-  resolveExternalAffiliateHrefForSlug,
 } from '../lib/exactPageContent';
 import { AFFILIATE_REL } from '../config/affiliate';
 import { canonicalUrl } from '../config/seo';
@@ -58,12 +57,11 @@ const fm = parseExactFrontmatter(raw);
 const alts = extractImageAltSuggestions(raw);
 const pageSlug = fm.slug || Astro.url.pathname;
 const checkoutHref = resolveAffiliateHrefForSlug(pageSlug);
-const externalCheckoutHref = resolveExternalAffiliateHrefForSlug(pageSlug);
 const checkoutPlan = checkoutHref.includes('cloud-dma')
   ? 'cloud-dma'
   : checkoutHref.includes('hwid')
     ? 'hwid-spoofer'
-    : 'fragpunk';
+    : 'destiny';
 const article = parseExactArticle(raw);
 const shareUrl = canonicalUrl(pageSlug.endsWith('/') || pageSlug === '/' ? pageSlug : `${pageSlug}/`);
 const resolvedSecondary =
@@ -72,16 +70,16 @@ const resolvedSecondary =
     ? { href: '/cloud-dma/', label: 'Cloud DMA overview' }
     : fm.slug.includes('cloud-dma')
       ? { href: '/cloud-dma-requirements/', label: 'System requirements' }
-      : fm.slug.includes('fragpunk-cheats-price')
+      : fm.slug.includes('destiny-cheats-price') || fm.slug.includes('fragpunk-cheats-price')
         ? { href: '/cloud-dma/', label: 'Cloud DMA details' }
-        : { href: '/fragpunk-cheats-price/', label: 'See pricing' });
+        : { href: '/destiny-cheats-price/', label: 'See pricing' });
 const resolvedBuyAria =
   buyAriaLabel ??
   (checkoutPlan === 'cloud-dma'
     ? 'Buy Cloud DMA'
     : checkoutPlan === 'hwid-spoofer'
       ? 'Buy HWID Spoofer'
-      : 'Buy FragPunk cheats');
+      : 'Buy Destiny 2 cheats');
 
 const galleryShots = shots.map((shot, i) => ({
   src: shot.src,
@@ -91,7 +89,7 @@ const galleryShots = shots.map((shot, i) => ({
 const heroShot = galleryShots[0];
 const inlineShots = galleryShots.slice(1);
 
-const affiliateAttrs = `href="${externalCheckoutHref}" rel="${AFFILIATE_REL}" target="_blank" data-checkout-buy data-plan="${checkoutPlan}"`;
+const affiliateAttrs = `href="${checkoutHref}" rel="${AFFILIATE_REL}" data-checkout-buy data-plan="${checkoutPlan}"`;
 
 const leadHtml = article.leadHtml.replaceAll(
   `href="${AFFILIATE_LINK_PLACEHOLDER}"`,
@@ -276,9 +274,10 @@ const heroLead = article.leadText || fm.description;
   }
 
   .exact-hero__img {
-    /* Keep character art toward the right; leave left open for headline/CTA */
-    object-position: 78% center;
-    transform: scale(1.04);
+    /* Destiny key art is left-weighted; keep Guardians readable behind left copy */
+    object-position: 28% center;
+    object-fit: cover;
+    transform: scale(1.02);
     animation: exact-hero-drift 18s ease-in-out infinite alternate;
   }
 

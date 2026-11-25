@@ -9,49 +9,54 @@ export interface PageSeoEntry {
 
 export const PAGE_SEO: Record<string, PageSeoEntry> = {
   '/': {
-    title: 'FragPunk Cheats for PC | Soft Aim & ESP',
+    title: 'Destiny 2 Cheats for PC | Aimbot & ESP',
     description:
-      'Explore FragPunk cheats for PC with soft aim, player ESP, radar and recoil options. Compare plans and check setup requirements before buying.',
+      'Explore Destiny 2 cheats for PC with aimbot, player ESP, radar, and misc options. Compare plans and review Cloud DMA setup before buying.',
+  },
+  '/destiny-cheats-price/': {
+    title: 'Destiny 2 Cheats Price | Monthly vs Lifetime',
+    description:
+      'Compare Destiny 2 cheat pricing: $35 monthly or $150 lifetime, plus Cloud DMA and separately required services before checkout.',
   },
   '/fragpunk-cheats-price/': {
-    title: 'FragPunk Cheats Price | Monthly vs Lifetime',
+    title: 'Destiny 2 Cheats Price | Monthly vs Lifetime',
     description:
-      'Compare the $35 monthly and $150 lifetime FragPunk plans, plus Cloud DMA and its separately required services. Check the full setup cost.',
+      'Compare Destiny 2 cheat pricing: $35 monthly or $150 lifetime, plus Cloud DMA and separately required services before checkout.',
   },
   '/cloud-dma/': {
-    title: 'Cloud DMA for FragPunk | $50 Lifetime',
+    title: 'Cloud DMA for Destiny 2 | $50 Lifetime',
     description:
-      'See how Cloud DMA fits the FragPunk setup, what its $50 lifetime license covers, and which separate services are required before checkout.',
+      'See how Cloud DMA supports Destiny 2 cheats, what the $50 lifetime license covers, and which separate services are required.',
   },
   '/cloud-dma-requirements/': {
     title: 'Cloud DMA Requirements for Windows 10/11',
     description:
-      'Check Windows, Hyper-V, CPU virtualization, RAM and network requirements before buying Cloud DMA. Review the separately required services.',
+      'Check Windows, Hyper-V, CPU virtualization, RAM, and network requirements before buying Cloud DMA for Destiny 2.',
   },
   '/support/': {
-    title: 'FragPunk Cheats Support | fragpunk-cheats.com',
+    title: 'Destiny 2 Cheats Support | destiny-cheats.com',
     description:
-      'Get help with FragPunk cheat checkout questions, Cloud DMA setup notes, and where to open a merchant support ticket.',
+      'Get help with Destiny 2 cheat checkout questions, Cloud DMA setup notes, and where to open a merchant support ticket.',
   },
   '/about/': {
-    title: 'About FragPunk Cheats | fragpunk-cheats.com',
+    title: 'About Destiny 2 Cheats | destiny-cheats.com',
     description:
-      'fragpunk-cheats.com explains FragPunk cheats for PC, listed features, pricing, and Cloud DMA requirements from the live product listing.',
+      'destiny-cheats.com explains Destiny 2 cheats for PC, listed features, pricing, and Cloud DMA requirements from the live listing.',
   },
   '/terms/': {
-    title: 'Terms of Use for FragPunk Cheat Guides',
+    title: 'Terms of Use for Destiny 2 Cheat Guides',
     description:
-      'Terms for using fragpunk-cheats.com guides and checkout links. Refunds and licenses follow the merchant terms shown when you pay.',
+      'Terms for using destiny-cheats.com guides and checkout links. Refunds and licenses follow the merchant terms shown at payment.',
   },
   '/privacy/': {
-    title: 'Privacy Policy for FragPunk Cheat Site',
+    title: 'Privacy Policy for Destiny 2 Cheat Site',
     description:
-      'How cookies and analytics may be used on fragpunk-cheats.com, and how to ask a question about your data.',
+      'How cookies and analytics may be used on destiny-cheats.com, and how to ask a question about your data.',
   },
   '/faq/': {
-    title: 'FragPunk Cheats FAQ | fragpunk-cheats.com',
+    title: 'Destiny 2 Cheats FAQ | destiny-cheats.com',
     description:
-      'Answers about FragPunk cheat plans, soft aim and ESP modules, Cloud DMA requirements, and what to verify before checkout.',
+      'Answers about Destiny 2 cheat plans, aimbot and ESP modules, Cloud DMA requirements, and what to verify before checkout.',
   },
 };
 

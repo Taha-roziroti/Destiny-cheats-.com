@@ -5,7 +5,7 @@ import { checkoutPath } from '../config/checkout';
 /** Marker in authored markdown; replaced at render with the page product checkout path. */
 export const AFFILIATE_LINK_PLACEHOLDER = 'AFFILIATE_LINK_PLACEHOLDER';
 
-type AffiliateProduct = 'fragpunk' | 'cloud-dma' | 'hwid-spoofer';
+type AffiliateProduct = 'destiny' | 'cloud-dma' | 'hwid-spoofer';
 
 function affiliateProductForSlug(slug: string): AffiliateProduct {
   const normalized = slug.trim() || '/';
@@ -13,7 +13,7 @@ function affiliateProductForSlug(slug: string): AffiliateProduct {
     return 'cloud-dma';
   }
   if (normalized.includes('hwid')) return 'hwid-spoofer';
-  return 'fragpunk';
+  return 'destiny';
 }
 
 /** Resolve in-article CTAs to the matching /go/ hop (seamless 302 to Zadeyo). */
@@ -21,12 +21,16 @@ export function resolveAffiliateHrefForSlug(slug: string): string {
   return checkoutPath(affiliateProductForSlug(slug));
 }
 
-/** Absolute merchant URL for visible external links (SEO + outbound). */
+/** Prefer same-tab /go/ hop for seamless checkout; keep absolute URL helpers for schema. */
 export function resolveExternalAffiliateHrefForSlug(slug: string): string {
+  return resolveAffiliateHrefForSlug(slug);
+}
+
+export function resolveMerchantAffiliateHrefForSlug(slug: string): string {
   const product = affiliateProductForSlug(slug);
   if (product === 'cloud-dma') return affiliateLinks.cloudDMA;
   if (product === 'hwid-spoofer') return affiliateLinks.hwidSpoofer;
-  return affiliateLinks.fragpunk;
+  return affiliateLinks.destiny;
 }
 
 marked.setOptions({
@@ -42,8 +46,8 @@ renderer.link = ({ href, title, text }: Tokens.Link): string => {
   let rel = '';
   let target = '';
   if (isAffiliate) {
+    // Same-tab /go/ hop — seamless 302, no new tab flash.
     rel = ` rel="${AFFILIATE_REL}"`;
-    target = ' target="_blank"';
   } else if (isExternal) {
     rel = ' rel="noopener noreferrer"';
     target = ' target="_blank"';

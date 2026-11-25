@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://fragpunk-cheats.com/sitemap.xml
+Sitemap: https://destiny-cheats.com/sitemap.xml

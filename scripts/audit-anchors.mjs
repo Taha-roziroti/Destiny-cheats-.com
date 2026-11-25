@@ -2,7 +2,7 @@ import fs from 'fs';
 
 const pages = [
   'dist/index.html',
-  'dist/fragpunk-cheats-price/index.html',
+  'dist/destiny-cheats-price/index.html',
   'dist/cloud-dma/index.html',
   'dist/cloud-dma-requirements/index.html',
 ];
@@ -10,6 +10,10 @@ const pages = [
 const contentAnchors = [];
 
 for (const p of pages) {
+  if (!fs.existsSync(p)) {
+    console.error(`missing ${p}`);
+    process.exit(1);
+  }
   const h = fs.readFileSync(p, 'utf8');
   const title = (h.match(/<title>([^<]+)<\/title>/) || [])[1];
   const h1 = (h.match(/id="exact-hero-title"[^>]*>([\s\S]*?)<\/h1>/) || [])[1]
@@ -20,7 +24,6 @@ for (const p of pages) {
   if (h.includes('bodycam-cheat')) console.log('  BAD bodycam domain');
   if (!h.includes('alt=')) console.log('  missing alts?');
 
-  // Content links only: inside exact-copy / prose
   const bodies = [...h.matchAll(/class="[^"]*exact-copy[^"]*"[^>]*>([\s\S]*?)<\/(?:div|section)>/g)];
   for (const body of bodies) {
     for (const m of body[1].matchAll(/<a[^>]+href="(\/[^"]+)"[^>]*>([\s\S]*?)<\/a>/g)) {
@@ -39,11 +42,18 @@ for (const a of contentAnchors) {
 const byText = new Map();
 for (const a of contentAnchors) {
   const key = a.text.toLowerCase();
-  byText.set(key, (byText.get(key) || 0) + 1);
+  if (!byText.has(key)) byText.set(key, []);
+  byText.get(key).push(a);
 }
-const dups = [...byText.entries()].filter(([, n]) => n > 1);
-console.log('\nDuplicate content anchors:', dups.length ? dups : 'none');
 
-console.log('\nSitemap URLs:');
-const sm = fs.readFileSync('dist/sitemap.xml', 'utf8');
-for (const m of sm.matchAll(/<loc>([^<]+)<\/loc>/g)) console.log(' ', m[1]);
+const dups = [...byText.entries()].filter(([, list]) => list.length > 1);
+if (dups.length) {
+  console.error('\nDuplicate content anchors:');
+  for (const [text, list] of dups) {
+    console.error(`  "${text}" x${list.length}`);
+    for (const a of list) console.error(`    ${a.page} -> ${a.href}`);
+  }
+  process.exit(1);
+}
+
+console.log('\naudit-anchors: OK (unique content anchors)');

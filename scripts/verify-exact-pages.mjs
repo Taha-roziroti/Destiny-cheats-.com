@@ -4,22 +4,22 @@ const pages = [
   {
     file: 'index.html',
     url: '/',
-    title: 'FragPunk Cheats for PC | Soft Aim & ESP',
-    h1: 'FragPunk Cheats for PC',
+    title: 'Destiny 2 Cheats for PC | Aimbot & ESP',
+    h1: 'Destiny 2 Cheats for PC',
     affiliateMin: 1,
   },
   {
-    file: 'fragpunk-cheats-price/index.html',
-    url: '/fragpunk-cheats-price/',
-    title: 'FragPunk Cheats Price | Monthly vs Lifetime',
-    h1: 'FragPunk Cheats Price: Monthly vs Lifetime',
+    file: 'destiny-cheats-price/index.html',
+    url: '/destiny-cheats-price/',
+    title: 'Destiny 2 Cheats Price | Monthly vs Lifetime',
+    h1: 'Destiny 2 Cheats Price: Monthly vs Lifetime',
     affiliateMin: 1,
   },
   {
     file: 'cloud-dma/index.html',
     url: '/cloud-dma/',
-    title: 'Cloud DMA for FragPunk | $50 Lifetime',
-    h1: 'Cloud DMA for FragPunk',
+    title: 'Cloud DMA for Destiny 2 | $50 Lifetime',
+    h1: 'Cloud DMA for Destiny 2',
     affiliateMin: 1,
   },
   {
@@ -41,7 +41,6 @@ for (const page of pages) {
   }
   const html = fs.readFileSync(htmlPath, 'utf8');
   if (!html.includes(`<title>${page.title}</title>`) && !html.includes(`<title>${page.title.replace(/&/g, '&amp;')}</title>`)) {
-    // Titles may HTML-escape &
     const escaped = page.title.replace(/&/g, '&amp;');
     if (!html.includes(`<title>${escaped}</title>`)) {
       fails.push(`${page.url} title mismatch`);
@@ -55,10 +54,10 @@ for (const page of pages) {
 }
 
 const requiredLinks = {
-  'index.html': ['/fragpunk-cheats-price/', '/cloud-dma/', '/cloud-dma-requirements/'],
-  'fragpunk-cheats-price/index.html': ['/cloud-dma/', '/cloud-dma-requirements/'],
-  'cloud-dma/index.html': ['/', '/fragpunk-cheats-price/', '/cloud-dma-requirements/'],
-  'cloud-dma-requirements/index.html': ['/', '/fragpunk-cheats-price/', '/cloud-dma/'],
+  'index.html': ['/destiny-cheats-price/', '/cloud-dma/', '/cloud-dma-requirements/'],
+  'destiny-cheats-price/index.html': ['/cloud-dma/', '/cloud-dma-requirements/'],
+  'cloud-dma/index.html': ['/', '/destiny-cheats-price/', '/cloud-dma-requirements/'],
+  'cloud-dma-requirements/index.html': ['/', '/destiny-cheats-price/', '/cloud-dma/'],
 };
 
 for (const [file, links] of Object.entries(requiredLinks)) {

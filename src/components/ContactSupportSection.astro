@@ -50,21 +50,37 @@ const c = t.support;
                 <p class="text-sm leading-relaxed text-muted-foreground">{channel.desc}</p>
               </CardContent>
               <CardFooter>
-                <Button
-                  as="a"
-                  href={channel.href}
-                  {...(channel.href.startsWith('http')
-                    ? { rel: 'noopener noreferrer', 'aria-label': channel.channelAriaLabel ?? channel.linkLabel }
-                    : isAffiliateHref(channel.href)
-                      ? { rel: 'nofollow noopener' }
-                      : {})}
-                  variant="outline"
-                  size="sm"
-                  class="w-full"
-                >
-                  {channel.linkLabel}
-                  <Icon name="arrowRight" size={17} />
-                </Button>
+                {channel.linkLabel === 'Open product chooser' ? (
+                  <Button
+                    as="button"
+                    type="button"
+                    data-checkout-choose
+                    data-plan="chooser"
+                    aria-label={channel.channelAriaLabel ?? channel.linkLabel}
+                    variant="outline"
+                    size="sm"
+                    class="w-full"
+                  >
+                    {channel.linkLabel}
+                    <Icon name="arrowRight" size={17} />
+                  </Button>
+                ) : (
+                  <Button
+                    as="a"
+                    href={channel.href}
+                    {...(channel.href.startsWith('http')
+                      ? { rel: 'noopener noreferrer', 'aria-label': channel.channelAriaLabel ?? channel.linkLabel }
+                      : isAffiliateHref(channel.href)
+                        ? { rel: 'nofollow noopener' }
+                        : {})}
+                    variant="outline"
+                    size="sm"
+                    class="w-full"
+                  >
+                    {channel.linkLabel}
+                    <Icon name="arrowRight" size={17} />
+                  </Button>
+                )}
               </CardFooter>
             </Card>
           </li>

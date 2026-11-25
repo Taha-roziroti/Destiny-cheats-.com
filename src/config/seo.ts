@@ -2,6 +2,7 @@ import type { ProductPage } from '../data/products';
 import { t } from '../i18n';
 import { SITE_DOMAIN, SITE_URL } from './site';
 import { getPageSeoEntry, type PageSeoEntry } from './pageSeo';
+import { SEO_MEDIA } from './media';
 
 function normalizeOrigin(url: string): string {
   return url.replace(/\/$/, '');
@@ -22,8 +23,8 @@ export const SITE_HOSTNAME = (() => {
   }
 })();
 
-/** Default social preview — FragPunk hero art. */
-export const DEFAULT_OG_IMAGE = '/images/fragpunk/hero-art-1200.webp';
+/** Default social preview — Destiny 2 hero key art. */
+export const DEFAULT_OG_IMAGE = SEO_MEDIA.heroPoster;
 
 export const GA_MEASUREMENT_ID = import.meta.env.PUBLIC_GA_MEASUREMENT_ID as string | undefined;
 
@@ -95,18 +96,18 @@ export function pageTitle(keyword: string, suffixSite = t.site.domain): string {
 /** Product detail `<title>` — authored strings per slug (legacy routes redirect). */
 export function productPageTitle(product: Pick<ProductPage, 'title' | 'kind' | 'slug'>): string {
   if (product.slug === 'modules') {
-    return 'FragPunk Cheats Features | fragpunk-cheats.com';
+    return 'Destiny 2 Cheats Features | destiny-cheats.com';
   }
   if (product.slug === 'cloud-dma') {
-    return 'Cloud DMA for FragPunk | fragpunk-cheats.com';
+    return 'Cloud DMA for Destiny 2 | destiny-cheats.com';
   }
   if (product.slug === 'hwid-spoofer') {
-    return 'HWID Spoofer Notes | fragpunk-cheats.com';
+    return 'HWID Spoofer Notes | destiny-cheats.com';
   }
   if (product.slug === 'appeals') {
-    return 'Buyer Support Notes | fragpunk-cheats.com';
+    return 'Buyer Support Notes | destiny-cheats.com';
   }
-  const phrase = `${product.title} | fragpunk-cheats.com`;
+  const phrase = `${product.title} | destiny-cheats.com`;
   return phrase.length >= 50 && phrase.length <= 60 ? phrase : phrase.slice(0, 60);
 }
 

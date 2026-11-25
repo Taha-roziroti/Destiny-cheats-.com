@@ -1,9 +1,6 @@
 /** Checkout hop attributes for affiliate destinations. */
 export const AFFILIATE_REL = 'nofollow noopener';
 
-export const AFFILIATE_DISCLOSURE_SHORT = '';
-export const AFFILIATE_DISCLOSURE_LONG = '';
-
 import { affiliateLinks as links } from './affiliate-links.mjs';
 
 /** Mandatory affiliate destinations. */

@@ -1,8 +1,5 @@
 ---
 import { t } from '../i18n';
-import { PRODUCT_BASE } from '../config/site';
-import { PRIMARY_CHECKOUT_PATH } from '../config/checkout';
-import { AFFILIATE_REL } from '../config/affiliate';
 import BuyNowButton from './BuyNowButton.astro';
 import { compatibilityIcons, heroStatIcons, heroStatusPills } from '../data/sectionIcons';
 import HeroVideoPlayer from './HeroVideoPlayer.astro';
@@ -43,26 +40,26 @@ const heroMarqueePills = [
           {h.subtitle}
         </p>
         <p class="max-w-xl text-sm leading-relaxed">
-          <a class="text-primary underline-offset-4 hover:underline" href="/fragpunk-cheats-price/">license plans</a>
+          <a class="text-primary underline-offset-4 hover:underline" href="/destiny-cheats-price/">license plans</a>
           <span aria-hidden="true"> · </span>
           <a class="text-primary underline-offset-4 hover:underline" href="/cloud-dma/">Cloud DMA overview</a>
         </p>
 
         <div class="hero-cta-row">
           <BuyNowButton
-            href={PRODUCT_BASE}
+            href="/destiny-cheats-price/"
             label={h.ctaPrimary}
             size="lg"
             class="shrink-0"
-            aria-label="Browse product catalog"
+            aria-label="Browse Destiny 2 pricing"
           />
           <BuyNowButton
-            href={PRIMARY_CHECKOUT_PATH}
-            rel={AFFILIATE_REL}
-            data-plan="call-of-duty"
+            choose
+            data-plan="chooser"
             label={h.ctaDiscord}
             size="lg"
             class="shrink-0"
+            aria-label="Choose a Destiny 2 product to buy"
           />
         </div>
       </div>

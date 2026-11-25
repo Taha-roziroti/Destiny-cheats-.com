@@ -29,6 +29,8 @@ export const LEGACY_PATH_MAP: Record<string, string> = {
   '/products/dota-2-cheats/utilities/': `${PRODUCT_BASE}utilities/`,
   '/contact': '/support/',
   '/contact/': '/support/',
+  '/fragpunk-cheats-price': '/destiny-cheats-price/',
+  '/fragpunk-cheats-price/': '/destiny-cheats-price/',
 };
 
 export function normalizeInternalPath(href: string): string {
@@ -51,7 +53,7 @@ export const ROUTES = {
   buyingGuide: '/',
   aimbot: '/',
   esp: '/',
-  pricing: '/fragpunk-cheats-price/',
+  pricing: '/destiny-cheats-price/',
   cloudDma: '/cloud-dma/',
   cloudDmaRequirements: '/cloud-dma-requirements/',
   blog: '/',
@@ -60,7 +62,7 @@ export const ROUTES = {
   forum: '/',
   products: '/',
   productsStorefront: '/',
-  productsUtilities: '/fragpunk-cheats-price/',
+  productsUtilities: '/destiny-cheats-price/',
   faq: '/faq/',
   terms: '/terms/',
   about: '/about/',

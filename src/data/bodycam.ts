@@ -1,12 +1,12 @@
 /**
- * FragPunk product facts sourced from the Zadeyo FragPunk listing and Cloud DMA page.
+ * Destiny 2 product facts sourced from the Zadeyo Destiny 2 listing and Cloud DMA page.
  * Do not invent features, prices, or detection claims beyond these references.
- * Product: https://zadeyo.com/products/fragpunk-novaxware-cheats
+ * Product: https://zadeyo.com/products/destiny-2-cheats
  * Cloud DMA: https://zadeyo.com/products/cloud-dma
  */
 
-export const BODYCAM_PRODUCT_NAME = 'FragPunk Cheats';
-export const BODYCAM_BRAND = 'FragPunk Cheats';
+export const BODYCAM_PRODUCT_NAME = 'Destiny 2 Cheats';
+export const BODYCAM_BRAND = 'Destiny 2 Cheats';
 
 /** Last date these listed prices were verified against the merchant listing. */
 export const PRICES_LAST_VERIFIED = '2026-11-25';
@@ -95,7 +95,7 @@ export const BODYCAM_FEATURE_GROUPS = {
 } as const;
 
 export const BODYCAM_OVERVIEW_MODULES = [
-  'Soft aim',
+  'Aimbot',
   'Player ESP',
   'Radar',
   'No recoil / no spread',
@@ -140,7 +140,7 @@ export const CLOUD_DMA_REQUIREMENTS = {
 
 export const BODYCAM_ROUTES = {
   home: '/',
-  pricing: '/fragpunk-cheats-price/',
+  pricing: '/destiny-cheats-price/',
   cloudDma: '/cloud-dma/',
   cloudDmaRequirements: '/cloud-dma-requirements/',
 } as const;
@@ -149,4 +149,4 @@ export const PRICE_VERIFY_NOTE =
   'Displayed prices should be verified against the live checkout before purchase. Currency, taxes, and plan availability can change on the store.';
 
 export const RISK_DISCLAIMER =
-  'Third-party software can violate FragPunk and platform rules. Account penalties are possible. This site explains listed features and checkout options; it does not promise safety, stealth, detection status, or uninterrupted access after game updates.';
+  'Third-party software can violate Destiny 2 and platform rules. Account penalties are possible. This site explains listed features and checkout options; it does not promise safety, stealth, detection status, or uninterrupted access after game updates.';

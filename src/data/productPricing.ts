@@ -1,5 +1,5 @@
 /**
- * Listed FragPunk plan prices from the Zadeyo product duration picker.
+ * Listed Destiny 2 plan prices from the Zadeyo product duration picker.
  * Always remind users to verify live checkout totals.
  */
 import { checkoutPath } from '../config/checkout';
@@ -17,7 +17,7 @@ export interface ProductPlan {
   buyUrl: string;
 }
 
-const fragpunkCheckout = checkoutPath('fragpunk');
+const destinyCheckout = checkoutPath('destiny');
 const cloudCheckout = checkoutPath('cloud-dma');
 
 const standardPlans: ProductPlan[] = BODYCAM_PLANS.map((plan) => ({
@@ -27,7 +27,7 @@ const standardPlans: ProductPlan[] = BODYCAM_PLANS.map((plan) => ({
   price: plan.price,
   priceCurrency: plan.currency,
   priceNote: `${plan.priceDisplay} — ${plan.duration}. Verify at checkout.`,
-  buyUrl: `${fragpunkCheckout}?plan=${plan.id}`,
+  buyUrl: `${destinyCheckout}?plan=${plan.id}`,
 }));
 
 const cloudPlans: ProductPlan[] = [
@@ -37,7 +37,7 @@ const cloudPlans: ProductPlan[] = [
     billing: 'lifetime',
     price: CLOUD_DMA_PLAN.price,
     priceCurrency: CLOUD_DMA_PLAN.currency,
-    priceNote: `${CLOUD_DMA_PLAN.priceDisplay} — ${CLOUD_DMA_PLAN.duration}. Separate from FragPunk cheat plans.`,
+    priceNote: `${CLOUD_DMA_PLAN.priceDisplay} — ${CLOUD_DMA_PLAN.duration}. Separate from Destiny 2 cheat plans.`,
     buyUrl: cloudCheckout,
   },
 ];
@@ -58,7 +58,7 @@ export function getBodycamOffersForSchema(offerPagePath = '/') {
 
 export function getFragPunkOffersForSchema(offerPagePath = '/') {
   return BODYCAM_PLANS.map((plan) => ({
-    name: `${plan.label} FragPunk Cheats`,
+    name: `${plan.label} Destiny 2 Cheats`,
     url: offerPagePath,
     price: plan.price,
     priceCurrency: plan.currency,
