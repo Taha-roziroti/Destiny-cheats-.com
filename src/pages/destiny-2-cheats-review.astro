@@ -1,0 +1,51 @@
+---
+import ExactContentPage from '../components/ExactContentPage.astro';
+import raw from '../../content/pages/destiny-2-cheats-review.md?raw';
+import { DESTINY_PRODUCT_IMAGES, SEO_MEDIA } from '../config/media';
+import { articleSchema, breadcrumbSchema } from '../utils/schema';
+import { parseExactArticle, parseExactFrontmatter } from '../lib/exactPageContent';
+
+const path = '/destiny-2-cheats-review/';
+const fm = parseExactFrontmatter(raw);
+const article = parseExactArticle(raw);
+const published = '2026-11-25';
+const crumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Review', path },
+];
+---
+
+<ExactContentPage
+  raw={raw}
+  ogType="article"
+  articlePublishedTime={published}
+  crumbs={crumbs}
+  ogImage={SEO_MEDIA.heroPoster}
+  columns={2}
+  chooseCheckout={true}
+  secondaryCta={{ href: '/destiny-2-cheats-price/', label: 'Open price table' }}
+  buyLabel="Buy now"
+  buyAriaLabel="Choose a Destiny 2 product to buy"
+  shots={[
+    {
+      src: DESTINY_PRODUCT_IMAGES.menuVisuals.src,
+      alt: 'Destiny 2 cheats product feature demonstration',
+    },
+    {
+      src: DESTINY_PRODUCT_IMAGES.gameplayAimbot.src,
+      alt: 'Destiny 2 ESP and aimbot interface',
+    },
+  ]}
+  jsonLd={[
+    articleSchema({
+      name: fm.title,
+      headline: article.h1 || fm.title,
+      description: fm.description,
+      url: path,
+      image: SEO_MEDIA.heroPoster,
+      datePublished: published,
+      type: 'Article',
+    }),
+    breadcrumbSchema(crumbs),
+  ]}
+/>

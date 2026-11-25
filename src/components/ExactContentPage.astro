@@ -66,13 +66,15 @@ const article = parseExactArticle(raw);
 const shareUrl = canonicalUrl(pageSlug.endsWith('/') || pageSlug === '/' ? pageSlug : `${pageSlug}/`);
 const resolvedSecondary =
   secondaryCta ??
-  (fm.slug.includes('cloud-dma-requirements')
-    ? { href: '/cloud-dma/', label: 'Cloud DMA overview' }
+  (fm.slug.includes('system-requirements') || fm.slug.includes('cloud-dma-requirements')
+    ? { href: '/cloud-dma-for-destiny-2/', label: 'Cloud DMA system requirements' }
     : fm.slug.includes('cloud-dma')
-      ? { href: '/cloud-dma-requirements/', label: 'System requirements' }
-      : fm.slug.includes('destiny-cheats-price') || fm.slug.includes('fragpunk-cheats-price')
-        ? { href: '/cloud-dma/', label: 'Cloud DMA details' }
-        : { href: '/destiny-cheats-price/', label: 'See pricing' });
+      ? { href: '/destiny-2-cheat-system-requirements/', label: 'Windows and hardware requirements' }
+      : fm.slug.includes('destiny-2-cheats-price') ||
+          fm.slug.includes('destiny-cheats-price') ||
+          fm.slug.includes('fragpunk-cheats-price')
+        ? { href: '/cloud-dma-for-destiny-2/', label: 'Cloud DMA pricing and requirements' }
+        : { href: '/destiny-2-cheats-price/', label: 'Destiny 2 cheats pricing' });
 const resolvedBuyAria =
   buyAriaLabel ??
   (checkoutPlan === 'cloud-dma'

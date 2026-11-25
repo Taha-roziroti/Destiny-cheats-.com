@@ -140,9 +140,9 @@ export const CLOUD_DMA_REQUIREMENTS = {
 
 export const BODYCAM_ROUTES = {
   home: '/',
-  pricing: '/destiny-cheats-price/',
-  cloudDma: '/cloud-dma/',
-  cloudDmaRequirements: '/cloud-dma-requirements/',
+  pricing: '/destiny-2-cheats-price/',
+  cloudDma: '/cloud-dma-for-destiny-2/',
+  cloudDmaRequirements: '/destiny-2-cheat-system-requirements/',
 } as const;
 
 export const PRICE_VERIFY_NOTE =

@@ -9,9 +9,9 @@ export const en: Translations = {
   site: {
     name: 'Destiny 2 Cheats',
     domain: 'destiny-cheats.com',
-    title: 'Destiny 2 Cheats for PC | Aimbot & ESP',
+    title: 'Destiny 2 Cheats for PC | Aimbot, ESP & Wallhack',
     description:
-      'Explore Destiny 2 cheats for PC with aimbot, player ESP, radar, and misc options. Compare plans and review Cloud DMA setup before buying.',
+      'Explore Destiny 2 cheats for PC, including aimbot, ESP, wallhack and radar. Compare plans, review requirements and see what\'s included.',
     brandMarkAlt: 'Destiny 2 Cheats',
   },
   forum: {
@@ -21,11 +21,11 @@ export const en: Translations = {
     viewAll: 'Browse all forums',
   },
   nav: [
-    { href: '/destiny-cheats-price/', label: 'Pricing' },
-    { href: '/cloud-dma/', label: 'Cloud DMA' },
-    { href: '/cloud-dma-requirements/', label: 'Requirements' },
-    { href: '/faq/', label: 'FAQ' },
-    { href: '/support/', label: 'Support' },
+    { href: '/destiny-2-cheats-price/', label: 'Pricing' },
+    { href: '/cloud-dma-for-destiny-2/', label: 'Cloud DMA' },
+    { href: '/destiny-2-cheat-system-requirements/', label: 'Requirements' },
+    { href: '/destiny-2-cheat-setup/', label: 'Setup' },
+    { href: '/destiny-2-cheats-review/', label: 'Review' },
   ],
   reviews: {
     eyebrow: 'Reviews',
@@ -586,10 +586,10 @@ export const en: Translations = {
     explore: 'Explore',
     exploreLinks: [
       { href: '/', label: 'Feature overview', ariaLabel: 'Destiny 2 feature overview' },
-      { href: '/destiny-cheats-price/', label: 'License plans', ariaLabel: 'Destiny 2 license plans' },
-      { href: '/cloud-dma/', label: 'DMA product', ariaLabel: 'Cloud DMA product page' },
-      { href: '/cloud-dma-requirements/', label: 'System checklist', ariaLabel: 'Cloud DMA system checklist' },
-      { href: '/faq/', label: 'Buyer answers', ariaLabel: 'Buyer FAQ answers' },
+      { href: '/destiny-2-cheats-price/', label: 'License plans', ariaLabel: 'Destiny 2 license plans' },
+      { href: '/cloud-dma-for-destiny-2/', label: 'DMA product', ariaLabel: 'Cloud DMA product page' },
+      { href: '/destiny-2-cheat-system-requirements/', label: 'System checklist', ariaLabel: 'System requirements checklist' },
+      { href: '/destiny-2-cheat-ban-policy/', label: 'Ban policy notes', ariaLabel: 'Destiny 2 ban policy notes' },
     ],
     support: 'Support',
     legal: 'Legal',

@@ -1,0 +1,66 @@
+---
+import ExactContentPage from '../components/ExactContentPage.astro';
+import raw from '../../content/pages/destiny-2-cheats-price.md?raw';
+import { DESTINY_PRODUCT_IMAGES, SEO_MEDIA } from '../config/media';
+import { getFragPunkOffersForSchema } from '../data/productPricing';
+import { breadcrumbSchema, faqPageSchema, productSchema } from '../utils/schema';
+import { parseExactFrontmatter } from '../lib/exactPageContent';
+
+const path = '/destiny-2-cheats-price/';
+const fm = parseExactFrontmatter(raw);
+const crumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Pricing', path },
+];
+const faqs = [
+  {
+    num: '01',
+    q: 'Are monthly and lifetime features different?',
+    a: 'No. The listing describes the same feature set; duration is the difference.',
+  },
+  {
+    num: '02',
+    q: 'Does the Destiny 2 price include Cloud DMA?',
+    a: 'No. Cloud DMA and its services are separate purchases.',
+  },
+  {
+    num: '03',
+    q: 'Where do I pay?',
+    a: 'Checkout opens from Buy now on this site and continues on the merchant listing. Verify the cart before you confirm.',
+  },
+];
+---
+
+<ExactContentPage
+  raw={raw}
+  crumbs={crumbs}
+  ogImage={SEO_MEDIA.heroPoster}
+  columns={2}
+  chooseCheckout={true}
+  secondaryCta={{ href: '/cloud-dma-for-destiny-2/', label: 'Open Cloud DMA page' }}
+  buyLabel="Buy now"
+  buyAriaLabel="Choose a Destiny 2 product to buy"
+  shots={[
+    {
+      src: DESTINY_PRODUCT_IMAGES.gameplayAimbot.src,
+      alt: 'Destiny 2 cheats monthly and lifetime pricing comparison',
+    },
+    {
+      src: DESTINY_PRODUCT_IMAGES.menuWorld.src,
+      alt: 'Destiny 2 product subscription options',
+    },
+  ]}
+  jsonLd={[
+    productSchema({
+      name: 'Destiny 2 Cheats Plans',
+      description: fm.description,
+      url: path,
+      offerPagePath: path,
+      image: SEO_MEDIA.heroPoster,
+      sku: 'destiny-2-cheats-plans',
+      offers: getFragPunkOffersForSchema(path),
+    }),
+    faqPageSchema(faqs),
+    breadcrumbSchema(crumbs),
+  ]}
+/>

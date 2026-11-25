@@ -4,29 +4,50 @@ const pages = [
   {
     file: 'index.html',
     url: '/',
-    title: 'Destiny 2 Cheats for PC | Aimbot & ESP',
+    title: 'Destiny 2 Cheats for PC | Aimbot, ESP &amp; Wallhack',
     h1: 'Destiny 2 Cheats for PC',
     affiliateMin: 1,
   },
   {
-    file: 'destiny-cheats-price/index.html',
-    url: '/destiny-cheats-price/',
-    title: 'Destiny 2 Cheats Price | Monthly vs Lifetime',
-    h1: 'Destiny 2 Cheats Price: Monthly vs Lifetime',
+    file: 'destiny-2-cheats-price/index.html',
+    url: '/destiny-2-cheats-price/',
+    title: 'Destiny 2 Cheats Price | Monthly vs. Lifetime',
+    h1: 'Destiny 2 Cheats Price: Monthly and Lifetime Plans',
     affiliateMin: 1,
   },
   {
-    file: 'cloud-dma/index.html',
-    url: '/cloud-dma/',
-    title: 'Cloud DMA for Destiny 2 | $50 Lifetime',
-    h1: 'Cloud DMA for Destiny 2',
+    file: 'cloud-dma-for-destiny-2/index.html',
+    url: '/cloud-dma-for-destiny-2/',
+    title: 'Cloud DMA for Destiny 2 | Price &amp; Requirements',
+    h1: 'Cloud DMA for Destiny 2: Product Details',
     affiliateMin: 1,
   },
   {
-    file: 'cloud-dma-requirements/index.html',
-    url: '/cloud-dma-requirements/',
-    title: 'Cloud DMA Requirements for Windows 10/11',
-    h1: 'Cloud DMA Requirements for Windows 10/11',
+    file: 'destiny-2-cheat-system-requirements/index.html',
+    url: '/destiny-2-cheat-system-requirements/',
+    title: 'Destiny 2 Cheat System Requirements for PC',
+    h1: 'Destiny 2 Cheat System Requirements for PC',
+    affiliateMin: 0,
+  },
+  {
+    file: 'destiny-2-cheat-setup/index.html',
+    url: '/destiny-2-cheat-setup/',
+    title: 'Destiny 2 Cheats Setup Guide for PC',
+    h1: 'Destiny 2 Cheats Setup Guide',
+    affiliateMin: 1,
+  },
+  {
+    file: 'destiny-2-cheats-review/index.html',
+    url: '/destiny-2-cheats-review/',
+    title: 'Destiny 2 Cheats Review | Features &amp; Pricing',
+    h1: 'Destiny 2 Cheats Review: Features, Pricing and Limitations',
+    affiliateMin: 0,
+  },
+  {
+    file: 'destiny-2-cheat-ban-policy/index.html',
+    url: '/destiny-2-cheat-ban-policy/',
+    title: 'Can Destiny 2 Cheats Get You Banned? | Policy',
+    h1: 'Can Destiny 2 Cheats Get You Banned?',
     affiliateMin: 0,
   },
 ];
@@ -40,12 +61,10 @@ for (const page of pages) {
     continue;
   }
   const html = fs.readFileSync(htmlPath, 'utf8');
-  if (!html.includes(`<title>${page.title}</title>`) && !html.includes(`<title>${page.title.replace(/&/g, '&amp;')}</title>`)) {
-    const escaped = page.title.replace(/&/g, '&amp;');
-    if (!html.includes(`<title>${escaped}</title>`)) {
-      fails.push(`${page.url} title mismatch`);
-    }
-  }
+  const titleOk =
+    html.includes(`<title>${page.title}</title>`) ||
+    html.includes(`<title>${page.title.replace(/&amp;/g, '&')}</title>`);
+  if (!titleOk) fails.push(`${page.url} title mismatch`);
   if (!html.includes(page.h1)) fails.push(`${page.url} missing H1 text`);
   const goCount = (html.match(/\/go\//g) || []).length;
   if (goCount < page.affiliateMin) fails.push(`${page.url} affiliate hops ${goCount} < ${page.affiliateMin}`);
@@ -54,13 +73,21 @@ for (const page of pages) {
 }
 
 const requiredLinks = {
-  'index.html': ['/destiny-cheats-price/', '/cloud-dma/', '/cloud-dma-requirements/'],
-  'destiny-cheats-price/index.html': ['/cloud-dma/', '/cloud-dma-requirements/'],
-  'cloud-dma/index.html': ['/', '/destiny-cheats-price/', '/cloud-dma-requirements/'],
-  'cloud-dma-requirements/index.html': ['/', '/destiny-cheats-price/', '/cloud-dma/'],
+  'index.html': ['/destiny-2-cheats-price/', '/cloud-dma-for-destiny-2/', '/destiny-2-cheat-system-requirements/'],
+  'destiny-2-cheats-price/index.html': ['/', '/cloud-dma-for-destiny-2/', '/destiny-2-cheat-system-requirements/'],
+  'cloud-dma-for-destiny-2/index.html': ['/', '/destiny-2-cheats-price/', '/destiny-2-cheat-system-requirements/'],
+  'destiny-2-cheat-system-requirements/index.html': [
+    '/cloud-dma-for-destiny-2/',
+    '/destiny-2-cheat-setup/',
+    '/destiny-2-cheats-price/',
+  ],
+  'destiny-2-cheat-setup/index.html': ['/', '/destiny-2-cheat-system-requirements/', '/cloud-dma-for-destiny-2/'],
+  'destiny-2-cheats-review/index.html': ['/', '/destiny-2-cheats-price/', '/destiny-2-cheat-system-requirements/'],
+  'destiny-2-cheat-ban-policy/index.html': ['/', '/destiny-2-cheats-review/', '/destiny-2-cheat-system-requirements/'],
 };
 
 for (const [file, links] of Object.entries(requiredLinks)) {
+  if (!fs.existsSync(`dist/${file}`)) continue;
   const html = fs.readFileSync(`dist/${file}`, 'utf8');
   for (const href of links) {
     if (!html.includes(`href="${href}"`)) fails.push(`${file} missing internal link ${href}`);

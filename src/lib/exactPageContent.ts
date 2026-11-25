@@ -9,8 +9,10 @@ type AffiliateProduct = 'destiny' | 'cloud-dma' | 'hwid-spoofer';
 
 function affiliateProductForSlug(slug: string): AffiliateProduct {
   const normalized = slug.trim() || '/';
-  // Cloud DMA overview + requirements both check out to the Cloud DMA listing.
-  if (normalized.includes('cloud-dma')) return 'cloud-dma';
+  // Cloud DMA product + system-requirements pages check out to Cloud DMA.
+  if (normalized.includes('cloud-dma') || normalized.includes('system-requirements')) {
+    return 'cloud-dma';
+  }
   if (normalized.includes('hwid')) return 'hwid-spoofer';
   return 'destiny';
 }

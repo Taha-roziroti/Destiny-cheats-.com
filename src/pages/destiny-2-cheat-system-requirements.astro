@@ -1,0 +1,59 @@
+---
+import ExactContentPage from '../components/ExactContentPage.astro';
+import raw from '../../content/pages/destiny-2-cheat-system-requirements.md?raw';
+import { DESTINY_PRODUCT_IMAGES, SEO_MEDIA } from '../config/media';
+import { articleSchema, breadcrumbSchema, faqPageSchema } from '../utils/schema';
+import { parseExactArticle, parseExactFrontmatter } from '../lib/exactPageContent';
+
+const path = '/destiny-2-cheat-system-requirements/';
+const fm = parseExactFrontmatter(raw);
+const article = parseExactArticle(raw);
+const published = '2026-11-25';
+const crumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'System requirements', path },
+];
+const faqs = [
+  {
+    num: '01',
+    q: 'Which Windows versions are supported?',
+    a: 'Windows 10 and Windows 11 64-bit are listed. Pro, Enterprise, and Education are recommended for Hyper-V.',
+  },
+  {
+    num: '02',
+    q: 'Are HVCI, TPM, and Secure Boot required?',
+    a: 'Yes. The listing specifies HVCI, Core Isolation, TPM, and Secure Boot enabled.',
+  },
+];
+---
+
+<ExactContentPage
+  raw={raw}
+  ogType="article"
+  articlePublishedTime={published}
+  crumbs={crumbs}
+  ogImage={SEO_MEDIA.dmaSetup}
+  columns={2}
+  secondaryCta={{ href: '/cloud-dma-for-destiny-2/', label: 'Open Cloud DMA details' }}
+  buyLabel="Buy Cloud DMA"
+  buyAriaLabel="Buy Cloud DMA"
+  shots={[
+    {
+      src: DESTINY_PRODUCT_IMAGES.menuMisc.src,
+      alt: 'Windows HVCI and Core Isolation settings',
+    },
+  ]}
+  jsonLd={[
+    articleSchema({
+      name: fm.title,
+      headline: article.h1 || fm.title,
+      description: fm.description,
+      url: path,
+      image: SEO_MEDIA.dmaSetup,
+      datePublished: published,
+      type: 'TechArticle',
+    }),
+    faqPageSchema(faqs),
+    breadcrumbSchema(crumbs),
+  ]}
+/>

@@ -3,11 +3,34 @@ import ExactContentPage from '../components/ExactContentPage.astro';
 import raw from '../../content/pages/home.md?raw';
 import { DESTINY_PRODUCT_IMAGES, SEO_MEDIA } from '../config/media';
 import { getFragPunkOffersForSchema } from '../data/productPricing';
-import { breadcrumbSchema, organizationSchema, productSchema, websiteSchema } from '../utils/schema';
+import {
+  breadcrumbSchema,
+  faqPageSchema,
+  organizationSchema,
+  productSchema,
+  websiteSchema,
+} from '../utils/schema';
 import { parseExactFrontmatter } from '../lib/exactPageContent';
 
 const fm = parseExactFrontmatter(raw);
 const crumbs = [{ name: 'Home', path: '/' }];
+const homeFaqs = [
+  {
+    num: '01',
+    q: 'What features are listed for Destiny 2 cheats?',
+    a: 'Aimbot controls, ESP/wallhack overlays, 2D radar, recoil/spread helpers, full bright, custom crosshair, and stream-proof overlay.',
+  },
+  {
+    num: '02',
+    q: 'Is Cloud DMA required?',
+    a: 'Yes, for full functionality on supported builds. It is a separate purchase with additional services.',
+  },
+  {
+    num: '03',
+    q: 'How much is the main Destiny 2 license?',
+    a: '$35 for 30 days or $150 lifetime on the live listing. Verify totals at checkout.',
+  },
+];
 ---
 
 <ExactContentPage
@@ -16,12 +39,21 @@ const crumbs = [{ name: 'Home', path: '/' }];
   ogImage={SEO_MEDIA.heroPoster}
   columns={2}
   chooseCheckout={true}
-  secondaryCta={{ href: '/destiny-cheats-price/', label: 'See pricing' }}
+  secondaryCta={{ href: '/destiny-2-cheats-price/', label: 'Open pricing breakdown' }}
   buyAriaLabel="Choose a Destiny 2 product to buy"
   shots={[
-    DESTINY_PRODUCT_IMAGES.heroArt,
-    DESTINY_PRODUCT_IMAGES.menuVisuals,
-    DESTINY_PRODUCT_IMAGES.menuAimbot,
+    {
+      src: DESTINY_PRODUCT_IMAGES.heroArt.src,
+      alt: 'Destiny 2 cheats product interface on Windows PC',
+    },
+    {
+      src: DESTINY_PRODUCT_IMAGES.menuVisuals.src,
+      alt: 'Destiny 2 ESP and aimbot feature preview',
+    },
+    {
+      src: DESTINY_PRODUCT_IMAGES.gameplayEsp.src,
+      alt: 'Destiny 2 ESP gameplay screenshot',
+    },
   ]}
   jsonLd={[
     websiteSchema(),
@@ -36,5 +68,6 @@ const crumbs = [{ name: 'Home', path: '/' }];
       sku: 'destiny-2-cheats',
       offers: getFragPunkOffersForSchema('/'),
     }),
+    faqPageSchema(homeFaqs),
   ]}
 />
