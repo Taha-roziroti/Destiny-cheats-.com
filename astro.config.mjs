@@ -11,10 +11,15 @@ export default defineConfig({
   site,
   trailingSlash: 'always',
   redirects: {
-    '/blogs': '/best-bodycam-cheats/',
-    '/forum': '/best-bodycam-cheats/',
+    '/blogs': '/',
+    '/forum': '/',
     '/reviews': '/',
     '/products/call-of-duty-cheats': '/',
+    '/best-bodycam-cheats': '/',
+    '/bodycam-aimbot': '/',
+    '/bodycam-esp': '/',
+    '/bodycam-cheats-price': '/fragpunk-cheats-price/',
+    '/bodycam-cloud-dma': '/cloud-dma/',
   },
   compressHTML: true,
   prefetch: {
@@ -34,7 +39,9 @@ export default defineConfig({
         !page.includes('/products/') &&
         !page.includes('/blogs/') &&
         !page.includes('/forum/') &&
-        !page.includes('/reviews/'),
+        !page.includes('/reviews/') &&
+        !page.includes('/bodycam-') &&
+        !page.includes('/best-bodycam-cheats'),
       serialize: sitemapSerialize,
     }),
   ],

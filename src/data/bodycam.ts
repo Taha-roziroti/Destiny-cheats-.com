@@ -1,12 +1,15 @@
 /**
- * Bodycam product facts sourced from Zadeyo listings.
- * Do not invent features, prices, or claims beyond these references.
- * Product: https://zadeyo.com/products/bodycam-cheats
+ * FragPunk product facts sourced from the Zadeyo FragPunk listing and Cloud DMA page.
+ * Do not invent features, prices, or detection claims beyond these references.
+ * Product: https://zadeyo.com/products/fragpunk-novaxware-cheats
  * Cloud DMA: https://zadeyo.com/products/cloud-dma
  */
 
-export const BODYCAM_PRODUCT_NAME = 'Bodycam Cheats';
-export const BODYCAM_BRAND = 'Bodycam Cheat';
+export const BODYCAM_PRODUCT_NAME = 'FragPunk Cheats';
+export const BODYCAM_BRAND = 'FragPunk Cheats';
+
+/** Last date these listed prices were verified against the merchant listing. */
+export const PRICES_LAST_VERIFIED = '2026-11-25';
 
 export const BODYCAM_PLANS = [
   {
@@ -38,78 +41,70 @@ export const CLOUD_DMA_PLAN = {
   duration: 'Unlimited access (lifetime tier)',
 } as const;
 
-/** Feature groups exactly as listed on the Zadeyo Bodycam product page. */
 export const BODYCAM_FEATURE_GROUPS = {
-  aimbot: {
-    heading: 'Aimbot options',
+  softAim: {
+    heading: 'Soft Aim options',
     items: [
-      'Aimbot (Head / Chest)',
-      'FOV Circle',
-      'Aim Line',
-      'Silent Aim',
-      'Magic Bullets',
-      'Instant Kill',
-      'Instant Aim',
-      'No Aim Restrictions',
+      'Enable Soft Aim',
+      'Aim Key',
+      'Aim FOV',
+      'Aim Smooth',
+      'Bone Selection (Head / Chest / Closest)',
+      'Visible Check',
+      'Draw FOV',
+      'Draw Target Line',
+      'Max Aim Distance',
+      'Ignore Teammates',
     ],
   },
   visual: {
-    heading: 'Visual options',
+    heading: 'Player visual options',
     items: [
       'Player ESP',
-      'Box ESP',
+      'Box Styles (Full / Corner)',
       'Skeleton',
-      'Snaplines',
-      'Player Chams',
-      'Local Chams',
-      'Weapon Chams',
-      'Nicknames',
+      'Head Circle',
       'Health Bar',
+      'Name',
       'Distance',
-      'Team Check',
-      'No Flash',
-      'Drone ESP',
-      'Bomb ESP',
+      'Weapon',
+      'View Direction',
+      'Out of Screen Arrows',
+      'Visible / Hidden Colors',
+      'Max ESP Distance',
+      'Team / Squad',
     ],
   },
-  movementWeapon: {
-    heading: 'Movement & weapon options',
-    items: [
-      'Custom View FOV',
-      'Gravity Multiplier',
-      'Fly Hack',
-      'No World Border',
-      'Third Person',
-      'No Recoil',
-      'Rapid Fire',
-      'Full Auto',
-      'Unlimited Ammo',
-      'God Mode',
-      'Teleport Enemies In Front',
-    ],
+  radar: {
+    heading: 'Radar options',
+    items: ['2D Radar', 'Player Markers', 'Radar Range', 'Radar Zoom'],
   },
   misc: {
     heading: 'Misc options',
     items: [
-      'Show Mouse Cursor In Menu',
-      'Suicide Button',
-      'CLOUD DMA NEEDED',
-      'Full Color Customization',
+      'No Recoil',
+      'No Spread',
+      'Full Bright',
+      'Custom Crosshair',
+      'Stream-Proof Overlay',
+      'Custom Menu Key',
+      'Custom Panic Key',
+      'Config System (Save / Load)',
     ],
   },
 } as const;
 
-/** High-level modules called out in the Zadeyo product details copy. */
 export const BODYCAM_OVERVIEW_MODULES = [
+  'Soft aim',
   'Player ESP',
-  'Tunable aimbot',
-  'Separate recoil layers',
   'Radar',
-  'Stream-proof modes',
+  'No recoil / no spread',
+  'Stream-proof overlay',
 ] as const;
 
 export const BODYCAM_SYSTEM_REQUIREMENTS = {
   os: 'Windows 10 and 11 supported',
+  client: 'Steam / Official Client',
   flags: ['HVCI ON', 'Core Isolation ON', 'TPM ON', 'Secure Boot ON'] as const,
   notes: [
     '8 GB RAM minimum and a dedicated GPU are listed for running the product.',
@@ -130,30 +125,28 @@ export const CLOUD_DMA_REQUIREMENTS = {
   separatePurchases: [
     {
       name: 'GREENWARD',
-      note: 'Separate purchase (required). Not included in Cloud DMA checkout.',
+      note: 'Separate purchase (required). Not included in Cloud DMA checkout. Price not independently verified here.',
     },
     {
       name: 'Static Server',
-      note: 'Separate purchase (required). Not the same product as AWS.',
+      note: 'Separate purchase (required). Not the same product as AWS. Price not independently verified here.',
     },
     {
       name: 'AWS',
-      note: 'Separate purchase (required). Not the same product as Static Server.',
+      note: 'Separate purchase (required). Not the same product as Static Server. Price not independently verified here.',
     },
   ] as const,
 };
 
 export const BODYCAM_ROUTES = {
   home: '/',
-  buyingGuide: '/best-bodycam-cheats/',
-  aimbot: '/bodycam-aimbot/',
-  esp: '/bodycam-esp/',
-  pricing: '/bodycam-cheats-price/',
-  cloudDma: '/bodycam-cloud-dma/',
+  pricing: '/fragpunk-cheats-price/',
+  cloudDma: '/cloud-dma/',
+  cloudDmaRequirements: '/cloud-dma-requirements/',
 } as const;
 
 export const PRICE_VERIFY_NOTE =
   'Displayed prices should be verified against the live checkout before purchase. Currency, taxes, and plan availability can change on the store.';
 
 export const RISK_DISCLAIMER =
-  'Third-party software can violate Bodycam and platform rules. Account penalties are possible. This site explains listed features and checkout options; it does not promise safety, stealth, or uninterrupted access after game updates.';
+  'Third-party software can violate FragPunk and platform rules. Account penalties are possible. This site explains listed features and checkout options; it does not promise safety, stealth, detection status, or uninterrupted access after game updates.';

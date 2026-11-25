@@ -207,8 +207,8 @@ export function articleSchema(input: {
   image: string;
   datePublished: string;
   dateModified?: string;
-  /** Prefer Article for buying guides; BlogPosting remains available for posts. */
-  type?: 'Article' | 'BlogPosting';
+  /** Prefer Article for buying guides; TechArticle for requirements; BlogPosting for posts. */
+  type?: 'Article' | 'TechArticle' | 'BlogPosting';
 }) {
   const headline = input.headline?.trim() || input.name;
   return {

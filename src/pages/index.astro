@@ -1,36 +1,40 @@
 ---
 import ExactContentPage from '../components/ExactContentPage.astro';
-import raw from '../../content/pages/index.md?raw';
-import { BODYCAM_PRODUCT_IMAGES, SEO_MEDIA } from '../config/media';
-import { getBodycamOffersForSchema } from '../data/productPricing';
-import { organizationSchema, productSchema, websiteSchema } from '../utils/schema';
+import raw from '../../content/pages/home.md?raw';
+import { FRAGPUNK_PRODUCT_IMAGES, SEO_MEDIA } from '../config/media';
+import { getFragPunkOffersForSchema } from '../data/productPricing';
+import { breadcrumbSchema, organizationSchema, productSchema, websiteSchema } from '../utils/schema';
 import { parseExactFrontmatter } from '../lib/exactPageContent';
 
 const fm = parseExactFrontmatter(raw);
+const crumbs = [{ name: 'Home', path: '/' }];
 ---
 
 <ExactContentPage
   raw={raw}
-  crumbs={[{ name: 'Home', path: '/' }]}
+  crumbs={crumbs}
   ogImage={SEO_MEDIA.heroPoster}
   columns={2}
+  chooseCheckout={true}
+  secondaryCta={{ href: '/fragpunk-cheats-price/', label: 'See pricing' }}
+  buyAriaLabel="Choose a FragPunk product to buy"
   shots={[
-    BODYCAM_PRODUCT_IMAGES.espBoxWarehouse,
-    BODYCAM_PRODUCT_IMAGES.espSkeletonFov,
-    BODYCAM_PRODUCT_IMAGES.menuOverlay,
-    BODYCAM_PRODUCT_IMAGES.hallwayFlashlight,
+    FRAGPUNK_PRODUCT_IMAGES.heroArt,
+    FRAGPUNK_PRODUCT_IMAGES.menuVisuals,
+    FRAGPUNK_PRODUCT_IMAGES.menuAimbot,
   ]}
   jsonLd={[
     websiteSchema(),
     organizationSchema(),
+    breadcrumbSchema(crumbs),
     productSchema({
-      name: 'Bodycam Cheats for PC',
+      name: 'FragPunk Cheats',
       description: fm.description,
       url: '/',
       offerPagePath: '/',
       image: SEO_MEDIA.heroPoster,
-      sku: 'bodycam-cheats',
-      offers: getBodycamOffersForSchema('/'),
+      sku: 'fragpunk-cheats',
+      offers: getFragPunkOffersForSchema('/'),
     }),
   ]}
 />

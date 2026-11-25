@@ -25,11 +25,9 @@ function link(text: string, href: string): string {
 }
 
 const homePage = link('home overview', ROUTES.home);
-const buyingGuide = link('buying checklist', ROUTES.buyingGuide);
-const aimbotPage = link('aim settings', ROUTES.aimbot);
-const espPage = link('visual options', ROUTES.esp);
-const pricingPage = link('plan comparison', ROUTES.pricing);
-const cloudDmaPage = link('DMA setup notes', ROUTES.cloudDma);
+const pricingPage = link('FragPunk pricing', ROUTES.pricing);
+const cloudDmaPage = link('Cloud DMA product page', ROUTES.cloudDma);
+const cloudDmaReqPage = link('Cloud DMA requirements', ROUTES.cloudDmaRequirements);
 const faqPage = link('FAQ index', ROUTES.faq);
 const supportPage = link('support contact', ROUTES.support);
 
@@ -53,14 +51,14 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'safety',
     icon: 'faqBanRisk',
     q: 'Can I lose account access?',
-    a: a('Yes. Game integrity systems can flag third-party software. You accept that risk when you run Bodycam cheats.'),
+    a: a('Yes. Platform integrity systems can flag third-party software. You accept that risk when you run FragPunk cheats.'),
   },
   {
     id: 'platforms',
     topic: 'setup',
     icon: 'faqPlatforms',
     q: 'Which platforms are supported?',
-    a: a('Windows 10 or 11 64-bit for the main Bodycam package. Confirm HVCI, RAM, and other listed requirements on the overview before you buy.'),
+    a: a('Windows 10 or 11 64-bit for the main FragPunk package on Steam / Official Client. Confirm HVCI, RAM, and other listed requirements on the overview before you buy.'),
   },
   {
     id: 'license-move',
@@ -73,29 +71,29 @@ export const siteFaqs: SiteFaqItem[] = [
     id: 'products-page',
     topic: 'products',
     icon: 'faqProductsPage',
-    q: 'Where are Bodycam features and prices listed?',
-    a: `${homePage} covers the package. Use ${aimbotPage}, ${espPage}, ${pricingPage}, and ${cloudDmaPage} for deeper notes. Checkout opens from Buy now.`,
+    q: 'Where are FragPunk features and prices listed?',
+    a: `${homePage} covers the package. Use ${pricingPage}, ${cloudDmaPage}, and ${cloudDmaReqPage} for cost and setup notes. Checkout opens from Buy now.`,
   },
   {
     id: 'what-is-esp',
     topic: 'esp',
     icon: 'faqWhatIsEsp',
-    q: 'What does Bodycam ESP include?',
-    a: `Listed options include boxes, skeletons, snaplines, names, health, and distance. See ${espPage} for the visual stack.`,
+    q: 'What does FragPunk ESP include?',
+    a: `Listed options include boxes, skeletons, head circles, names, health, distance, and weapons. See ${homePage} for the visual stack.`,
     scopes: ['modules'],
   },
   {
     id: 'esp-vs-aim',
     topic: 'esp',
     icon: 'faqEspVsScripts',
-    q: 'What is the difference between ESP and aimbot?',
-    a: `ESP is visual information. Aimbot covers targeting, FOV, and related aim options on ${aimbotPage}.`,
+    q: 'What is the difference between ESP and soft aim?',
+    a: `ESP is visual information. Soft aim covers targeting, FOV, smoothing, and related aim options on ${homePage}.`,
   },
   {
     id: 'which-tier-esp',
     topic: 'plans',
     icon: 'faqWhichTierEsp',
-    q: 'Can I use ESP without aimbot?',
+    q: 'Can I use ESP without soft aim?',
     a: a('Feature toggles depend on the live package. Review the listing and enable only what you need after private testing.'),
     scopes: ['modules'],
   },
@@ -103,8 +101,8 @@ export const siteFaqs: SiteFaqItem[] = [
     id: 'which-tier-aim',
     topic: 'scripts',
     icon: 'faqWhichTierScripts',
-    q: 'Where are aimbot controls documented?',
-    a: `${aimbotPage} summarizes listed aim settings such as target selection, FOV, and silent aim options.`,
+    q: 'Where are soft aim controls documented?',
+    a: `${homePage} summarizes listed aim settings such as aim key, FOV, smoothing, and bone selection.`,
     scopes: ['modules'],
   },
   {
@@ -127,7 +125,7 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'esp',
     icon: 'faqStreamProof',
     q: 'Will OBS show my overlay?',
-    a: a('Stream-friendly toggles may hide overlays from capture APIs. Always record a local test before you broadcast.'),
+    a: a('Stream-proof mode is described as hiding ESP and menus from OBS, Streamlabs, and most capture tools. Always record a local test before you broadcast.'),
   },
   {
     id: 'status-not-promise',
@@ -140,7 +138,7 @@ export const siteFaqs: SiteFaqItem[] = [
     id: 'esp-quieter',
     topic: 'safety',
     icon: 'faqEspSafer',
-    q: 'Is ESP safer than aimbot?',
+    q: 'Is ESP safer than soft aim?',
     a: a('Visual tools are often less conspicuous than aggressive aim assists, but both can violate game rules and still risk flags.'),
   },
   {
@@ -148,7 +146,7 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'products',
     icon: 'faqHwidWhen',
     q: 'When do I need an HWID spoofer?',
-    a: `Only if the merchant listing says hardware identity tools are required for your case. It is sold separately from the main Bodycam package; see checkout chooser options or ${supportPage}.`,
+    a: `Only if the merchant listing says hardware identity tools are required for your case. It is sold separately from the main FragPunk package; see checkout chooser options or ${supportPage}.`,
     scopes: ['hwid-spoofer'],
   },
   {
@@ -163,8 +161,8 @@ export const siteFaqs: SiteFaqItem[] = [
     id: 'cloud-dma-what',
     topic: 'products',
     icon: 'faqSkinChanger',
-    q: 'What is Bodycam Cloud DMA?',
-    a: `${cloudDmaPage} covers the separately priced Cloud DMA option, including single-PC Hyper-V setup notes from the listing.`,
+    q: 'What is Cloud DMA?',
+    a: `${cloudDmaPage} covers the separately priced Cloud DMA option. ${cloudDmaReqPage} covers Windows and Hyper-V checks before purchase.`,
     scopes: ['cloud-dma'],
   },
   {
@@ -179,7 +177,7 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'plans',
     icon: 'faqVacUpdate',
     q: 'Do I need different presets per map?',
-    a: `Often yes. Start from the defaults on ${buyingGuide}, then tune ESP and aim options privately per map type.`,
+    a: `Often yes. Start from the defaults on ${homePage}, then tune ESP and soft aim options privately.`,
   },
   {
     id: 'price-subscription',
@@ -207,7 +205,7 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'all',
     icon: 'faqMore',
     q: 'Where is the full FAQ?',
-    a: `Use the ${faqPage} for every topic, or start from ${buyingGuide} for pre-purchase checks.`,
+    a: `Use the ${faqPage} for every topic, or start from ${homePage} for pre-purchase checks.`,
   },
 ];
 
@@ -223,9 +221,9 @@ export function getAllFaqs(): SiteFaqItem[] {
 
 export const SITE_FAQ_SECTION_COPY = {
   eyebrow: 'Help center',
-  title: 'FAQ on Bodycam plans, features, and checkout',
+  title: 'FAQ on FragPunk plans, features, and checkout',
   subtitle:
-    'Answers about ESP, aimbot, pricing, Cloud DMA, Windows requirements, and risk before you buy.',
+    'Answers about soft aim, ESP, pricing, Cloud DMA, Windows requirements, and risk before you buy.',
 } as const;
 
 export const SITE_FAQ_FILTER_TOPICS: FaqTopic[] = ['all', 'plans', 'esp', 'scripts', 'safety', 'products', 'setup'];
@@ -327,7 +325,7 @@ export function getBlogFaqs(tag: string, slug: string): SiteFaqItem[] {
       topic: 'esp',
       icon: 'faqBlogSlugEsp',
       q: 'Which page matches these ESP tips?',
-      a: `Start with ${espPage}, then enable only the overlays you need after private tests.`,
+      a: `Start with ${homePage}, then enable only the overlays you need after private tests.`,
     });
   }
   if (slug.includes('aimbot') || slug.includes('trigger')) {
@@ -335,8 +333,8 @@ export function getBlogFaqs(tag: string, slug: string): SiteFaqItem[] {
       id: 'blog-slug-aim',
       topic: 'scripts',
       icon: 'faqBlogSlugScripts',
-      q: 'Where is aimbot documented?',
-      a: `${aimbotPage} lists aim options from the package. Enable them conservatively.`,
+      q: 'Where is soft aim documented?',
+      a: `${homePage} lists aim options from the package. Enable them conservatively.`,
     });
   }
   if (slug.includes('hwid') || slug.includes('vac') || slug.includes('dma')) {
@@ -354,11 +352,11 @@ export function getBlogFaqs(tag: string, slug: string): SiteFaqItem[] {
 export const compareRows = [
   { feature: 'Player ESP boxes & skeletons', icon: 'comparePlayerEsp' as const, included: true },
   { feature: 'Names, health & distance', icon: 'compareWardLocator' as const, included: true },
-  { feature: 'Snaplines & radar', icon: 'compareRuneTimer' as const, included: true },
-  { feature: 'Aimbot FOV & target options', icon: 'compareAutoCombo' as const, included: true },
-  { feature: 'Silent aim options', icon: 'compareOrbwalker' as const, included: true },
-  { feature: 'Weapon / misc assists', icon: 'compareActivator' as const, included: true },
-  { feature: 'Capture / stream-safe toggles', icon: 'compareStreamproof' as const, included: true },
+  { feature: '2D radar & markers', icon: 'compareRuneTimer' as const, included: true },
+  { feature: 'Soft aim FOV & target options', icon: 'compareAutoCombo' as const, included: true },
+  { feature: 'Bone selection options', icon: 'compareOrbwalker' as const, included: true },
+  { feature: 'No recoil / no spread', icon: 'compareActivator' as const, included: true },
+  { feature: 'Stream-proof overlay', icon: 'compareStreamproof' as const, included: true },
   { feature: 'Cloud DMA add-on (separate)', icon: 'compareSkinChanger' as const, included: true },
   { feature: 'Merchant auto updater', icon: 'comparePriorityPatch' as const, included: true },
 ];

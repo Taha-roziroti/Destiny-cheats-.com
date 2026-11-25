@@ -7,12 +7,12 @@ const productBase = PRODUCT_BASE;
 
 export const en: Translations = {
   site: {
-    name: 'Bodycam Cheat',
-    domain: 'bodycam-cheat.com',
-    title: 'Bodycam Cheats for PC | Features & Pricing',
+    name: 'FragPunk Cheats',
+    domain: 'fragpunk-cheats.com',
+    title: 'FragPunk Cheats for PC | Soft Aim & ESP',
     description:
-      'Explore Bodycam cheats for PC with ESP, aimbot, radar and weapon options. Compare plans and check current requirements before buying.',
-    brandMarkAlt: 'Bodycam Cheat',
+      'Explore FragPunk cheats for PC with soft aim, player ESP, radar and recoil options. Compare plans and check setup requirements before buying.',
+    brandMarkAlt: 'FragPunk Cheats',
   },
   forum: {
     eyebrow: 'Forum',
@@ -21,11 +21,10 @@ export const en: Translations = {
     viewAll: 'Browse all forums',
   },
   nav: [
-    { href: '/best-bodycam-cheats/', label: 'Buying guide' },
-    { href: '/bodycam-aimbot/', label: 'Aimbot' },
-    { href: '/bodycam-esp/', label: 'ESP' },
-    { href: '/bodycam-cheats-price/', label: 'Pricing' },
-    { href: '/bodycam-cloud-dma/', label: 'Cloud DMA' },
+    { href: '/fragpunk-cheats-price/', label: 'Pricing' },
+    { href: '/cloud-dma/', label: 'Cloud DMA' },
+    { href: '/cloud-dma-requirements/', label: 'Requirements' },
+    { href: '/faq/', label: 'FAQ' },
     { href: '/support/', label: 'Support' },
   ],
   reviews: {
@@ -502,16 +501,16 @@ export const en: Translations = {
   },
   support: {
     eyebrow: 'Support',
-    title: 'Support for Bodycam checkout and setup',
+    title: 'Support for FragPunk checkout and setup',
     subtitle: 'Order, key, and Cloud DMA questions. Include the email from your receipt when you write in.',
     channels: [
       {
         icon: 'messageCircle',
-        title: 'Buying checklist',
-        desc: 'Review features, pricing, and Cloud DMA notes before you purchase.',
-        linkLabel: 'Open buying guide',
-        href: '/best-bodycam-cheats/',
-        channelAriaLabel: 'Open Bodycam buying guide',
+        title: 'Feature overview',
+        desc: 'Review soft aim, ESP, pricing, and Cloud DMA notes before you purchase.',
+        linkLabel: 'Open homepage',
+        href: '/',
+        channelAriaLabel: 'Open FragPunk homepage',
       },
       {
         icon: 'users',
@@ -538,7 +537,7 @@ export const en: Translations = {
   faq: {
     eyebrow: 'FAQ',
     title: 'Clear answers before you pay',
-    subtitle: 'Risk, platforms, ESP/aimbot scope, and listed Bodycam plans.',
+    subtitle: 'Risk, platforms, soft aim and ESP scope, and listed FragPunk plans.',
     items: [
       {
         num: '01',
@@ -567,8 +566,8 @@ export const en: Translations = {
       },
       {
         num: '06',
-        q: 'Where are Bodycam features listed?',
-        a: 'Home and the aimbot, ESP, pricing, and Cloud DMA guides cover the published package.',
+        q: 'Where are FragPunk features listed?',
+        a: 'Home covers soft aim, ESP, radar, and misc options. Pricing and Cloud DMA pages cover cost and setup.',
       },
       {
         num: '07',
@@ -583,15 +582,14 @@ export const en: Translations = {
     ],
   },
   footer: {
-    tagline: 'Bodycam cheats for PC: features, pricing, and Cloud DMA requirements.',
+    tagline: 'FragPunk cheats for PC: soft aim, ESP, pricing, and Cloud DMA requirements.',
     explore: 'Explore',
     exploreLinks: [
-      { href: '/', label: 'Home', ariaLabel: 'Home overview' },
-      { href: '/best-bodycam-cheats/', label: 'Checklist', ariaLabel: 'Buying checklist' },
-      { href: '/bodycam-aimbot/', label: 'Aim options', ariaLabel: 'Aimbot guide' },
-      { href: '/bodycam-esp/', label: 'Visual options', ariaLabel: 'ESP guide' },
-      { href: '/bodycam-cheats-price/', label: 'Plans', ariaLabel: 'Price comparison' },
-      { href: '/bodycam-cloud-dma/', label: 'DMA setup', ariaLabel: 'Cloud DMA guide' },
+      { href: '/', label: 'Feature overview', ariaLabel: 'FragPunk feature overview' },
+      { href: '/fragpunk-cheats-price/', label: 'License plans', ariaLabel: 'FragPunk license plans' },
+      { href: '/cloud-dma/', label: 'DMA product', ariaLabel: 'Cloud DMA product page' },
+      { href: '/cloud-dma-requirements/', label: 'System checklist', ariaLabel: 'Cloud DMA system checklist' },
+      { href: '/faq/', label: 'Buyer answers', ariaLabel: 'Buyer FAQ answers' },
     ],
     support: 'Support',
     legal: 'Legal',
@@ -601,20 +599,20 @@ export const en: Translations = {
   },
   legalPages: {
     about: {
-      title: 'About bodycam-cheat.com',
-      description: 'Guides to Bodycam cheats for PC: features, pricing, and Cloud DMA requirements.',
+      title: 'About fragpunk-cheats.com',
+      description: 'Guides to FragPunk cheats for PC: features, pricing, and Cloud DMA requirements.',
       sections: [
         {
           heading: 'Purpose',
           paragraphs: [
-            'bodycam-cheat.com explains listed Bodycam cheat features, plans, and Cloud DMA requirements from the live merchant listing.',
+            'fragpunk-cheats.com explains listed FragPunk cheat features, plans, and Cloud DMA requirements from the live merchant listing.',
             'Checkout and refunds follow the terms shown when you pay.',
           ],
         },
         {
           heading: 'What you will find',
           paragraphs: [
-            'ESP and aimbot notes, monthly vs lifetime pricing, Windows compatibility reminders, and Cloud DMA setup context.',
+            'Soft aim and ESP notes, monthly vs lifetime pricing, Windows compatibility reminders, and Cloud DMA setup context.',
           ],
         },
         {
@@ -627,7 +625,7 @@ export const en: Translations = {
     },
     privacy: {
       title: 'Privacy for cookies and analytics',
-      description: 'How bodycam-cheat.com uses analytics and cookies when you browse.',
+      description: 'How fragpunk-cheats.com uses analytics and cookies when you browse.',
       sections: [
         {
           heading: 'Data we collect',
@@ -647,13 +645,13 @@ export const en: Translations = {
       ],
     },
     terms: {
-      title: 'Terms for bodycam-cheat.com',
-      description: 'Using bodycam-cheat.com guides and checkout links.',
+      title: 'Terms for fragpunk-cheats.com',
+      description: 'Using fragpunk-cheats.com guides and checkout links.',
       sections: [
         {
           heading: 'Agreement',
           paragraphs: [
-            'By browsing bodycam-cheat.com you accept these terms and the privacy policy. Last updated November 2025.',
+            'By browsing fragpunk-cheats.com you accept these terms and the privacy policy. Last updated November 2026.',
           ],
         },
         {
@@ -683,18 +681,18 @@ export const en: Translations = {
     },
     support: {
       title: 'Buyer support hub',
-      description: 'Use the support hub for Bodycam keys, Cloud DMA questions, and checkout handoffs.',
+      description: 'Use the support hub for FragPunk keys, Cloud DMA questions, and checkout handoffs.',
     },
   },
   ui: {
     skipLink: 'Skip to main content',
     browseCheats: 'Checkout',
     browseCheatsMobile: 'Checkout',
-    homeAria: 'bodycam-cheat.com home',
-    checkoutAria: 'Open Bodycam cheats checkout',
+    homeAria: 'fragpunk-cheats.com home',
+    checkoutAria: 'Open FragPunk cheats checkout',
     navTryNow: 'Buy now',
-    navTryNowAria: 'Buy Bodycam cheats',
-    discordAria: 'Buy Bodycam cheats',
+    navTryNowAria: 'Buy FragPunk cheats',
+    discordAria: 'Buy FragPunk cheats',
     menuOpen: 'Open menu',
     menuClose: 'Close menu',
     themeLight: 'Switch to light mode',

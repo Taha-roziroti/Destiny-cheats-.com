@@ -9,59 +9,49 @@ export interface PageSeoEntry {
 
 export const PAGE_SEO: Record<string, PageSeoEntry> = {
   '/': {
-    title: 'Bodycam Cheats for PC | Features & Pricing',
+    title: 'FragPunk Cheats for PC | Soft Aim & ESP',
     description:
-      'Explore Bodycam cheats for PC with ESP, aimbot, radar and weapon options. Compare plans and check current requirements before buying.',
+      'Explore FragPunk cheats for PC with soft aim, player ESP, radar and recoil options. Compare plans and check setup requirements before buying.',
   },
-  '/best-bodycam-cheats/': {
-    title: 'Best Bodycam Cheats: Features & Buying Guide',
+  '/fragpunk-cheats-price/': {
+    title: 'FragPunk Cheats Price | Monthly vs Lifetime',
     description:
-      'Compare Bodycam cheat options by features, compatibility, pricing and support. Use this checklist before choosing a provider.',
+      'Compare the $35 monthly and $150 lifetime FragPunk plans, plus Cloud DMA and its separately required services. Check the full setup cost.',
   },
-  '/bodycam-aimbot/': {
-    title: 'Bodycam Aimbot for PC | Features & Options',
+  '/cloud-dma/': {
+    title: 'Cloud DMA for FragPunk | $50 Lifetime',
     description:
-      'Review the listed Bodycam aimbot options, including target selection, FOV controls and silent aim, before choosing a plan.',
+      'See how Cloud DMA fits the FragPunk setup, what its $50 lifetime license covers, and which separate services are required before checkout.',
   },
-  '/bodycam-esp/': {
-    title: 'Bodycam ESP & Wallhack | Player Visual Options',
+  '/cloud-dma-requirements/': {
+    title: 'Cloud DMA Requirements for Windows 10/11',
     description:
-      'Explore Bodycam ESP options including boxes, skeletons, snaplines, names, health and distance. See how they fit the full package.',
-  },
-  '/bodycam-cheats-price/': {
-    title: 'Bodycam Cheats Price | Monthly vs Lifetime',
-    description:
-      'Compare the listed plans: $35 for 30 days or $150 lifetime. Review included features and current checkout terms before buying.',
-  },
-  '/bodycam-cloud-dma/': {
-    title: 'Bodycam Cloud DMA | Setup & Requirements',
-    description:
-      'Understand the Cloud DMA requirement, single-PC Hyper-V setup and separately priced components before choosing a Bodycam setup.',
+      'Check Windows, Hyper-V, CPU virtualization, RAM and network requirements before buying Cloud DMA. Review the separately required services.',
   },
   '/support/': {
-    title: 'Bodycam Cheats Support | bodycam-cheat.com',
+    title: 'FragPunk Cheats Support | fragpunk-cheats.com',
     description:
-      'Get help with Bodycam cheat checkout questions, Cloud DMA setup notes, and where to open a merchant support ticket.',
+      'Get help with FragPunk cheat checkout questions, Cloud DMA setup notes, and where to open a merchant support ticket.',
   },
   '/about/': {
-    title: 'About Bodycam Cheat | bodycam-cheat.com',
+    title: 'About FragPunk Cheats | fragpunk-cheats.com',
     description:
-      'bodycam-cheat.com explains Bodycam cheats for PC, listed features, pricing, and Cloud DMA requirements from the live product listing.',
+      'fragpunk-cheats.com explains FragPunk cheats for PC, listed features, pricing, and Cloud DMA requirements from the live product listing.',
   },
   '/terms/': {
-    title: 'Terms of Use for Bodycam Cheat Guides',
+    title: 'Terms of Use for FragPunk Cheat Guides',
     description:
-      'Terms for using bodycam-cheat.com guides and checkout links. Refunds and licenses follow the merchant terms shown when you pay.',
+      'Terms for using fragpunk-cheats.com guides and checkout links. Refunds and licenses follow the merchant terms shown when you pay.',
   },
   '/privacy/': {
-    title: 'Privacy Policy for Bodycam Cheat Site',
+    title: 'Privacy Policy for FragPunk Cheat Site',
     description:
-      'How cookies and analytics may be used on bodycam-cheat.com, and how to ask a question about your data.',
+      'How cookies and analytics may be used on fragpunk-cheats.com, and how to ask a question about your data.',
   },
   '/faq/': {
-    title: 'Bodycam Cheats FAQ | bodycam-cheat.com',
+    title: 'FragPunk Cheats FAQ | fragpunk-cheats.com',
     description:
-      'Answers about Bodycam cheat plans, ESP and aimbot modules, Cloud DMA requirements, and what to verify before checkout.',
+      'Answers about FragPunk cheat plans, soft aim and ESP modules, Cloud DMA requirements, and what to verify before checkout.',
   },
 };
 

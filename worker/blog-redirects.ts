@@ -30,16 +30,14 @@ export const BLOGS_SLUGS = new Set([
   'cod-choose-plan',
 ]);
 
-export const CANONICAL_ORIGIN = 'https://bodycam-cheat.com';
+export const CANONICAL_ORIGIN = 'https://fragpunk-cheats.com';
 
 /** Absolute 301 target, or null if this path is not a legacy blog URL. Query strings are dropped. */
 export function legacyBlogRedirect(pathname: string): string | null {
   const path = pathname.replace(/\/+$/, '') || '/';
-  if (path !== '/blog' && !path.startsWith('/blog/')) return null;
-  if (path === '/blog') return `${CANONICAL_ORIGIN}/blogs/`;
-  const slug = path.slice('/blog/'.length).split('/').filter(Boolean)[0] ?? '';
-  const mapped = BLOG_SLUG_REDIRECTS[slug];
-  if (mapped && BLOGS_SLUGS.has(mapped)) return `${CANONICAL_ORIGIN}/blogs/${mapped}/`;
-  if (BLOGS_SLUGS.has(slug)) return `${CANONICAL_ORIGIN}/blogs/${slug}/`;
-  return `${CANONICAL_ORIGIN}/blogs/`;
+  if (path !== '/blog' && !path.startsWith('/blog/') && path !== '/blogs' && !path.startsWith('/blogs/')) {
+    return null;
+  }
+  // Blogs are retired — send every legacy blog URL to the homepage.
+  return `${CANONICAL_ORIGIN}/`;
 }

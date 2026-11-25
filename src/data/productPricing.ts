@@ -1,5 +1,5 @@
 /**
- * Listed Bodycam plan prices from the Zadeyo product FAQ / duration picker.
+ * Listed FragPunk plan prices from the Zadeyo product duration picker.
  * Always remind users to verify live checkout totals.
  */
 import { checkoutPath } from '../config/checkout';
@@ -17,7 +17,7 @@ export interface ProductPlan {
   buyUrl: string;
 }
 
-const bodycamCheckout = checkoutPath('bodycam');
+const fragpunkCheckout = checkoutPath('fragpunk');
 const cloudCheckout = checkoutPath('cloud-dma');
 
 const standardPlans: ProductPlan[] = BODYCAM_PLANS.map((plan) => ({
@@ -27,7 +27,7 @@ const standardPlans: ProductPlan[] = BODYCAM_PLANS.map((plan) => ({
   price: plan.price,
   priceCurrency: plan.currency,
   priceNote: `${plan.priceDisplay} — ${plan.duration}. Verify at checkout.`,
-  buyUrl: `${bodycamCheckout}?plan=${plan.id}`,
+  buyUrl: `${fragpunkCheckout}?plan=${plan.id}`,
 }));
 
 const cloudPlans: ProductPlan[] = [
@@ -37,7 +37,7 @@ const cloudPlans: ProductPlan[] = [
     billing: 'lifetime',
     price: CLOUD_DMA_PLAN.price,
     priceCurrency: CLOUD_DMA_PLAN.currency,
-    priceNote: `${CLOUD_DMA_PLAN.priceDisplay} — ${CLOUD_DMA_PLAN.duration}. Separate from Bodycam cheat plans.`,
+    priceNote: `${CLOUD_DMA_PLAN.priceDisplay} — ${CLOUD_DMA_PLAN.duration}. Separate from FragPunk cheat plans.`,
     buyUrl: cloudCheckout,
   },
 ];
@@ -53,11 +53,25 @@ export function checkoutUrlWithPlan(baseUrl: string, planId: ProductPlanId): str
 }
 
 export function getBodycamOffersForSchema(offerPagePath = '/') {
+  return getFragPunkOffersForSchema(offerPagePath);
+}
+
+export function getFragPunkOffersForSchema(offerPagePath = '/') {
   return BODYCAM_PLANS.map((plan) => ({
-    name: `${plan.label} Bodycam Cheats`,
+    name: `${plan.label} FragPunk Cheats`,
     url: offerPagePath,
     price: plan.price,
     priceCurrency: plan.currency,
     availability: 'https://schema.org/InStock',
   }));
+}
+
+export function getCloudDmaOfferForSchema(offerPagePath = '/cloud-dma/') {
+  return {
+    name: CLOUD_DMA_PLAN.label,
+    url: offerPagePath,
+    price: CLOUD_DMA_PLAN.price,
+    priceCurrency: CLOUD_DMA_PLAN.currency,
+    availability: 'https://schema.org/InStock',
+  };
 }

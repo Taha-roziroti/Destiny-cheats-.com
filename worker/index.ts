@@ -5,10 +5,16 @@ interface Env {
   GA_MEASUREMENT_ID?: string;
 }
 
-const PRODUCTION_HOST = 'bodycam-cheat.com';
+const PRODUCTION_HOST = 'fragpunk-cheats.com';
 
 /** Prior clone hostnames only. */
-const LEGACY_ALIAS_HOSTS = new Set(['www.bodycam-cheat.com', 'callofdutycheats.net', 'www.callofdutycheats.net']);
+const LEGACY_ALIAS_HOSTS = new Set([
+  'www.fragpunk-cheats.com',
+  'bodycam-cheat.com',
+  'www.bodycam-cheat.com',
+  'callofdutycheats.net',
+  'www.callofdutycheats.net',
+]);
 
 function withRobots(response: Response, hostname: string): Response {
   if (!hostname.endsWith('.workers.dev') && !hostname.endsWith('.pages.dev')) return response;

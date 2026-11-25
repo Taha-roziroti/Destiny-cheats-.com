@@ -22,7 +22,10 @@ export function sitemapSerialize(item: SitemapItem): SitemapItem | undefined {
     path === '/forum/' ||
     path.startsWith('/forum/') ||
     path === '/reviews/' ||
-    path.startsWith('/reviews/')
+    path.startsWith('/reviews/') ||
+    path.startsWith('/bodycam-') ||
+    path === '/best-bodycam-cheats/' ||
+    path.startsWith('/best-bodycam-cheats/')
   ) {
     return undefined;
   }

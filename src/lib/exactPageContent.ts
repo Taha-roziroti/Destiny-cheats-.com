@@ -7,9 +7,11 @@ export const AFFILIATE_LINK_PLACEHOLDER = 'AFFILIATE_LINK_PLACEHOLDER';
 /** Resolve in-article CTAs to the matching /go/ hop (seamless 302 to Zadeyo). */
 export function resolveAffiliateHrefForSlug(slug: string): string {
   const normalized = slug.trim() || '/';
-  if (normalized.includes('cloud-dma')) return checkoutPath('cloud-dma');
+  if (normalized.includes('cloud-dma') && !normalized.includes('requirements')) {
+    return checkoutPath('cloud-dma');
+  }
   if (normalized.includes('hwid')) return checkoutPath('hwid-spoofer');
-  return checkoutPath('bodycam');
+  return checkoutPath('fragpunk');
 }
 
 marked.setOptions({

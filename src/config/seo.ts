@@ -8,7 +8,7 @@ function normalizeOrigin(url: string): string {
 }
 
 /**
- * Canonical / OG / hreflang base URL — always production (bodycam-cheat.com).
+ * Canonical / OG / hreflang base URL — production origin from site config.
  * Preview hosts must not leak into canonicals or sitemap-facing meta.
  */
 export const SITE_ORIGIN = normalizeOrigin(SITE_URL);
@@ -22,8 +22,8 @@ export const SITE_HOSTNAME = (() => {
   }
 })();
 
-/** Default social preview — Bodycam forest ops hero. */
-export const DEFAULT_OG_IMAGE = '/images/bodycam/hero-forest-ops-1200.webp';
+/** Default social preview — FragPunk hero art. */
+export const DEFAULT_OG_IMAGE = '/images/fragpunk/hero-art-1200.webp';
 
 export const GA_MEASUREMENT_ID = import.meta.env.PUBLIC_GA_MEASUREMENT_ID as string | undefined;
 
@@ -95,18 +95,18 @@ export function pageTitle(keyword: string, suffixSite = t.site.domain): string {
 /** Product detail `<title>` — authored strings per slug (legacy routes redirect). */
 export function productPageTitle(product: Pick<ProductPage, 'title' | 'kind' | 'slug'>): string {
   if (product.slug === 'modules') {
-    return 'Bodycam Cheats Features | bodycam-cheat.com';
+    return 'FragPunk Cheats Features | fragpunk-cheats.com';
   }
   if (product.slug === 'cloud-dma') {
-    return 'Bodycam Cloud DMA Notes | bodycam-cheat.com';
+    return 'Cloud DMA for FragPunk | fragpunk-cheats.com';
   }
   if (product.slug === 'hwid-spoofer') {
-    return 'HWID Spoofer Notes | bodycam-cheat.com';
+    return 'HWID Spoofer Notes | fragpunk-cheats.com';
   }
   if (product.slug === 'appeals') {
-    return 'Buyer Support Notes | bodycam-cheat.com';
+    return 'Buyer Support Notes | fragpunk-cheats.com';
   }
-  const phrase = `${product.title} | bodycam-cheat.com`;
+  const phrase = `${product.title} | fragpunk-cheats.com`;
   return phrase.length >= 50 && phrase.length <= 60 ? phrase : phrase.slice(0, 60);
 }
 

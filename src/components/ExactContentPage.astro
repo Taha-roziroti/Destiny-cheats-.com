@@ -11,7 +11,6 @@ import {
   resolveAffiliateHrefForSlug,
 } from '../lib/exactPageContent';
 import { AFFILIATE_REL } from '../config/affiliate';
-import { PRIMARY_CHECKOUT_PATH } from '../config/checkout';
 import { t } from '../i18n';
 import type { BreadcrumbItem } from '../utils/schema';
 import { HERO_IMAGE_SIZES, HERO_IMAGE_WIDTHS } from '../utils/responsiveImage';
@@ -29,13 +28,54 @@ interface Props {
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
   ogType?: 'website' | 'article';
   columns?: 2 | 3;
+  articlePublishedTime?: string;
+  articleModifiedTime?: string;
+  /** When true, hero Buy opens the three-product chooser (homepage / general CTAs). */
+  chooseCheckout?: boolean;
+  secondaryCta?: { href: string; label: string };
+  buyLabel?: string;
+  buyAriaLabel?: string;
 }
 
-const { raw, crumbs, shots, ogImage, jsonLd, ogType = 'website' } = Astro.props;
+const {
+  raw,
+  crumbs,
+  shots,
+  ogImage,
+  jsonLd,
+  ogType = 'website',
+  articlePublishedTime,
+  articleModifiedTime,
+  chooseCheckout = false,
+  secondaryCta,
+  buyLabel = 'Buy now',
+  buyAriaLabel,
+} = Astro.props;
 const fm = parseExactFrontmatter(raw);
 const alts = extractImageAltSuggestions(raw);
 const checkoutHref = resolveAffiliateHrefForSlug(fm.slug || Astro.url.pathname);
+const checkoutPlan = checkoutHref.includes('cloud-dma')
+  ? 'cloud-dma'
+  : checkoutHref.includes('hwid')
+    ? 'hwid-spoofer'
+    : 'fragpunk';
 const article = parseExactArticle(raw);
+const resolvedSecondary =
+  secondaryCta ??
+  (fm.slug.includes('cloud-dma-requirements')
+    ? { href: '/cloud-dma/', label: 'Cloud DMA overview' }
+    : fm.slug.includes('cloud-dma')
+      ? { href: '/cloud-dma-requirements/', label: 'System requirements' }
+      : fm.slug.includes('fragpunk-cheats-price')
+        ? { href: '/cloud-dma/', label: 'Cloud DMA details' }
+        : { href: '/fragpunk-cheats-price/', label: 'See pricing' });
+const resolvedBuyAria =
+  buyAriaLabel ??
+  (checkoutPlan === 'cloud-dma'
+    ? 'Buy Cloud DMA'
+    : checkoutPlan === 'hwid-spoofer'
+      ? 'Buy HWID Spoofer'
+      : 'Buy FragPunk cheats');
 
 const galleryShots = shots.map((shot, i) => ({
   src: shot.src,
@@ -47,14 +87,14 @@ const inlineShots = galleryShots.slice(1);
 
 const leadHtml = article.leadHtml.replaceAll(
   `href="${AFFILIATE_LINK_PLACEHOLDER}"`,
-  `href="${checkoutHref}" rel="${AFFILIATE_REL}" data-checkout-buy data-plan="${checkoutHref.includes('cloud-dma') ? 'cloud-dma' : checkoutHref.includes('hwid') ? 'hwid-spoofer' : 'bodycam'}"`,
+  `href="${checkoutHref}" rel="${AFFILIATE_REL}" data-checkout-buy data-plan="${checkoutPlan}"`,
 );
 
 const sections = article.sections.map((section) => ({
   ...section,
   html: section.html.replaceAll(
     `href="${AFFILIATE_LINK_PLACEHOLDER}"`,
-    `href="${checkoutHref}" rel="${AFFILIATE_REL}" data-checkout-buy data-plan="${checkoutHref.includes('cloud-dma') ? 'cloud-dma' : checkoutHref.includes('hwid') ? 'hwid-spoofer' : 'bodycam'}"`,
+    `href="${checkoutHref}" rel="${AFFILIATE_REL}" data-checkout-buy data-plan="${checkoutPlan}"`,
   ),
   hasTable: section.html.includes('<table'),
 }));
@@ -69,6 +109,8 @@ const heroLead = article.leadText || fm.description;
   ogImage={ogImage}
   ogImageAlt={heroShot?.alt ?? fm.title}
   ogType={ogType}
+  articlePublishedTime={articlePublishedTime}
+  articleModifiedTime={articleModifiedTime}
   jsonLd={jsonLd}
 >
   <section class="exact-hero relative isolate min-h-[min(92vh,52rem)] overflow-hidden" aria-labelledby="exact-hero-title">
@@ -76,10 +118,10 @@ const heroLead = article.leadText || fm.description;
       <div class="exact-hero__media absolute inset-0" aria-hidden="true">
         <ResponsiveImage
           src={heroShot.src}
-          alt=""
+          alt={heroShot.alt}
           width={1920}
           height={1080}
-          widths={[640, 960, 1200]}
+          widths={[640, 960, 1200, 1600]}
           sizes="100vw"
           loading="eager"
           fetchPriority="high"
@@ -114,19 +156,20 @@ const heroLead = article.leadText || fm.description;
       )}
       <div class="exact-hero__cta mt-8 flex flex-wrap items-center gap-3">
         <BuyNowButton
-          href={PRIMARY_CHECKOUT_PATH}
-          rel={AFFILIATE_REL}
-          data-plan="bodycam"
-          data-checkout-buy
-          label="Buy now"
+          href={chooseCheckout ? '#' : checkoutHref}
+          rel={chooseCheckout ? undefined : AFFILIATE_REL}
+          data-plan={chooseCheckout ? 'chooser' : checkoutPlan}
+          data-checkout-buy={!chooseCheckout}
+          choose={chooseCheckout}
+          label={buyLabel}
           size="lg"
-          aria-label="Buy Bodycam cheats"
+          aria-label={resolvedBuyAria}
         />
         <a
-          href="/bodycam-cheats-price/"
+          href={resolvedSecondary.href}
           class="exact-hero__secondary inline-flex items-center justify-center rounded-xl border border-white/35 bg-white/10 px-5 py-3 text-sm font-semibold text-white backdrop-blur-sm transition hover:bg-white/18"
         >
-          Compare plans
+          {resolvedSecondary.label}
         </a>
       </div>
     </div>
@@ -173,11 +216,11 @@ const heroLead = article.leadText || fm.description;
                 <ResponsiveImage
                   src={shot.src}
                   alt={shot.alt}
-                  width={960}
-                  height={540}
+                  width={1024}
+                  height={646}
                   widths={HERO_IMAGE_WIDTHS}
                   sizes={pairWithImage ? '(min-width: 1024px) 28rem, 100vw' : HERO_IMAGE_SIZES}
-                  class="aspect-video h-auto w-full object-cover"
+                  class="exact-section__img h-auto w-full object-contain"
                   loading="lazy"
                 />
               </figure>
@@ -198,9 +241,10 @@ const heroLead = article.leadText || fm.description;
   }
 
   .exact-hero__veil {
+    /* Stronger left/bottom scrim so copy stays readable on bright neon hero art */
     background:
-      linear-gradient(180deg, rgba(6, 8, 12, 0.55) 0%, rgba(6, 8, 12, 0.35) 35%, rgba(6, 8, 12, 0.78) 68%, var(--color-background) 100%),
-      linear-gradient(90deg, rgba(6, 8, 12, 0.72) 0%, rgba(6, 8, 12, 0.35) 55%, rgba(6, 8, 12, 0.45) 100%);
+      linear-gradient(180deg, rgba(6, 8, 12, 0.42) 0%, rgba(6, 8, 12, 0.28) 38%, rgba(6, 8, 12, 0.82) 72%, var(--color-background) 100%),
+      linear-gradient(90deg, rgba(6, 8, 12, 0.88) 0%, rgba(6, 8, 12, 0.55) 38%, rgba(6, 8, 12, 0.22) 68%, rgba(6, 8, 12, 0.35) 100%);
   }
 
   .exact-hero__brand {
@@ -221,6 +265,8 @@ const heroLead = article.leadText || fm.description;
   }
 
   .exact-hero__img {
+    /* Keep character art toward the right; leave left open for headline/CTA */
+    object-position: 78% center;
     transform: scale(1.04);
     animation: exact-hero-drift 18s ease-in-out infinite alternate;
   }
@@ -262,6 +308,12 @@ const heroLead = article.leadText || fm.description;
   .exact-section__media {
     border: 1px solid color-mix(in oklab, var(--color-border) 80%, transparent);
     background: color-mix(in oklab, var(--color-muted) 25%, transparent);
+  }
+
+  .exact-section__img {
+    /* Preserve native menu screenshot aspect — never stretch */
+    aspect-ratio: 1024 / 646;
+    background: #0a0a0a;
   }
 
   .exact-copy :global(h2) {

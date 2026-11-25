@@ -1,72 +1,66 @@
 /**
- * Bodycam product imagery — local responsive WebP under /images/bodycam/.
+ * FragPunk product imagery — hero art + menu screenshots under /images/fragpunk/.
  * Logical paths end with .webp so ResponsiveImage emits {base}-{width}.webp variants.
  */
-const base = '/images/bodycam';
+const base = '/images/fragpunk';
 
 export const SEO_MEDIA = {
-  /** Forest tactical ops — homepage / overview hero */
-  heroOperations: `${base}/hero-forest-ops.webp`,
-  heroPoster: `${base}/hero-forest-ops-960.webp`,
-  /** Skeleton + FOV circle in plywood kill-house */
-  espTactical: `${base}/esp-skeleton-fov.webp`,
-  /** Forest FOV circle with red ESP boxes */
-  aimbotHud: `${base}/aimbot-forest-fov.webp`,
-  /** Red snaplines + radar in hallway */
-  wallhackLayout: `${base}/esp-snaplines-radar.webp`,
-  /** Cyan names / skeleton ESP in courtyard */
-  lootIntel: `${base}/esp-names-courtyard.webp`,
-  /** Clean flashlight hallway atmosphere */
-  nightRaid: `${base}/hallway-flashlight.webp`,
-  /** Purple menu overlay with ESP preview */
-  chamsPreview: `${base}/menu-overlay-esp.webp`,
-  /** Second menu UI (tactical advantage) */
-  chamsAlt: `${base}/menu-tactical-esp.webp`,
-  /** Scope view with ESP markers — Cloud DMA / setup visual */
-  dmaSetup: `${base}/scope-esp-forest.webp`,
-  mwTitle6: `${base}/esp-names-courtyard.webp`,
-  mwTitle3: `${base}/esp-snaplines-radar.webp`,
-  mwTitle2: `${base}/aimbot-forest-fov.webp`,
-  mwTitle1: `${base}/menu-overlay-esp.webp`,
+  /** Full-bleed promotional hero art */
+  heroArt: `${base}/hero-art.webp`,
+  heroPoster: `${base}/hero-art-1200.webp`,
+  /** Visuals tab — player ESP / skeletons */
+  heroOperations: `${base}/hero-art.webp`,
+  espTactical: `${base}/menu-visuals.webp`,
+  /** Aimbot tab — soft aim FOV / smooth / bone */
+  aimbotHud: `${base}/menu-aimbot.webp`,
+  /** World tab — world ESP / distance */
+  wallhackLayout: `${base}/menu-world.webp`,
+  lootIntel: `${base}/menu-visuals.webp`,
+  nightRaid: `${base}/menu-world.webp`,
+  chamsPreview: `${base}/menu-visuals.webp`,
+  chamsAlt: `${base}/menu-aimbot.webp`,
+  /** Misc tab — stream-proof + Cloud DMA status */
+  dmaSetup: `${base}/menu-misc.webp`,
+  mwTitle6: `${base}/menu-visuals.webp`,
+  mwTitle3: `${base}/menu-world.webp`,
+  mwTitle2: `${base}/menu-aimbot.webp`,
+  mwTitle1: `${base}/menu-misc.webp`,
 } as const;
 
-export const BODYCAM_PRODUCT_IMAGES = {
-  espBoxWarehouse: {
-    src: SEO_MEDIA.heroOperations,
-    alt: 'Bodycam gameplay showing tactical operators in a dense forest firefight',
+export const FRAGPUNK_PRODUCT_IMAGES = {
+  heroArt: {
+    src: SEO_MEDIA.heroArt,
+    alt: 'FragPunk promotional artwork with character shards and neon green branding',
   },
-  hallwayFlashlight: {
-    src: SEO_MEDIA.nightRaid,
-    alt: 'Bodycam cheats gameplay showing first-person flashlight hallway without overlay clutter',
-  },
-  espSkeletonFov: {
+  menuVisuals: {
     src: SEO_MEDIA.espTactical,
-    alt: 'Bodycam ESP screenshot showing skeleton boxes and aimbot FOV circle in a plywood kill-house',
+    alt: 'FragPunk visual settings menu showing player ESP, skeletons and distance options',
   },
-  espSnaplinesRadar: {
+  menuWorld: {
     src: SEO_MEDIA.wallhackLayout,
-    alt: 'Bodycam ESP screenshot showing red snaplines, distance markers, and radar during hallway gameplay',
+    alt: 'FragPunk World ESP and distance settings in the cheat menu',
   },
-  aimbotForest: {
+  menuAimbot: {
     src: SEO_MEDIA.aimbotHud,
-    alt: 'Bodycam aimbot gameplay screenshot showing FOV circle and ESP boxes through a foggy forest',
+    alt: 'FragPunk aimbot configuration menu with FOV, smooth and bone settings',
   },
-  espNamesCourtyard: {
-    src: SEO_MEDIA.lootIntel,
-    alt: 'Bodycam ESP screenshot showing player names, skeletons, and distance tags in a courtyard',
-  },
-  menuOverlay: {
-    src: SEO_MEDIA.chamsPreview,
-    alt: 'Bodycam cheat comparison showing the in-game ESP menu overlay with feature toggles',
-  },
-  menuTactical: {
-    src: SEO_MEDIA.chamsAlt,
-    alt: 'Bodycam cheat comparison showing the tactical advantage menu with ESP and misc options',
-  },
-  scopeEsp: {
+  menuMisc: {
     src: SEO_MEDIA.dmaSetup,
-    alt: 'Bodycam Cloud DMA single-PC Hyper-V setup illustration',
+    alt: 'FragPunk misc menu showing stream-proof overlay and Cloud DMA connection status',
   },
+} as const;
+
+/** @deprecated Prefer FRAGPUNK_PRODUCT_IMAGES — kept for legacy component imports. */
+export const BODYCAM_PRODUCT_IMAGES = {
+  espBoxWarehouse: FRAGPUNK_PRODUCT_IMAGES.menuVisuals,
+  hallwayFlashlight: FRAGPUNK_PRODUCT_IMAGES.menuWorld,
+  espSkeletonFov: FRAGPUNK_PRODUCT_IMAGES.menuVisuals,
+  espSnaplinesRadar: FRAGPUNK_PRODUCT_IMAGES.menuWorld,
+  aimbotForest: FRAGPUNK_PRODUCT_IMAGES.menuAimbot,
+  espNamesCourtyard: FRAGPUNK_PRODUCT_IMAGES.menuVisuals,
+  menuOverlay: FRAGPUNK_PRODUCT_IMAGES.menuVisuals,
+  menuTactical: FRAGPUNK_PRODUCT_IMAGES.menuAimbot,
+  scopeEsp: FRAGPUNK_PRODUCT_IMAGES.menuMisc,
 } as const;
 
 /** Poster-only hero until a dedicated clip is supplied. */
@@ -89,11 +83,7 @@ export const BLOG_FEATURE_IMAGES = [
   SEO_MEDIA.espTactical,
   SEO_MEDIA.aimbotHud,
   SEO_MEDIA.wallhackLayout,
-  SEO_MEDIA.lootIntel,
-  SEO_MEDIA.nightRaid,
-  SEO_MEDIA.chamsPreview,
   SEO_MEDIA.dmaSetup,
-  SEO_MEDIA.chamsAlt,
 ] as const;
 
 export function blogFeatureImage(index: number): string {

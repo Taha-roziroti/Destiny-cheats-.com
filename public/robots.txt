@@ -3,4 +3,4 @@ Allow: /
 
 Disallow: /go/
 
-Sitemap: https://bodycam-cheat.com/sitemap.xml
+Sitemap: https://fragpunk-cheats.com/sitemap.xml

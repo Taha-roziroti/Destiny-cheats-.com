@@ -10,7 +10,13 @@ export function getStaticPaths() {
 
 const { slug } = Astro.params;
 if (slug === 'cloud-dma') {
-  return Astro.redirect('/bodycam-cloud-dma/', 301);
+  return Astro.redirect('/cloud-dma/', 301);
+}
+if (slug === 'hwid-spoofer') {
+  return Astro.redirect('/cloud-dma/', 301);
+}
+if (slug === 'appeals') {
+  return Astro.redirect('/support/', 301);
 }
 return Astro.redirect('/', 301);
 ---
