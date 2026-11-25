@@ -92,7 +92,7 @@ It also specifies these Windows security settings:
 
 Cloud DMA has additional technical requirements, including CPU virtualization and the ability to enable Hyper-V. Windows Pro, Enterprise and Education editions are recommended by the provider. The full details are on our [Windows Hyper-V compatibility checklist](/cloud-dma-requirements/).
 
-The game client listed for the product is Steam / Official Client.
+The game client listed for the product is [Steam / Official Client](https://store.steampowered.com/app/2139460/FragPunk/).
 
 One other thing: the provider says it tracks game patches and issues compatibility updates after major changes, with updates included for active subscribers. Still, check the current supported build before purchasing. Nobody wants to pay for software and discover they skipped the compatibility check.
 

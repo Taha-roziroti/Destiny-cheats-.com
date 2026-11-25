@@ -107,8 +107,6 @@ fs.writeFileSync(path.join(dist, 'sitemap-0.xml'), formatted, 'utf8');
 const robotsTxt = `User-agent: *
 Allow: /
 
-Disallow: /go/
-
 Sitemap: ${siteOrigin}/sitemap.xml
 `;
 fs.writeFileSync(path.join(dist, 'robots.txt'), robotsTxt, 'utf8');

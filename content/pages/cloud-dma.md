@@ -32,7 +32,7 @@ You still need the separate FragPunk license. Buying Cloud DMA by itself doesn't
 
 The setup is designed around one gaming PC.
 
-It uses Hyper-V to create the required virtual environment, with CPU virtualization enabled through the system firmware. The listed processor virtualization options are Intel VT-x and AMD-V.
+It uses [Microsoft’s Hyper-V platform overview](https://learn.microsoft.com/en-us/windows-server/virtualization/hyper-v/hyper-v-overview) to create the required virtual environment, with CPU virtualization enabled through the system firmware. The listed processor virtualization options are Intel VT-x and AMD-V.
 
 Windows 10 and 11 64-bit are listed as supported operating systems. Windows Pro, Enterprise and Education editions are recommended for Hyper-V availability, with the provider advising buyers to follow the installer notes for their specific edition.
 

@@ -1,23 +1,56 @@
-import { marked } from 'marked';
+import { marked, type Tokens } from 'marked';
+import { AFFILIATE_REL, affiliateLinks, isAffiliateHref } from '../config/affiliate';
 import { checkoutPath } from '../config/checkout';
 
 /** Marker in authored markdown; replaced at render with the page product checkout path. */
 export const AFFILIATE_LINK_PLACEHOLDER = 'AFFILIATE_LINK_PLACEHOLDER';
 
-/** Resolve in-article CTAs to the matching /go/ hop (seamless 302 to Zadeyo). */
-export function resolveAffiliateHrefForSlug(slug: string): string {
+type AffiliateProduct = 'fragpunk' | 'cloud-dma' | 'hwid-spoofer';
+
+function affiliateProductForSlug(slug: string): AffiliateProduct {
   const normalized = slug.trim() || '/';
   if (normalized.includes('cloud-dma') && !normalized.includes('requirements')) {
-    return checkoutPath('cloud-dma');
+    return 'cloud-dma';
   }
-  if (normalized.includes('hwid')) return checkoutPath('hwid-spoofer');
-  return checkoutPath('fragpunk');
+  if (normalized.includes('hwid')) return 'hwid-spoofer';
+  return 'fragpunk';
+}
+
+/** Resolve in-article CTAs to the matching /go/ hop (seamless 302 to Zadeyo). */
+export function resolveAffiliateHrefForSlug(slug: string): string {
+  return checkoutPath(affiliateProductForSlug(slug));
+}
+
+/** Absolute merchant URL for visible external links (SEO + outbound). */
+export function resolveExternalAffiliateHrefForSlug(slug: string): string {
+  const product = affiliateProductForSlug(slug);
+  if (product === 'cloud-dma') return affiliateLinks.cloudDMA;
+  if (product === 'hwid-spoofer') return affiliateLinks.hwidSpoofer;
+  return affiliateLinks.fragpunk;
 }
 
 marked.setOptions({
   gfm: true,
   breaks: false,
 });
+
+const renderer = new marked.Renderer();
+renderer.link = ({ href, title, text }: Tokens.Link): string => {
+  const titleAttr = title ? ` title="${title.replace(/"/g, '&quot;')}"` : '';
+  const isExternal = /^https?:\/\//i.test(href);
+  const isAffiliate = isAffiliateHref(href) || href === AFFILIATE_LINK_PLACEHOLDER;
+  let rel = '';
+  let target = '';
+  if (isAffiliate) {
+    rel = ` rel="${AFFILIATE_REL}"`;
+    target = ' target="_blank"';
+  } else if (isExternal) {
+    rel = ' rel="noopener noreferrer"';
+    target = ' target="_blank"';
+  }
+  return `<a href="${href}"${titleAttr}${rel}${target}>${text}</a>`;
+};
+marked.use({ renderer });
 
 /** Strip YAML frontmatter from a raw markdown file. */
 export function stripFrontmatter(raw: string): string {

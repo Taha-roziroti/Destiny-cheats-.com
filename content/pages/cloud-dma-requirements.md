@@ -16,7 +16,7 @@ Here's the checklist based on the supplied product documentation. Keep it open w
 
 The provider lists Windows 10 and Windows 11 in 64-bit versions.
 
-The setup uses Hyper-V to provision a virtual environment on your existing computer. Windows Pro, Enterprise and Education editions are recommended because of their Hyper-V availability.
+The setup uses [Windows Hyper-V role documentation](https://learn.microsoft.com/en-us/windows-server/virtualization/hyper-v/hyper-v-overview) to provision a virtual environment on your existing computer. Windows Pro, Enterprise and Education editions are recommended because of their Hyper-V availability.
 
 The provider also says to follow the installer notes for your particular edition.
 
@@ -31,7 +31,7 @@ The two listed options are:
 - Intel VT-x.
 - AMD-V.
 
-CPU virtualization must be enabled in your firmware for Hyper-V.
+CPU virtualization must be enabled in your firmware for Hyper-V. Microsoft’s [enable Hyper-V on Windows](https://learn.microsoft.com/en-us/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v) guide covers the role and firmware checks.
 
 Having a supported processor isn't the same as having virtualization enabled. The relevant setting may still need to be switched on in your motherboard's firmware.
 

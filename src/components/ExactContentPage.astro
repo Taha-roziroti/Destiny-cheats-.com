@@ -9,8 +9,11 @@ import {
   parseExactArticle,
   parseExactFrontmatter,
   resolveAffiliateHrefForSlug,
+  resolveExternalAffiliateHrefForSlug,
 } from '../lib/exactPageContent';
 import { AFFILIATE_REL } from '../config/affiliate';
+import { canonicalUrl } from '../config/seo';
+import ShareButtons from './ShareButtons.astro';
 import { t } from '../i18n';
 import type { BreadcrumbItem } from '../utils/schema';
 import { HERO_IMAGE_SIZES, HERO_IMAGE_WIDTHS } from '../utils/responsiveImage';
@@ -53,13 +56,16 @@ const {
 } = Astro.props;
 const fm = parseExactFrontmatter(raw);
 const alts = extractImageAltSuggestions(raw);
-const checkoutHref = resolveAffiliateHrefForSlug(fm.slug || Astro.url.pathname);
+const pageSlug = fm.slug || Astro.url.pathname;
+const checkoutHref = resolveAffiliateHrefForSlug(pageSlug);
+const externalCheckoutHref = resolveExternalAffiliateHrefForSlug(pageSlug);
 const checkoutPlan = checkoutHref.includes('cloud-dma')
   ? 'cloud-dma'
   : checkoutHref.includes('hwid')
     ? 'hwid-spoofer'
     : 'fragpunk';
 const article = parseExactArticle(raw);
+const shareUrl = canonicalUrl(pageSlug.endsWith('/') || pageSlug === '/' ? pageSlug : `${pageSlug}/`);
 const resolvedSecondary =
   secondaryCta ??
   (fm.slug.includes('cloud-dma-requirements')
@@ -85,16 +91,18 @@ const galleryShots = shots.map((shot, i) => ({
 const heroShot = galleryShots[0];
 const inlineShots = galleryShots.slice(1);
 
+const affiliateAttrs = `href="${externalCheckoutHref}" rel="${AFFILIATE_REL}" target="_blank" data-checkout-buy data-plan="${checkoutPlan}"`;
+
 const leadHtml = article.leadHtml.replaceAll(
   `href="${AFFILIATE_LINK_PLACEHOLDER}"`,
-  `href="${checkoutHref}" rel="${AFFILIATE_REL}" data-checkout-buy data-plan="${checkoutPlan}"`,
+  affiliateAttrs,
 );
 
 const sections = article.sections.map((section) => ({
   ...section,
   html: section.html.replaceAll(
     `href="${AFFILIATE_LINK_PLACEHOLDER}"`,
-    `href="${checkoutHref}" rel="${AFFILIATE_REL}" data-checkout-buy data-plan="${checkoutPlan}"`,
+    affiliateAttrs,
   ),
   hasTable: section.html.includes('<table'),
 }));
@@ -230,6 +238,9 @@ const heroLead = article.leadText || fm.description;
       );
     })}
 
+    <div class="mx-auto max-w-3xl px-5 pb-14">
+      <ShareButtons shareUrl={shareUrl} shareText={fm.title} />
+    </div>
   </div>
 </BaseLayout>
 

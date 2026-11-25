@@ -8,7 +8,7 @@ slug: "/fragpunk-cheats-price/"
 
 Buying software without knowing the full cost is a great way to get an unpleasant surprise at checkout.
 
-So let's get the FragPunk cheats price out in the open. The main license has two options: a 30-day monthly plan for $35 and a lifetime plan for $150. Both list the same feature set, which means you're choosing how long you want access, not which features you're allowed to use.
+So let's get the FragPunk cheats price out in the open. The main license has two options: a 30-day monthly plan for $35 and a lifetime plan for $150 on the [Zadeyo FragPunk Novaxware listing](https://zadeyo.com/go/TAHA?to=%2Fproducts%2Ffragpunk-novaxware&sf=zadeyo). Both list the same feature set, which means you're choosing how long you want access, not which features you're allowed to use.
 
 There's another expense to consider, though. Cloud DMA is required for full functionality on supported builds, and that comes with its own purchases.
 
