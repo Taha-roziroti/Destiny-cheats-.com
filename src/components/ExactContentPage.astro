@@ -67,14 +67,14 @@ const shareUrl = canonicalUrl(pageSlug.endsWith('/') || pageSlug === '/' ? pageS
 const resolvedSecondary =
   secondaryCta ??
   (fm.slug.includes('system-requirements') || fm.slug.includes('cloud-dma-requirements')
-    ? { href: '/cloud-dma-for-destiny-2/', label: 'Cloud DMA system requirements' }
+    ? { href: '/cloud-dma-for-destiny-2/', label: 'Open Cloud DMA product sheet' }
     : fm.slug.includes('cloud-dma')
-      ? { href: '/destiny-2-cheat-system-requirements/', label: 'Windows and hardware requirements' }
+      ? { href: '/destiny-2-cheat-system-requirements/', label: 'Open PC compatibility guide' }
       : fm.slug.includes('destiny-2-cheats-price') ||
           fm.slug.includes('destiny-cheats-price') ||
           fm.slug.includes('fragpunk-cheats-price')
-        ? { href: '/cloud-dma-for-destiny-2/', label: 'Cloud DMA pricing and requirements' }
-        : { href: '/destiny-2-cheats-price/', label: 'Destiny 2 cheats pricing' });
+        ? { href: '/cloud-dma-for-destiny-2/', label: 'Open Cloud DMA add-on page' }
+        : { href: '/destiny-2-cheats-price/', label: 'Open Destiny 2 plan table' });
 const resolvedBuyAria =
   buyAriaLabel ??
   (checkoutPlan === 'cloud-dma'
@@ -127,9 +127,9 @@ const heroLead = article.leadText || fm.description;
         <ResponsiveImage
           src={heroShot.src}
           alt={heroShot.alt}
-          width={1920}
-          height={1080}
-          widths={[640, 960, 1200, 1600]}
+          width={1024}
+          height={576}
+          widths={[640, 960]}
           sizes="100vw"
           loading="eager"
           fetchPriority="high"

@@ -18,16 +18,23 @@ if (!fs.existsSync(source)) {
 
 /** Map built URL path → primary Astro source for git lastmod. */
 function sourceFileForPath(pathname) {
-  if (pathname === '/') return 'src/pages/index.astro';
-  if (pathname === '/about/') return 'src/pages/about.astro';
-  if (pathname === '/faq/') return 'src/pages/faq.astro';
-  if (pathname === '/privacy/') return 'src/pages/privacy.astro';
-  if (pathname === '/terms/') return 'src/pages/terms.astro';
-  if (pathname === '/support/') return 'src/pages/support.astro';
+  const map = {
+    '/': 'src/pages/index.astro',
+    '/about/': 'src/pages/about.astro',
+    '/faq/': 'src/pages/faq.astro',
+    '/privacy/': 'src/pages/privacy.astro',
+    '/terms/': 'src/pages/terms.astro',
+    '/support/': 'src/pages/support.astro',
+    '/destiny-2-cheats-price/': 'src/pages/destiny-2-cheats-price.astro',
+    '/cloud-dma-for-destiny-2/': 'src/pages/cloud-dma-for-destiny-2.astro',
+    '/destiny-2-cheat-system-requirements/': 'src/pages/destiny-2-cheat-system-requirements.astro',
+    '/destiny-2-cheat-setup/': 'src/pages/destiny-2-cheat-setup.astro',
+    '/destiny-2-cheats-review/': 'src/pages/destiny-2-cheats-review.astro',
+    '/destiny-2-cheat-ban-policy/': 'src/pages/destiny-2-cheat-ban-policy.astro',
+  };
+  if (map[pathname]) return map[pathname];
   if (pathname === '/products/call-of-duty-cheats/') return 'src/pages/products/call-of-duty-cheats/index.astro';
   if (pathname === '/products/call-of-duty-cheats/utilities/') return 'src/pages/products/call-of-duty-cheats/utilities.astro';
-  const productMatch = pathname.match(/^\/products\/delta-force-cheats\/([^/]+)\/$/);
-  if (productMatch) return 'src/pages/products/call-of-duty-cheats/[slug].astro';
   return null;
 }
 

@@ -47,14 +47,11 @@ function extractTitle(html) {
 }
 
 function extractMetaDesc(html) {
-  const m = html.match(
-    /<meta\s+[^>]*name=["']description["'][^>]*content=["']([^"']*)["'][^>]*>/i,
-  );
-  if (m) return decodeHtmlEntities(m[1].trim());
-  const m2 = html.match(
-    /<meta\s+[^>]*content=["']([^"']*)["'][^>]*name=["']description["'][^>]*>/i,
-  );
-  return m2 ? decodeHtmlEntities(m2[1].trim()) : '';
+  const m = html.match(/<meta\b[^>]*\bname=["']description["'][^>]*>/i);
+  const tag = m?.[0] ?? html.match(/<meta\b[^>]*\bcontent=(["'])[\s\S]*?\1[^>]*\bname=["']description["'][^>]*>/i)?.[0];
+  if (!tag) return '';
+  const content = tag.match(/\bcontent=(["'])([\s\S]*?)\1/i);
+  return content ? decodeHtmlEntities(content[2].trim()) : '';
 }
 
 function extractCanonical(html) {

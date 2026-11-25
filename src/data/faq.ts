@@ -24,13 +24,6 @@ function link(text: string, href: string): string {
   return `<a href="${normalized}"${rel}>${text}</a>`;
 }
 
-const homePage = link('home overview', ROUTES.home);
-const pricingPage = link('Destiny 2 pricing', ROUTES.pricing);
-const cloudDmaPage = link('Cloud DMA product page', ROUTES.cloudDma);
-const cloudDmaReqPage = link('Cloud DMA requirements', ROUTES.cloudDmaRequirements);
-const faqPage = link('FAQ index', ROUTES.faq);
-const supportPage = link('support contact', ROUTES.support);
-
 export const siteFaqs: SiteFaqItem[] = [
   {
     id: 'status',
@@ -72,14 +65,14 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'products',
     icon: 'faqProductsPage',
     q: 'Where are Destiny 2 features and prices listed?',
-    a: `${homePage} covers the package. Use ${pricingPage}, ${cloudDmaPage}, and ${cloudDmaReqPage} for cost and setup notes. Checkout opens from Buy now.`,
+    a: `${link('Destiny 2 package overview', ROUTES.home)} covers the package. Use ${link('monthly and lifetime pricing', ROUTES.pricing)}, ${link('Cloud DMA feature sheet', ROUTES.cloudDma)}, and ${link('Cloud DMA Windows checklist', ROUTES.cloudDmaRequirements)} for cost and setup notes. Checkout opens from Buy now.`,
   },
   {
     id: 'what-is-esp',
     topic: 'esp',
     icon: 'faqWhatIsEsp',
     q: 'What does Destiny 2 ESP include?',
-    a: `Listed options include boxes, skeletons, head circles, names, health, distance, and weapons. See ${homePage} for the visual stack.`,
+    a: `Listed options include boxes, skeletons, head circles, names, health, distance, and weapons. See ${link('ESP options on the hub', ROUTES.home)} for the visual stack.`,
     scopes: ['modules'],
   },
   {
@@ -87,7 +80,7 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'esp',
     icon: 'faqEspVsScripts',
     q: 'What is the difference between ESP and aimbot?',
-    a: `ESP is visual information. Aimbot covers targeting, FOV, smoothing, and related aim options on ${homePage}.`,
+    a: `ESP is visual information. Aimbot covers targeting, FOV, smoothing, and related aim options on ${link('aimbot settings summary', ROUTES.home)}.`,
   },
   {
     id: 'which-tier-esp',
@@ -102,7 +95,7 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'scripts',
     icon: 'faqWhichTierScripts',
     q: 'Where are aimbot controls documented?',
-    a: `${homePage} summarizes listed aim settings such as aim key, FOV, smoothing, and bone selection.`,
+    a: `${link('listed aim controls hub', ROUTES.home)} summarizes listed aim settings such as aim key, FOV, smoothing, and bone selection.`,
     scopes: ['modules'],
   },
   {
@@ -110,7 +103,7 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'plans',
     icon: 'faqRankTiers',
     q: 'How do monthly and lifetime plans differ?',
-    a: `Published comparison is $35 for 30 days or $150 lifetime with the same listed feature set. Details live on ${pricingPage}.`,
+    a: `Published comparison is $35 for 30 days or $150 lifetime with the same listed feature set. Details live on ${link('plan comparison pricing page', ROUTES.pricing)}.`,
   },
   {
     id: 'stock-status',
@@ -146,7 +139,7 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'products',
     icon: 'faqHwidWhen',
     q: 'When do I need an HWID spoofer?',
-    a: `Only if the merchant listing says hardware identity tools are required for your case. It is sold separately from the main Destiny 2 package; see checkout chooser options or ${supportPage}.`,
+    a: `Only if the merchant listing says hardware identity tools are required for your case. It is sold separately from the main Destiny 2 package; see checkout chooser options or ${link('order help desk', ROUTES.support)}.`,
     scopes: ['hwid-spoofer'],
   },
   {
@@ -154,7 +147,7 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'products',
     icon: 'faqUgcWhat',
     q: 'Where do I get help after purchase?',
-    a: `Use ${supportPage} with your order email. Merchant tickets handle keys, access, and refunds per checkout terms.`,
+    a: `Use ${link('post-purchase support page', ROUTES.support)} with your order email. Merchant tickets handle keys, access, and refunds per checkout terms.`,
     scopes: ['appeals'],
   },
   {
@@ -162,7 +155,7 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'products',
     icon: 'faqSkinChanger',
     q: 'What is Cloud DMA?',
-    a: `${cloudDmaPage} covers the separately priced Cloud DMA option. ${cloudDmaReqPage} covers Windows and Hyper-V checks before purchase.`,
+    a: `${link('Cloud DMA product details', ROUTES.cloudDma)} covers the separately priced Cloud DMA option. ${link('Cloud DMA PC prerequisites', ROUTES.cloudDmaRequirements)} covers Windows and Hyper-V checks before purchase.`,
     scopes: ['cloud-dma'],
   },
   {
@@ -177,14 +170,14 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'plans',
     icon: 'faqVacUpdate',
     q: 'Do I need different presets per map?',
-    a: `Often yes. Start from the defaults on ${homePage}, then tune ESP and aimbot options privately.`,
+    a: `Often yes. Start from the defaults on ${link('default presets overview', ROUTES.home)}, then tune ESP and aimbot options privately.`,
   },
   {
     id: 'price-subscription',
     topic: 'plans',
     icon: 'faqAfterBuy',
     q: 'Where do I see subscription vs lifetime price?',
-    a: `Listed plans are on ${pricingPage}. Final total and any renewals confirm on merchant checkout.`,
+    a: `Listed plans are on ${link('subscription vs lifetime prices', ROUTES.pricing)}. Final total and any renewals confirm on merchant checkout.`,
   },
   {
     id: 'vac-update',
@@ -198,14 +191,14 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'setup',
     icon: 'faqDiscordHelp',
     q: 'How do I get install help?',
-    a: `Use ${supportPage} with your order email and Windows version. Avoid posting license keys in public chats.`,
+    a: `Use ${link('install help contact page', ROUTES.support)} with your order email and Windows version. Avoid posting license keys in public chats.`,
   },
   {
     id: 'faq-more',
     topic: 'all',
     icon: 'faqMore',
     q: 'Where is the full FAQ?',
-    a: `Use the ${faqPage} for every topic, or start from ${homePage} for pre-purchase checks.`,
+    a: `Use the ${link('full FAQ topic index', ROUTES.faq)} for every topic, or start from ${link('pre-purchase checks hub', ROUTES.home)} for pre-purchase checks.`,
   },
 ];
 
@@ -305,14 +298,14 @@ const defaultBlogFaqs: SiteFaqItem[] = [
     topic: 'blog',
     icon: 'faqBlogDefault1',
     q: 'Are these articles official manuals?',
-    a: `They explain workflows and link back to ${homePage}. Confirm scope on the live listing before checkout.`,
+    a: `They explain workflows and link back to ${link('guides return to hub', ROUTES.home)}. Confirm scope on the live listing before checkout.`,
   },
   {
     id: 'blog-default-2',
     topic: 'blog',
     icon: 'faqBlogDefault2',
     q: 'Who do I contact if I am stuck?',
-    a: `Open a merchant ticket with your order email, or read ${faqPage} and ${supportPage} while you wait.`,
+    a: `Open a merchant ticket with your order email, or read ${link('guides FAQ index', ROUTES.faq)} and ${link('guides support desk', ROUTES.support)} while you wait.`,
   },
 ];
 
@@ -325,7 +318,7 @@ export function getBlogFaqs(tag: string, slug: string): SiteFaqItem[] {
       topic: 'esp',
       icon: 'faqBlogSlugEsp',
       q: 'Which page matches these ESP tips?',
-      a: `Start with ${homePage}, then enable only the overlays you need after private tests.`,
+      a: `Start with ${link('ESP tips hub page', ROUTES.home)}, then enable only the overlays you need after private tests.`,
     });
   }
   if (slug.includes('aimbot') || slug.includes('trigger')) {
@@ -334,7 +327,7 @@ export function getBlogFaqs(tag: string, slug: string): SiteFaqItem[] {
       topic: 'scripts',
       icon: 'faqBlogSlugScripts',
       q: 'Where is aimbot documented?',
-      a: `${homePage} lists aim options from the package. Enable them conservatively.`,
+      a: `${link('aimbot package notes', ROUTES.home)} lists aim options from the package. Enable them conservatively.`,
     });
   }
   if (slug.includes('hwid') || slug.includes('vac') || slug.includes('dma')) {
@@ -343,7 +336,7 @@ export function getBlogFaqs(tag: string, slug: string): SiteFaqItem[] {
       topic: 'products',
       icon: 'faqBlogSlugHwid',
       q: 'Does this replace Cloud DMA or support?',
-      a: `Read ${cloudDmaPage} for hardware notes and ${supportPage} for order help.`,
+      a: `Read ${link('Cloud DMA hardware notes', ROUTES.cloudDma)} for hardware notes and ${link('DMA article support link', ROUTES.support)} for order help.`,
     });
   }
   return [...slugHints, ...topicFaqs, ...defaultBlogFaqs].slice(0, 8);

@@ -11,7 +11,7 @@ export const PAGE_SEO: Record<string, PageSeoEntry> = {
   '/': {
     title: 'Destiny 2 Cheats for PC | Aimbot, ESP & Wallhack',
     description:
-      'Explore Destiny 2 cheats for PC, including aimbot, ESP, wallhack and radar. Compare plans, review requirements and see what\'s included.',
+      'Explore Destiny 2 cheats for PC, including aimbot, ESP, wallhack and radar. Compare plans, review requirements and see what is included.',
   },
   '/destiny-2-cheats-price/': {
     title: 'Destiny 2 Cheats Price | Monthly vs. Lifetime',
@@ -41,7 +41,7 @@ export const PAGE_SEO: Record<string, PageSeoEntry> = {
   '/destiny-2-cheat-ban-policy/': {
     title: 'Can Destiny 2 Cheats Get You Banned? | Policy',
     description:
-      'Understand Bungie\'s published rules on cheats, third-party tools and account or device restrictions before making a decision.',
+      'Understand published Bungie rules on cheats, third-party tools and account or device restrictions before making a decision.',
   },
   // Legacy aliases kept so old crawls still resolve SEO until redirects settle.
   '/destiny-cheats-price/': {

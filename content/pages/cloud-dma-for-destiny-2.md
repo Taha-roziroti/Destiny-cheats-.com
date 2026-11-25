@@ -12,7 +12,7 @@ Cloud DMA is the infrastructure layer for the Destiny 2 product stack. Despite t
 
 ## Why Destiny 2 Requires Cloud DMA
 
-For Destiny 2, Cloud DMA is required for full functionality on supported builds. Buying Cloud DMA alone does not include the Destiny 2 feature package—you still need the main license from the [Destiny 2 cheats product overview](/).
+For Destiny 2, Cloud DMA is required for full functionality on supported builds. Buying Cloud DMA alone does not include the Destiny 2 feature package—you still need the main license from the [Destiny 2 cheats product](/).
 
 Treat Cloud DMA as required infrastructure, not an optional add-on after you buy the cheat license.
 

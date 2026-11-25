@@ -31,7 +31,7 @@ If you only need a short window, monthly usually makes more sense. Longer use us
 
 Both durations list the same Destiny 2 modules: aimbot settings, ESP/wallhack overlays, radar, recoil/spread helpers, full bright, custom crosshair, and stream-proof options.
 
-Feature context lives on the [Destiny 2 cheats product overview](/).
+Feature context lives on the [Destiny 2 modules overview](/).
 
 ## Additional Cloud DMA and Setup Costs
 

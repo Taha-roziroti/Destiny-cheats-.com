@@ -1,6 +1,6 @@
 ---
 title: "Destiny 2 Cheats for PC | Aimbot, ESP & Wallhack"
-description: "Explore Destiny 2 cheats for PC, including aimbot, ESP, wallhack and radar. Compare plans, review requirements and see what's included."
+description: "Explore Destiny 2 cheats for PC, including aimbot, ESP, wallhack and radar. Compare plans, review requirements and see what is included."
 slug: "/"
 ---
 

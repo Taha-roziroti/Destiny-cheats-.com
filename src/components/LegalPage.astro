@@ -9,10 +9,11 @@ interface Props {
   title: string;
   description: string;
   breadcrumbLabel: string;
+  homeBreadcrumbLabel?: string;
   sections: { heading: string; paragraphs: string[] }[];
 }
 
-const { title, description, breadcrumbLabel, sections } = Astro.props;
+const { title, description, breadcrumbLabel, homeBreadcrumbLabel = 'Destiny 2 legal hub', sections } = Astro.props;
 ---
 
 <article class="py-8 md:py-12">
@@ -20,7 +21,7 @@ const { title, description, breadcrumbLabel, sections } = Astro.props;
     <div class="text-left">
     <Breadcrumbs
       items={[
-        { name: 'Home', path: '/' },
+        { name: homeBreadcrumbLabel, path: '/' },
         { name: breadcrumbLabel, path: Astro.url.pathname },
       ]}
     />

@@ -1,6 +1,6 @@
 ---
 title: "Can Destiny 2 Cheats Get You Banned? | Policy"
-description: "Understand Bungie's published rules on cheats, third-party tools and account or device restrictions before making a decision."
+description: "Understand published Bungie rules on cheats, third-party tools and account or device restrictions before making a decision."
 slug: "/destiny-2-cheat-ban-policy/"
 ---
 
